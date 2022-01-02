@@ -2,6 +2,7 @@ package com.cakeshop.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,8 @@ import com.cakeshop.model.User1;
 /**
  * Servlet implementation class AddProduct
  */
+
+@WebServlet("/AddProduct")
 public class AddProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,7 +33,7 @@ public class AddProduct extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -41,25 +44,17 @@ public class AddProduct extends HttpServlet {
 		
 		String cake_name=request.getParameter("cakeName");
 		String cake_description=request.getParameter("description");	
-		String cake_price=request.getParameter("price");
+		int cake_price=Integer.parseInt(request.getParameter("price"));
 		String category_name=request.getParameter("category");	
 		
-		ProductDaoImpl proDao=new ProductDaoImpl(cake_name,cake_description,cake_price,category_name);	    
-		Products product=new Products();		
+		ProductDaoImpl proDao=new ProductDaoImpl();	    
+		
+		Products product=new Products(cake_name,cake_description,cake_price,category_name);	    		
 	    proDao.insertProduct(product);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	   
+	    response.sendRedirect("admin.jsp");
+	    
 		doGet(request, response);
 	}
 

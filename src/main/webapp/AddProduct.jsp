@@ -8,15 +8,13 @@
 </head>
 <body>
 
+<form action="AddProduct" method="post">
 Cake_Name<input type="text" name="cakeName">
 Cake_description<input type="text" name="cakeDescription">
 Cake_price<input type="number" name="cakePrice">
 Category_name<input type="text" name="categoryName">
-
-
-
-
-
+<button type="submit" name="button">Add</button>
+</form>
 
 </body>
 </html>

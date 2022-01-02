@@ -33,6 +33,10 @@ color:white;
 <input type="submit" id="button"><i>updateProduct</i> 
 </form><br><br>
 
+<form action="AddProduct.jsp" >
+<input type="submit" id="button"><i>updateProduct</i> 
+</form><br><br>
+
 <form action="deleteProduct.jsp" >
 <input type="submit" id="button"><i>deleteProduct</i> 
 </form><br>
