@@ -16,28 +16,27 @@ table, th, td {
 </style>
 
 <meta charset="ISO-8859-1">
-<title>showUser page</title>
+<title>home page</title>
 </head>
 <body>
 <form>
-
+<p> Welcome</p>
 
 
 
 <%
-UserDaoImpl userDao=new UserDaoImpl();
-ResultSet rs=userDao.showAllUser();
+ProductDaoImpl product=new ProductDaoImpl();
+ResultSet rs=product.showProduct();
 %>
 <table>
 
 <tr>
-<th>User Id</th>
-<th>User Name</th>
-<th>Email Id</th>
-<th>Password</th>
-<th>Address</th>
-<th>Role</th>
-<th>User Wallet<th>
+<th>Product Id</th>
+<th>Product Name</th>
+<th>Product Description</th>
+<th>Product price</th>
+<th>Product Categories</th>
+<th>Product Rating</th>
 </tr>
 
 <% while(rs.next()){%>
@@ -45,10 +44,9 @@ ResultSet rs=userDao.showAllUser();
 <td><%= rs.getInt(1) %></td>
 <td><%= rs.getString(2) %></td>
 <td><%= rs.getString(3) %></td>
-<td><%= rs.getString(4) %></td>
+<td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
-<td><%= rs.getString(6) %></td>
-<td><%= rs.getInt(7) %></td>
+<td><%= rs.getInt(6) %></td>
 </tr>
 <%} %>
 </table>

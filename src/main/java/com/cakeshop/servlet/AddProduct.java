@@ -1,31 +1,27 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.User;
-
+import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
-import com.cakeshop.model.*;
+import com.cakeshop.model.Products;
+import com.cakeshop.model.User1;
 
-
-@WebServlet("/Register")
 /**
- * Servlet implementation class Sample
+ * Servlet implementation class AddProduct
  */
-public class Register extends HttpServlet {
+public class AddProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public Register() {
+    public AddProduct() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -34,7 +30,7 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -43,19 +39,26 @@ public class Register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		PrintWriter pw=response.getWriter();
+		String cake_name=request.getParameter("cakeName");
+		String cake_description=request.getParameter("description");	
+		String cake_price=request.getParameter("price");
+		String category_name=request.getParameter("category");	
 		
-		String userName=request.getParameter("userName");
-		String EmailId=request.getParameter("EmailId");	
-		String password=request.getParameter("password");
-		String address=request.getParameter("address");		
+		ProductDaoImpl proDao=new ProductDaoImpl(cake_name,cake_description,cake_price,category_name);	    
+		Products product=new Products();		
+	    proDao.insertProduct(product);
 		
 		
-	    UserDaoImpl userDao=new UserDaoImpl();	    
-		User1 user=new User1(userName,EmailId,password,address);		
-	    userDao.insertUser(user);
 		
-		response.sendRedirect("Login.jsp");
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		doGet(request, response);
 	}

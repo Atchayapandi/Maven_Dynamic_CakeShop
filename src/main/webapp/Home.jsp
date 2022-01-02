@@ -1,55 +1,39 @@
-
-<%@page import="java.util.List" import ="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-     import ="com.cakeshop.dao.*" pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-}
-
-
-</style>
-
 <meta charset="ISO-8859-1">
-<title>home page</title>
+<title>Insert title here</title>
+<style>
+#box{
+width:350px;
+margin-left:600px;
+margin-top:200px;
+}
+body{
+background-image:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
+background-repeat:no-repeat;
+background-size:cover;
+color:white;
+}
+</style>
 </head>
 <body>
-<form>
-<p> Welcome</p>
 
+<h1><i>Welcome to My CakeShop</i></h1>
 
+<fieldset id="box">
+<form action="Login.jsp" >
+<input type="submit" id="button"><i>Login</i> 
+</form><br><br>
 
-<%
-ProductDao product=new ProductDao();
-ResultSet rs=product.showProduct();
-%>
-<table>
+<form action="register.jsp" >
+<input type="submit" id="button"><i>Register</i> 
+</form><br><br>
 
-<tr>
-<th>Product Id</th>
-<th>Product Name</th>
-<th>Product Description</th>
-<th>Product price</th>
-<th>Product Catogries</th>
-<th>Product Rating</th>
-</tr>
+</fieldset>
+	
 
-<% while(rs.next()){%>
-<tr>
-<td><%= rs.getInt(1) %></td>
-<td><%= rs.getString(2) %></td>
-<td><%= rs.getString(3) %></td>
-<td><%= rs.getDouble(4) %></td>
-<td><%= rs.getString(5) %></td>
-<td><%= rs.getInt(6) %></td>
-</tr>
-<%} %>
-</table>
-</form>
 </body>
 </html>

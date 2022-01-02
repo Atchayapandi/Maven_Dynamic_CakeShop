@@ -1,4 +1,4 @@
-package com.cakeshop.dao;
+package com.cakeshop.dao.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

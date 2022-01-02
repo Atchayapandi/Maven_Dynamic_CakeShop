@@ -5,17 +5,38 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>admin page</title>
+<style>
+#box{
+width:350px;
+margin-left:600px;
+margin-top:250px;
+}
+
+body{
+background-image:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
+background-repeat:no-repeat;
+background-size:cover;
+color:white;
+}
+</style>
 </head>
 <body>
-<form action="showUser.jsp" mathod="post">
+
+<h2>Welcome Admin</h2>
+
+<fieldset id="box">
+<form action="showUser.jsp" >
 <input type="submit" id="button"><i>ShowUser</i> 
-</form>
-<form action="updateProduct.jsp" mathod="post">
+</form><br><br>
+
+<form action="updateProduct.jsp" >
 <input type="submit" id="button"><i>updateProduct</i> 
-</form>
-<form action="deleteProduct.jsp" mathod="post">
+</form><br><br>
+
+<form action="deleteProduct.jsp" >
 <input type="submit" id="button"><i>deleteProduct</i> 
-</form>
+</form><br>
+</fieldset>
 
 </body>
 </html>

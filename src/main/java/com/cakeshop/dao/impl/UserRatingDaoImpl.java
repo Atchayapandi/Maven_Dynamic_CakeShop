@@ -1,4 +1,4 @@
-package com.cakeshop.dao;
+package com.cakeshop.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UserRatingDao {
+public class UserRatingDaoImpl {
 	public static void updateRating(int rating,int proId){
 		String updateQuery="update product_details set rating=? where cake_id=?";
 	

@@ -10,79 +10,60 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cakeshop.dao.AdminDao;
-import com.cakeshop.dao.UserDao;
+import com.cakeshop.dao.impl.AdminDaoImpl;
+import com.cakeshop.dao.impl.UserDaoImpl;
 import com.cakeshop.model.User;
 
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Login")
+@WebServlet("/showProduct")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public Login() {
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * Default constructor.
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	public Login() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		PrintWriter pw=response.getWriter();
-		String EmailId=request.getParameter("EmailId");	
-		String password=request.getParameter("password");
-		
-		//pw.println("login success");
-		
-		UserDao userDao=new UserDao();	 
-		User currentUser = UserDao.validateUser(EmailId, password);	
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+		PrintWriter pw = response.getWriter();
+		String EmailId = request.getParameter("EmailId");
+		String password = request.getParameter("password");
+
+		UserDaoImpl userDao = new UserDaoImpl();
+		User currentUser = userDao.validateUser(EmailId, password);
+		AdminDaoImpl admin=new AdminDaoImpl();
+		if (currentUser == null) {
+			User adminuser =admin.validateAdmin(EmailId, password);
 		
-		if (currentUser == null) {			
-			User adminuser = AdminDao.validateAdmin(EmailId, password);
-			//response.getWriter().print("File Succed");
+
 			response.sendRedirect("admin.jsp");
-            				
-			}
-		else
-		{
-			RequestDispatcher requestDispatcher  = request.getRequestDispatcher("Home.jsp");
-requestDispatcher.forward(request, response);
+		} else {
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("showProduct.jsp");
+			requestDispatcher.forward(request, response);
 
 		}
-		
-		
 
-		
-		
-		
-		//doGet(request, response);
-		
-		
-		
-		//response.sendRedirect("");		
-		
-		
-		
-		
 	}
-	
-	
-	
-	
 
 }

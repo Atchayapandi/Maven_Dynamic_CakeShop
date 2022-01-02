@@ -1,4 +1,4 @@
-package com.cakeshop.dao;
+package com.cakeshop.dao.impl;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,7 +9,7 @@ import java.util.List;
 import com.cakeshop.model.Help;
 
 
-public class HelpDao {
+public class HelpDaoImpl {
 
 	public Help showHelp() {
 		

@@ -1,4 +1,4 @@
-package com.cakeshop.dao;
+package com.cakeshop.dao.impl;
 
 import java.sql.Connection;
 
@@ -8,11 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.cakeshop.dao1.CartDao;
 import com.cakeshop.model.Cart;
 import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
 
-public class CartDao {
+public class CartDaoImpl implements CartDao {
 
 	public void insertCart(Cart cart) {
 		
@@ -43,33 +45,28 @@ public class CartDao {
 
 //view cart items
 
-	public static List<Cart> viewCart(User currentUser) {
+	public  ResultSet viewCart() {	
 		
 		
-		List<Cart> userCartList = new ArrayList<Cart>();
 		String query = "select * from cart_items";
 		Connection con = ConnectionUtil.getDbConnection();	
-		//ProductDao productDao = new ProductDao();		
-		
+			
+		ResultSet rs=null;
 		
 		try {
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
-			while (rs.next()) {				
-				
-			    Cart cart=new Cart(rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),rs.getDate(6));
-			    userCartList.add(cart);
-			}
+			 rs = stmt.executeQuery(query);
+			
 			
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return userCartList;
+		return rs;
 	}
 
 	// update cart
-	public static void updateCart(String updateCart) {
+	public  void updateCart(String updateCart) {
 		String updateQuery = "update cart_items set order_quantity =? where cart_id=?";
       
 		try {
@@ -89,7 +86,7 @@ public class CartDao {
 
 	// delete cart
 
-	public static void deleteCart(String delete)  {
+	public  void deleteCart(String delete)  {
 		String deleteQuery = "delete from cart_items where cart_id=?";
 
 		try {
@@ -110,7 +107,7 @@ public class CartDao {
 
 // find cart id		
 
-	public static int findCartId(int cart) {
+	public  int findCartId(int cart) {
 		String query = "select cart_id from product_details where user_id=?";
 
 		Connection con = ConnectionUtil.getDbConnection();
@@ -134,34 +131,71 @@ public class CartDao {
 	}
 	
 	//get wallet balance:
-		public static int walletbal(int id) throws Exception 
+		public int walletbal (int id)  
 		{
 			Connection con = ConnectionUtil.getDbConnection();
 			String query = "select user_wallet from user_details where user_id = ?";
-			PreparedStatement statement = con.prepareStatement(query);
-			statement.setInt(1, id);
-			ResultSet rs = statement.executeQuery();
-			while(rs.next()) {
-					return rs.getInt(1);
+			PreparedStatement statement = null;
+			try {
+				statement = con.prepareStatement(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				statement.setInt(1, id);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ResultSet rs = null;
+			try {
+				rs = statement.executeQuery();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				while(rs.next()) {
+						try {
+							return rs.getInt(1);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			return -1;
 		}
 
 	//update wallet balance:
-		public int updatewallet(int amount,int userid)throws Exception {
+		public int updatewallet(int amount,int userid) {
+			int res=0;
+		
+			try {
+				
+			
 			Connection con = ConnectionUtil.getDbConnection();
 			String query = "update user_details set user_wallet = ? where user_id = ?";
 			PreparedStatement statement = con.prepareStatement(query);
 			statement.setInt(1,amount);
 			statement.setInt(2, userid);
-			int res = statement.executeUpdate();
+			 res = statement.executeUpdate();
 			 statement.executeUpdate("commit");
-			return res;	
+			 
+			}catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			//return res;	
 
 		}
+			return res;
 	
-	
-	
+		
+		}}
 	
 	
 	
@@ -219,7 +253,7 @@ public class CartDao {
 	
 	
 	
-			}
+			
 
 
 

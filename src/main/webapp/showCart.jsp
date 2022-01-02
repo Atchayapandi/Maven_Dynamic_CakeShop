@@ -12,7 +12,6 @@ table, th, td {
   padding: 20px;
 }
 
-
 </style>
 
 <meta charset="ISO-8859-1">
@@ -21,34 +20,31 @@ table, th, td {
 <body>
 <form>
 
-
-
-
 <%
-UserDaoImpl userDao=new UserDaoImpl();
-ResultSet rs=userDao.showAllUser();
+CartDaoImpl cartDao=new CartDaoImpl();
+ResultSet rs=cartDao.viewCart();
 %>
 <table>
 
 <tr>
+<th>cart Id</th>
+<th>product Id</th>
 <th>User Id</th>
-<th>User Name</th>
-<th>Email Id</th>
-<th>Password</th>
-<th>Address</th>
-<th>Role</th>
-<th>User Wallet<th>
+<th>order quantity</th>
+<th>total price</th>
+<th>order date</th>
+
 </tr>
 
 <% while(rs.next()){%>
 <tr>
 <td><%= rs.getInt(1) %></td>
-<td><%= rs.getString(2) %></td>
-<td><%= rs.getString(3) %></td>
-<td><%= rs.getString(4) %></td>
-<td><%= rs.getString(5) %></td>
-<td><%= rs.getString(6) %></td>
-<td><%= rs.getInt(7) %></td>
+<td><%= rs.getInt(2) %></td>
+<td><%= rs.getInt(3) %></td>
+<td><%= rs.getInt(4) %></td>
+<td><%= rs.getDouble(5) %></td>
+<td><%= rs.getDate(6) %></td>
+
 </tr>
 <%} %>
 </table>

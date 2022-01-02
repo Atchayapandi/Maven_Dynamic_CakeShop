@@ -148,8 +148,7 @@ address : <input type="text" name="address" pattern="[A-Za-z0-9]{4,}+[,][A-Za-z]
           <button type="reset" id="button">Reset</button></form>          
           
         </div>
-    </div>     
-            
+    </div>                 
 </body>
 </html>
 

@@ -1,4 +1,4 @@
-package com.cakeshop.dao;
+package com.cakeshop.dao.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,12 +9,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cakeshop.dao1.UserDao;
 import com.cakeshop.model.Cart;
 import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
 import com.cakeshop.model.User1;
 
-public class UserDao {
+public class UserDaoImpl implements UserDao{
 
 //insert user method
 
@@ -50,7 +51,7 @@ public class UserDao {
 
 //validate user method
 
-	public static User validateUser(String EmailId, String password) {
+	public  User validateUser(String EmailId, String password) {
 		String validateQuery = "select * from user_details where role='user' and Email_id='" + EmailId
 				+ "'and password='" + password + "'";
 
@@ -71,6 +72,7 @@ public class UserDao {
 	}
 
 //show all user method 
+	
 	ConnectionUtil conUtil = new ConnectionUtil();
 	Connection con = conUtil.getDbConnection();
 
@@ -98,12 +100,12 @@ public class UserDao {
 	
 
 //update user
-	public void update(String update) throws ClassNotFoundException, SQLException {
+	public void update(String update)  {
 		String updateQuery = "update user_details set password=?  where Email_id=?";
 		
 		Connection con = ConnectionUtil.getDbConnection();
 		
-
+      try {
 		PreparedStatement pstmt = con.prepareStatement(updateQuery);
 		pstmt.setString(1, update.split(",")[0]);
 		pstmt.setString(2, update.split(",")[1]);
@@ -111,26 +113,32 @@ public class UserDao {
 		System.out.println(i + "row updated");
 		pstmt.close();
 		con.close();
+      }catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 //delete method
 
-	public void deletedetails(String delete) throws SQLException {
+	public void deletedetails(String delete)  {
 		String deleteQuery = "delete from user_details where Email_id=?";
 
 		Connection con = ConnectionUtil.getDbConnection();
-		
+		try {
 		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
 		pstmt.setString(1, delete);
 		int i = pstmt.executeUpdate();
 		System.out.println(i + "row deleted");
 		pstmt.close();
 		con.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 //find user id method
 
-	public static int findUserId(String userName) {
+	public  int findUserId(String userName) {
 		
 		String findUserID = "select user_id from user_details where user_name='"+userName+"'";
 		Connection con = ConnectionUtil.getDbConnection();
@@ -157,37 +165,42 @@ public class UserDao {
 	
 	
 	//get wallet balance:
-		public static ResultSet walletbal(int id) throws Exception 
+		public  ResultSet walletbal(int id) 
 		{
+			ResultSet rs=null;
+			try {
 			Connection con = ConnectionUtil.getDbConnection();
 			System.out.println(id);
 			String query = "select user_wallet from user_details where user_id = ?";
 			PreparedStatement statement = con.prepareStatement(query);
 			statement.setInt(1, id);
-			ResultSet rs = statement.executeQuery();
-//			while(rs.next()) {
-//					System.out.println(rs.getInt(1)); 
-//			}
+			 rs = statement.executeQuery();		
+			
+			}catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return rs;
 		}
 
 	//update wallet balance:
-		public int updatewallet(int amount,int userid)throws Exception {
-			System.out.println("atchaya");
+		public int updatewallet(int amount,int userid) {
+			
 			Connection con = ConnectionUtil.getDbConnection();
+			int res=0;
+			try {
 			String query = "update user_details set user_wallet = ? where user_id = ?";
 			PreparedStatement statement = con.prepareStatement(query);
 			statement.setInt(1,amount);
 			statement.setInt(2, userid);
 			//statement.executeUpdate("commit");
-			int res = statement.executeUpdate();
-			
-//			if(res.next()) {
-//				System.out.println(res.getString(1));
-//			}
-			 
-			 System.out.println(amount+userid);
-//			 int res1=0;
+			 res = statement.executeUpdate();
+			}catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
+			}
+
 			return res;	
 
 		}

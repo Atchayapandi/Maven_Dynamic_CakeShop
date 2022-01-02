@@ -1,4 +1,4 @@
-package com.cakeshop.dao;
+package com.cakeshop.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,10 +8,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cakeshop.dao1.ProductDao;
 import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
 
-public class ProductDao {
+public class ProductDaoImpl implements ProductDao{
 
 	ConnectionUtil conUtil = new ConnectionUtil();
 	Connection con = conUtil.getDbConnection();
@@ -19,21 +20,16 @@ public class ProductDao {
 //show product method
 
 	public ResultSet showProduct() {
-
-
 		String showQuery = "select * from product_details";
 		Connection con = ConnectionUtil.getDbConnection();
 		ResultSet rs=null;
 		try {
 			Statement stmt = con.createStatement();
 			 rs = stmt.executeQuery(showQuery);
-
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return rs;
 	}
 
@@ -65,7 +61,7 @@ public class ProductDao {
 	
 	
 //update product
-	public static void updateProduct(String updateProduct) {
+	public  void updateProduct(String updateProduct) {
 		String updateQuery = "update product_details set cake_name =?  where cake_id=?";
 
 		try {
@@ -85,7 +81,7 @@ public class ProductDao {
 	}
 	
 //rating insert 
-	public static void insertRating(int insertRating) {
+	public  void insertRating(int insertRating) {
 		
 		String updateQuery="update product_details set Ratings=? where cake_name=?";
 		
@@ -110,24 +106,27 @@ public class ProductDao {
 
 //delete method
 	
-	public static void deleteProduct(String delete) throws ClassNotFoundException, SQLException {
+	public  void deleteProduct(String delete)  {
 		String deleteQuery = "delete from product_details where cake_id=?";
 
 		Connection con = ConnectionUtil.getDbConnection();
-		//System.out.println("Connection successfully");
+		try {
 		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
 		pstmt.setInt(1, Integer.parseInt(delete));
 		int i = pstmt.executeUpdate();
 		System.out.println(i + "row deleted");
 		pstmt.close();
 		con.close();
+	}catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
-	
+	}
 	
 	
 //find product id	
 	
-	public static int findProductId1(String productName)
+	public  int findProductId1(String productName)
 	{
 		String query="select cake_id from product_details where cake_name='"+productName+"'";
 		
