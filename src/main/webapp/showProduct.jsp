@@ -34,18 +34,15 @@ ResultSet rs=product.showProduct();
 <th>Product Categories</th>
 <th>Product Rating</th>
 </tr>
-
 <% while(rs.next()){%>
 <tr>
-
-<td><img alt="#alter" src="<%= rs.getString(7) %>" width="200"  height="200"></td>
+<td><img alt="#alter" src="<%= rs.getString(7) %>" width="200" height="200"></td>
 <td><%= rs.getString(2) %></td>
 <td><%= rs.getString(3) %></td>
 <td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
 <td><%= rs.getInt(6) %></td>
-<td><a href="BuyProduct?cakename=<%=rs.getString(1) %>">buy</a> </td>
-
+<td><button><a href="order.jsp?cakeId=<%=rs.getString(1)%>">buy</a></button></td>
 
 </tr>
 <%} %>

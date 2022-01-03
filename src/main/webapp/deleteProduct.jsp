@@ -4,15 +4,28 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>delete product</title>
+<style>
+#box{
+width:350px;
+margin-left:600px;
+margin-top:250px;
+}
+body{
+background-image:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
+background-repeat:no-repeat;
+background-size:cover;
+color:white;
+}
+</style>
 </head>
 <body>
-
+<fieldset id="box">
 <form action="deleteProduct">
-<input type="number" name="cakeId">
+Cake Id:<input type="number" name="cakeId">
 <button type="submit" id="button">delete</button>
 </form>
-
+</fieldset>
 
 
 

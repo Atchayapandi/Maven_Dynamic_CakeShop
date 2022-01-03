@@ -11,27 +11,24 @@ import com.cakeshop.model.Help;
 
 public class HelpDaoImpl {
 
-	public Help showHelp() {
+	public ResultSet showHelp() {
 		
        
 		String showQuery = "select * from help_support";
 		Connection con = ConnectionUtil.getDbConnection();
 		Help help=null;
+		ResultSet rs=null;
 		
 		try {
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(showQuery);
-			if (rs.next()) {
-				 help = new Help(rs.getLong(1), rs.getString(2));			
-			
-			}
+			 rs = stmt.executeQuery(showQuery);			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return help;
+		return rs;
 	}
 	
 	

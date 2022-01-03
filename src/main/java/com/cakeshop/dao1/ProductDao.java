@@ -13,7 +13,7 @@ public interface ProductDao {
 	public  void insertRating(int insertRating);
 	public  void deleteProduct(String delete);
 	public  int findProductId1(String productName);
-	public  int findPrice(int proID);
+	public  ResultSet findPrice(int proID);
 	public List<Products> findCategory(String categoryName);
 	
 }

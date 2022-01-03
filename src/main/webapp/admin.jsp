@@ -9,7 +9,7 @@
 #box{
 width:350px;
 margin-left:600px;
-margin-top:250px;
+margin-top:150px;
 }
 
 body{

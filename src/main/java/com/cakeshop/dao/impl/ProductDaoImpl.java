@@ -157,31 +157,24 @@ public class ProductDaoImpl implements ProductDao{
 	}
 	
 
-	public  int findPrice(int proID)
+	public  ResultSet findPrice(int proID)
 	{
-		String query="select cake_price from product_details where cake_id='"+proID+"'";
+		String query="select * from product_details where cake_id='"+proID+"'";
 		
 		Connection con=ConnectionUtil.getDbConnection();
 		Statement stmt;
 		int price=0;
+		ResultSet rs=null;
 		try {
-			stmt=con.createStatement();
-			
-			ResultSet rs=stmt.executeQuery(query);
-			
-			if(rs.next())
-			{
-				price=rs.getInt(1);
-				System.out.println(price);
-			}
-			
+			stmt=con.createStatement();			
+			 rs=stmt.executeQuery(query);		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
 		
-		return price;
+		return rs;
 		
 	}
 	

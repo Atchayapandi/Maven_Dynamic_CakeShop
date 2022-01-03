@@ -43,21 +43,13 @@ public class BuyProduct extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		request.getParameter("quantity");
+		int quantity=Integer.parseInt(request.getParameter("quantity"));
+		
 		String address=(request.getParameter("city")+request.getParameter("state")+request.getParameter("pincode"));
-		request.getParameter(address);
-			
-		
+		double price=Double.parseDouble(request.getParameter("price"));
+		double totalPrice=(price*quantity);
 		response.sendRedirect("order.jsp");
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		
 		doGet(request, response);
 	}

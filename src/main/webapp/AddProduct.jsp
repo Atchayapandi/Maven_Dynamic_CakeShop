@@ -4,17 +4,31 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>add product</title>
+<style>
+#box{
+width:350px;
+margin-left:600px;
+margin-top:250px;
+}
+
+body{
+background-image:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
+background-repeat:no-repeat;
+background-size:cover;
+color:white;
+}
+</style>
 </head>
 <body>
-
+<fieldset id="box"><center>
 <form action="AddProduct" method="post">
-Cake_Name<input type="text" name="cakeName">
-Cake_description<input type="text" name="cakeDescription">
-Cake_price<input type="number" name="cakePrice">
-Category_name<input type="text" name="categoryName">
+Cake_Name<input type="text" name="cakeName"><br><br>
+Cake_description<input type="text" name="cakeDescription"><br><br>
+Cake_price<input type="number" name="cakePrice"><br><br>
+Category_name<input type="text" name="categoryName"><br><br>
 <button type="submit" name="button">Add</button>
-</form>
-
+</form></center>
+</fieldset>
 </body>
 </html>
