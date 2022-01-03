@@ -42,12 +42,12 @@ public class AddProduct extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		ProductDaoImpl proDao=new ProductDaoImpl();	   
 		String cake_name=request.getParameter("cakeName");
-		String cake_description=request.getParameter("description");	
-		int cake_price=Integer.parseInt(request.getParameter("price"));
-		String category_name=request.getParameter("category");	
-		
-		ProductDaoImpl proDao=new ProductDaoImpl();	    
+		String cake_description=request.getParameter("cakeDescription");	
+		int cake_price=Integer.parseInt(request.getParameter("cakePrice"));
+		String category_name=request.getParameter("categoryName");		
+		 System.out.println(cake_name);
 		
 		Products product=new Products(cake_name,cake_description,cake_price,category_name);	    		
 	    proDao.insertProduct(product);

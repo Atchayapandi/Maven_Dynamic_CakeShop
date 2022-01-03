@@ -3,6 +3,7 @@ package com.cakeshop.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class ProductDaoImpl implements ProductDao{
 //add new product
 	
 	public void insertProduct(Products product) {
-		String insertQuery = "insert into user_details(cake_name,cake_description,cake_price,category_name) values(?,?,?,?)";
+		String insertQuery = "insert into product_details(cake_name,cake_description,cake_price,category_name) values(?,?,?,?)";
 
 		ConnectionUtil conUtil = new ConnectionUtil();
 		Connection con = conUtil.getDbConnection();
@@ -48,6 +49,7 @@ public class ProductDaoImpl implements ProductDao{
 			pst.setString(2, product.getCakeDescription());
 			pst.setInt(3, product.getCakePrice());
 			pst.setString(4, product.getCategoryName());
+			System.out.println(product.getCategoryName());
 			pst.executeUpdate();
 			System.out.println("Value inserted Successfully");
 		} catch (SQLException e) {
@@ -61,14 +63,14 @@ public class ProductDaoImpl implements ProductDao{
 	
 	
 //update product
-	public  void updateProduct(String updateProduct) {
-		String updateQuery = "update product_details set cake_name =?  where cake_id=?";
+	public  void updateProduct(double cakePrice, String cakeName) {
+		String updateQuery = "update product_details set cake_price =?  where cake_name=?";
 
 		try {
 		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = con.prepareStatement(updateQuery);
-		pstmt.setString(1, updateProduct.split(",")[0]);
-		pstmt.setInt(2, Integer.parseInt(updateProduct.split(",")[1]));
+		pstmt.setDouble(1, cakePrice);
+		pstmt.setString(2, cakeName);
 		int i = pstmt.executeUpdate();
 		System.out.println(i + "row updated");
 		pstmt.close();
@@ -106,13 +108,13 @@ public class ProductDaoImpl implements ProductDao{
 
 //delete method
 	
-	public  void deleteProduct(String delete)  {
+	public  void deleteProduct(int cakeId)  {
 		String deleteQuery = "delete from product_details where cake_id=?";
 
 		Connection con = ConnectionUtil.getDbConnection();
 		try {
 		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
-		pstmt.setInt(1, Integer.parseInt(delete));
+		pstmt.setInt(1, cakeId);
 		int i = pstmt.executeUpdate();
 		System.out.println(i + "row deleted");
 		pstmt.close();
@@ -196,7 +198,6 @@ public class ProductDaoImpl implements ProductDao{
 				 category = new Products(rs.getString(2),rs.getString(3),rs.getInt(4),categoryName);
 				categoryList.add(category);
 			}
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -204,4 +205,20 @@ public class ProductDaoImpl implements ProductDao{
 
 		return categoryList;
 	}
+
+	@Override
+	public void updateProduct(String updateProduct) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteProduct(String delete) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
 }

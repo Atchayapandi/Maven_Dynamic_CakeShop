@@ -21,9 +21,7 @@ color:white;
 </style>
 </head>
 <body>
-
 <h2>Welcome Admin</h2>
-
 <fieldset id="box">
 <form action="showUser.jsp" >
 <input type="submit" id="button"><i>ShowUser</i> 
@@ -34,7 +32,7 @@ color:white;
 </form><br><br>
 
 <form action="AddProduct.jsp" >
-<input type="submit" id="button"><i>updateProduct</i> 
+<input type="submit" id="button"><i>AddProduct</i> 
 </form><br><br>
 
 <form action="deleteProduct.jsp" >

@@ -1,7 +1,7 @@
 
 <%@page import="java.util.List" import ="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-     import ="com.cakeshop.dao.impl.*" pageEncoding="ISO-8859-1"%>
+     pageEncoding="ISO-8859-1" import ="com.cakeshop.dao.impl.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +11,6 @@ table, th, td {
   border-collapse: collapse;
   padding: 20px;
 }
-
-
 </style>
 
 <meta charset="ISO-8859-1">
@@ -21,9 +19,6 @@ table, th, td {
 <body>
 <form>
 <p> Welcome</p>
-
-
-
 <%
 ProductDaoImpl product=new ProductDaoImpl();
 ResultSet rs=product.showProduct();
@@ -31,7 +26,8 @@ ResultSet rs=product.showProduct();
 <table>
 
 <tr>
-<th>Product Id</th>
+
+<th> cake</th>
 <th>Product Name</th>
 <th>Product Description</th>
 <th>Product price</th>
@@ -41,12 +37,16 @@ ResultSet rs=product.showProduct();
 
 <% while(rs.next()){%>
 <tr>
-<td><%= rs.getInt(1) %></td>
+
+<td><img alt="#alter" src="<%= rs.getString(7) %>" width="200"  height="200"></td>
 <td><%= rs.getString(2) %></td>
 <td><%= rs.getString(3) %></td>
 <td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
 <td><%= rs.getInt(6) %></td>
+<td><a href="BuyProduct?cakename=<%=rs.getString(1) %>">buy</a> </td>
+
+
 </tr>
 <%} %>
 </table>

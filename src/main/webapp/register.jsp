@@ -136,7 +136,7 @@ address : <input type="text" name="address" pattern="[A-Za-z0-9]{4,}+[,][A-Za-z]
     </style>
 </head>
 <body >
-    <form action="Register" method="post">
+    <form action="Register" method="post" >
     <div class="container">
         <img src="images/user1.png" height="70" width="70">
         <div class="card">   

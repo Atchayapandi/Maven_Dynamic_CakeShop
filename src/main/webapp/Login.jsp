@@ -87,7 +87,7 @@ img {
 </style>
 </head>
 <body>
-	<form action="showProduct" method="post">
+	<form action="Login" method="post">
 		<div class="container">
 			<img src="images/user1.png" height="70" width="70">
 			<div class="card">
@@ -96,11 +96,13 @@ img {
 					placeholder="Password" id="name" name="password" required><br>
 				<button type="submit" id="button">Submit</button>
 	</form>
+	
 	<form action="register.jsp">
 		<button type="submit" id="button">Register</button>
 	</form>
 	</div>
 	</div>
+	
 
 </body>
 </html>

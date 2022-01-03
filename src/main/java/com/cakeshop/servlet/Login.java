@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.cakeshop.dao.impl.AdminDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
 import com.cakeshop.model.User;
@@ -17,7 +16,7 @@ import com.cakeshop.model.User;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/showProduct")
+@WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -53,12 +52,14 @@ public class Login extends HttpServlet {
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser = userDao.validateUser(EmailId, password);
 		AdminDaoImpl admin=new AdminDaoImpl();
-		if (currentUser == null) {
-			User adminuser =admin.validateAdmin(EmailId, password);
 		
-
+		if (currentUser == null) {
+			
+			admin.validateAdmin(EmailId, password);
 			response.sendRedirect("admin.jsp");
+			
 		} else {
+			
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("showProduct.jsp");
 			requestDispatcher.forward(request, response);
 
