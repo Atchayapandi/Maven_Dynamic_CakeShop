@@ -178,26 +178,80 @@ public class ProductDaoImpl implements ProductDao{
 		
 	}
 	
-	public List<Products> findCategory(String categoryName) {
-		List<Products> categoryList = new ArrayList<Products>();
+	public ResultSet findCategory(String categoryName) {
+		
  
 		Products category=null;
 		String showQuery = "select * from product_details where category_name='"+categoryName+"'";
 		Connection con = ConnectionUtil.getDbConnection();
+		ResultSet rs=null;
 		try {
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(showQuery);
-			while(rs.next()) {
-				 category = new Products(rs.getString(2),rs.getString(3),rs.getInt(4),categoryName);
-				categoryList.add(category);
-			}
+			 rs = stmt.executeQuery(showQuery);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return categoryList;
+		return rs;
 	}
+	
+	
+	public ResultSet ShowRating() {
+		
+		String query="select cake_name,rating from product_details order by rating desc";
+		
+		Connection con=ConnectionUtil.getDbConnection();
+		ResultSet rs=null;
+		Statement stmt;
+		try {
+			stmt=con.createStatement();
+			rs=stmt.executeQuery(query);
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
+		return rs;
+		
+	}
+	
+	
+	//Category List
+public ResultSet ShowCategory() {
+		
+		String query="select DISTINCT category_name from product_details";
+		
+		Connection con=ConnectionUtil.getDbConnection();
+		ResultSet rs=null;
+		Statement stmt;
+		try {
+			stmt=con.createStatement();
+			rs=stmt.executeQuery(query);
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
+		return rs;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public void updateProduct(String updateProduct) {

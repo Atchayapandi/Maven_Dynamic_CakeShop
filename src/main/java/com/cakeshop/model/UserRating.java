@@ -5,6 +5,7 @@ public class UserRating {
 	private String ProductName;
 	private int ProName;
 	private int rating;
+	
 	public String getProductName() {
 		return ProductName;
 	}

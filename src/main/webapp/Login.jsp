@@ -91,15 +91,16 @@ img {
 		<div class="container">
 			<img src="images/user1.png" height="70" width="70">
 			<div class="card">
-				<input type="text" placeholder="username" id="name" name="EmailId"
-					required autofocus> <br> <input type="password"
-					placeholder="Password" id="name" name="password" required><br>
+				<input type="text" placeholder="username" id="name" name="EmailId"required autofocus> <br> 
+				<input type="password" placeholder="Password" id="name" name="password" required><br>
 				<button type="submit" id="button">Submit</button>
-	</form>
+				<form action="register.jsp">
+		<button type="submit" id="button">Register</button><br><br>
+	</form></form>
+				<a href="ForgetPassword.jsp"><i>ForgetPassword</i></a>
 	
-	<form action="register.jsp">
-		<button type="submit" id="button">Register</button>
-	</form>
+	
+	
 	</div>
 	</div>
 	

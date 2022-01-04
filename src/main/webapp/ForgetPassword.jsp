@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>add product</title>
+<title>forget Password</title>
 <style>
 #box{
 width:350px;
@@ -21,12 +21,10 @@ color:white;
 </head>
 <body>
 <fieldset id="box"><center>
-<form action="AddProduct" method="post">
-Cake_Name<input type="text" name="cakeName"><br><br>
-Cake_description<input type="text" name="cakeDescription"><br><br>
-Cake_price<input type="number" name="cakePrice"><br><br>
-Category_name<input type="text" name="categoryName"><br><br>
-<button type="submit" name="button">Add</button>
+<form action="forgetPassword" method="post">
+Password : <input type="text" name="password"><br><br>
+Email Id : <input type="text" name="emailId"><br><br>
+<button type="submit" id="button">Change</button>
 </form></center>
 </fieldset>
 </body>

@@ -1,18 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" import="java.sql.*" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.ProductDaoImpl"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Order Success</title>
-<style type="text/css">
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-}
+<title>Insert title here</title>
+<style>
 body{
-background-image:url(https://media.istockphoto.com/photos/wedding-cake-picture-id665215462?k=20&m=665215462&s=612x612&w=0&h=U6JcgmSDp3ryYtSSJ1h9YE6fUQoBC5iLvoLE69qNfLk=);
+background-image:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
 background-repeat:no-repeat;
 background-size:cover;
 color:white;
@@ -44,8 +39,6 @@ color:white;
   background-color: gray;
   color: white;
 }
-
-
 </style>
 </head>
 <body>
@@ -56,47 +49,26 @@ color:white;
   <a href="AboutUs.jsp">About</a>  
   <a href="categories.jsp">Categories</a>
    <a href="ShowRating.jsp">Ratings</a>
-     <a href="Home.jsp">LogOut</a>
+   <a href="Home.jsp">LogOut</a>
 </div>
-<center><h1>Your Order is Placed Successfully!! Thank You!!</h1>
+<br><br>
 
-<form action="Rating" method="post">
-<h3>please Add Your Rating :<input type="number" name="Rating" placeholder="upto 5 rating" pattern="[0-9]{5}"></h3>
-<button type="submit" id="rating">Rate</button>
-</form>
-</center>
-
-<%
-ProductDaoImpl product=new ProductDaoImpl();
-ResultSet rs=product.ShowRating();
+<%ProductDaoImpl productDao=new ProductDaoImpl(); 
+ResultSet rs=productDao.ShowCategory();
 %>
+<br><br>
+<table align="center" border="3">
 
-<h2><i>Highly Rated Cake</i></h2>
-<table align="left" border="5">
-
-<th><h3>Product Name</h3></th>
-<th><h3>Ratings</h3></th>
-
+<th><h3>Category Name</h3></th>
 
 <% while(rs.next()){%>
 <tr>
 <td><%= rs.getString(1) %></td>
-<td><%= rs.getInt(2) %></td>
+
 </tr>
 <%} %>
 
 </table>
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

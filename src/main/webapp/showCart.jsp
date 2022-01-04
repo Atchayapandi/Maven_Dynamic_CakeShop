@@ -11,6 +11,13 @@ table, th, td {
   border-collapse: collapse;
   padding: 20px;
 }
+body{
+background-image:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
+background-repeat:no-repeat;
+background-size:cover;
+color:white;
+}
+
 
 </style>
 
@@ -24,7 +31,7 @@ table, th, td {
 CartDaoImpl cartDao=new CartDaoImpl();
 ResultSet rs=cartDao.viewCart();
 %>
-<table>
+<table align="center">
 
 <tr>
 <th>cart Id</th>

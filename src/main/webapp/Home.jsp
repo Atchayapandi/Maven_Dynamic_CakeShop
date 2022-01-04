@@ -43,47 +43,16 @@ color:white;
 </style>
 </head>
 <body>
-
 <center><h1><i>Welcome to My CakeShop</i></h1></center>
-
-
 <div class="topnav" >
   <a class="active" href="Login.jsp">Login</a>
   <a href="register.jsp">Register</a>
   <a href="Contact.jsp">Contact</a>
-  <a href="#about">About</a>
+  <a href="AboutUs.jsp">About</a>  
+  <a href="categories.jsp">Categories</a>
+  <a href="ShowRating.jsp">Ratings</a>
+  
 </div>
-
-
-
-
-
-
-
-
-
-
-<!-- fieldset id="box">
-<form action="Login.jsp" >
-<input type="submit" id="button"><i>Login</i> 
-</form><br><br>
-
-
-<form action="register.jsp" >
-<input type="submit" id="button"><i>Register</i> 
-</form>
-</fieldset>
-
-#box{
-width:350px;
-margin-left:600px;
-margin-top:200px;
-}--->
-
-
-
-
-
 
 </body>
 </html>

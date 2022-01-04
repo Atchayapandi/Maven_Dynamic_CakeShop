@@ -21,14 +21,18 @@ public class HelpDaoImpl {
 		
 		try {
 			Statement stmt = con.createStatement();
-			 rs = stmt.executeQuery(showQuery);			
+			 rs = stmt.executeQuery(showQuery);	
+			 System.out.println("hi");
+			 return rs;
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
+		
 
-		return rs;
+		
 	}
 	
 	

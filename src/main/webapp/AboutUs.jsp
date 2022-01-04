@@ -1,21 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.ProductDaoImpl"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Order Success</title>
-<style type="text/css">
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-}
+<title>About us</title>
+<style>
 body{
-background-image:url(https://media.istockphoto.com/photos/wedding-cake-picture-id665215462?k=20&m=665215462&s=612x612&w=0&h=U6JcgmSDp3ryYtSSJ1h9YE6fUQoBC5iLvoLE69qNfLk=);
+background-image:url(https://cdn.shortpixel.ai/spai/w_735+q_lossless+ret_img+to_webp/https://thebrandboy.com/wp-content/uploads/2020/03/80-About-Us-Page-Samples-For-Cake-Shop.png) ;
 background-repeat:no-repeat;
 background-size:cover;
 color:white;
+}
+h2{
+margin-left:200px;
+margin-top:250px;
 }
 /* Add a black background color to the top navigation */
 .topnav {
@@ -44,8 +43,6 @@ color:white;
   background-color: gray;
   color: white;
 }
-
-
 </style>
 </head>
 <body>
@@ -58,36 +55,17 @@ color:white;
    <a href="ShowRating.jsp">Ratings</a>
      <a href="Home.jsp">LogOut</a>
 </div>
-<center><h1>Your Order is Placed Successfully!! Thank You!!</h1>
+<p>
+<h2>
+<ul>
+<li>From that point forward, our family has joined their long periods of involvement with the vision of a network of cooperative shop proprietors, 
+<li>providers,and different accomplices cooperating to make a brand name in the market to develop their business to what it is today.
 
-<form action="Rating" method="post">
-<h3>please Add Your Rating :<input type="number" name="Rating" placeholder="upto 5 rating" pattern="[0-9]{5}"></h3>
-<button type="submit" id="rating">Rate</button>
-</form>
-</center>
-
-<%
-ProductDaoImpl product=new ProductDaoImpl();
-ResultSet rs=product.ShowRating();
-%>
-
-<h2><i>Highly Rated Cake</i></h2>
-<table align="left" border="5">
-
-<th><h3>Product Name</h3></th>
-<th><h3>Ratings</h3></th>
-
-
-<% while(rs.next()){%>
-<tr>
-<td><%= rs.getString(1) %></td>
-<td><%= rs.getInt(2) %></td>
-</tr>
-<%} %>
-
-</table>
-
-
+<li>So as to accomplish this, the family offers establishments to growing business visionaries and merchants joining 
+forces with them to guarantee achievement and perfection.
+<li> We bake happiness for you in the face of cake. 
+<li>Let us deliver sweetness in your lives.</ul></h2>
+</h2>
 
 
 

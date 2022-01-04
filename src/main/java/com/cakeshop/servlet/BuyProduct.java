@@ -11,47 +11,28 @@ import javax.servlet.http.HttpServletResponse;
 public class BuyProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    
     public BuyProduct() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		request.getParameter("quantity");
-		String address=(request.getParameter("city")+request.getParameter("state")+request.getParameter("pincode"));
-		request.getParameter(address);
-			
-		
-		response.sendRedirect("order.jsp");
-		
-		
-	}
+	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
 		
-		int quantity=Integer.parseInt(request.getParameter("quantity"));
+//		int quantity=Integer.parseInt(request.getParameter("quantity"));
 		
-		String address=(request.getParameter("city")+request.getParameter("state")+request.getParameter("pincode"));
-		double price=Double.parseDouble(request.getParameter("price"));
-		double totalPrice=(price*quantity);
-		response.sendRedirect("order.jsp");
-			
+//		String address=(request.getParameter("city")+request.getParameter("state")+request.getParameter("pincode"));
+//		double price=Double.parseDouble(request.getParameter("price"));
+//		double totalPrice=(price*quantity);		
+		response.sendRedirect("OrderSuccess.jsp");		
 		
-		doGet(request, response);
+		
 	}
 
 }

@@ -14,6 +14,6 @@ public interface ProductDao {
 	public  void deleteProduct(String delete);
 	public  int findProductId1(String productName);
 	public  ResultSet findPrice(int proID);
-	public List<Products> findCategory(String categoryName);
+	public ResultSet findCategory(String categoryName);
 	
 }

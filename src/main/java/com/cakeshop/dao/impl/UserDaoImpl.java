@@ -76,14 +76,11 @@ public class UserDaoImpl implements UserDao{
 	ConnectionUtil conUtil = new ConnectionUtil();
 	Connection con = conUtil.getDbConnection();
 
-	public  ResultSet showAllUser() {
-		
+	public  ResultSet showAllUser() {		
 
-		String selectQuery = "select * from user_details where "
-				+ "role='user'";
+		String selectQuery = "select * from user_details where role='user'";
 
-		ResultSet rs=null;
-		
+		ResultSet rs=null;	
 
 		try {
 			Statement stmt = con.createStatement();
@@ -140,7 +137,7 @@ public class UserDaoImpl implements UserDao{
 
 	public  int findUserId(String userName) {
 		
-		String findUserID = "select user_id from user_details where user_name='"+userName+"'";
+		String findUserID = "select user_id from user_details where email_id='"+userName+"'";
 		Connection con = ConnectionUtil.getDbConnection();
 		Statement stmt;
 		
@@ -165,15 +162,15 @@ public class UserDaoImpl implements UserDao{
 	
 	
 	//get wallet balance:
-		public  ResultSet walletbal(int id) 
+		public  ResultSet walletbal(String name) 
 		{
 			ResultSet rs=null;
 			try {
 			Connection con = ConnectionUtil.getDbConnection();
-			System.out.println(id);
-			String query = "select user_wallet from user_details where user_id = ?";
+			System.out.println(name);
+			String query = "select user_wallet from user_details where user_name = ?";
 			PreparedStatement statement = con.prepareStatement(query);
-			statement.setInt(1, id);
+			statement.setString(1, name);
 			 rs = statement.executeQuery();		
 			
 			}catch (SQLException e) {
@@ -203,6 +200,30 @@ public class UserDaoImpl implements UserDao{
 
 			return res;	
 
+		}
+		public  void updatePassword(String newPassword, String emailId) {
+			String updateQuery = "update user_details set password =?  where Email_id=?";
+			try {
+			Connection con = ConnectionUtil.getDbConnection();
+			PreparedStatement pstmt = con.prepareStatement(updateQuery);
+			pstmt.setString(1, newPassword);
+			pstmt.setString(2, emailId);
+			System.out.println("hii");
+			int i = pstmt.executeUpdate();
+			System.out.println(i + "row updated");
+			pstmt.close();
+			con.close();
+			}catch(SQLException e) {
+				System.out.println("incorrect");
+				e.printStackTrace();
+			}
+			
+		}
+
+		@Override
+		public ResultSet walletbal(int id) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 		

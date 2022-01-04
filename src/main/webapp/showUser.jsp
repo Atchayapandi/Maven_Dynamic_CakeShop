@@ -11,6 +11,13 @@ table, th, td {
   border-collapse: collapse;
   padding: 20px;
 }
+body{
+background-image:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
+background-repeat:no-repeat;
+background-size:cover;
+color:white;
+}
+
 
 
 </style>
@@ -19,16 +26,12 @@ table, th, td {
 <title>showUser page</title>
 </head>
 <body>
-<form>
-
-
-
 
 <%
 UserDaoImpl userDao=new UserDaoImpl();
 ResultSet rs=userDao.showAllUser();
 %>
-<table>
+<table align="center">
 
 <tr>
 <th>User Id</th>
@@ -52,6 +55,6 @@ ResultSet rs=userDao.showAllUser();
 </tr>
 <%} %>
 </table>
-</form>
+
 </body>
 </html>

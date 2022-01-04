@@ -7,71 +7,7 @@
 <body>
 
 
-<!--form action="Register" method="post"><br>
-Name : <input type ="text" name="userName" pattern="[A-Za-z]{3,}"><br><br>
-E_mail : <input type="text" name="EmailId" pattern="[a-z]+[0-9]*[@][a-z]+[.][a-z]+"><br><br>
-password : <input type="password" name="password" pattern="[A-Za-z0-9]{8,15}"><br><br>
-address : <input type="text" name="address" pattern="[A-Za-z0-9]{4,}+[,][A-Za-z]{4,}+[,][0-9]{6}+{25,}">
-<input type="submit" value="submit">
-<input type="reset" value="reset">
-</form><br><br>
 
-
-
-<!--doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Matteo Bruni">
-    <title>Register Template - tsParticles</title>
-
-    <! Custom styles for this template >
-    <link href="css/particles.css" rel="stylesheet"/>
-    <link href="css/auth.css" rel="stylesheet"/>
-</head>
-
-<body>
-<div id="tsparticles"></div>
-<main class="box">
-    <h2>Register</h2>
-    <form>
-        <div class="inputBox">
-            <label for="userName">Username</label>
-            <input type="text" name="userName" id="userName" placeholder="type your username" pattern="[A-Za-z]{3,}"required/>
-            
-        </div>
-        <div class="inputBox">
-            <label for="email">Email</label>
-            <input type="email" name="Email_id" id="email" placeholder="type your email" pattern="[a-z]+[0-9]*[@][a-z]+[.][a-z]+"
-                   required/>        
-        </div> 
-        <div class="inputBox">
-            <label for="userPassword">Password</label>
-            <input type="password" name="Password" id="userPassword" placeholder="type your password" pattern="[A-Za-z0-9]{8,15}"
-                   required/>
-        </div>
-          
-        
-         <div class="inputBox">
-            <label for="address">address</label>
-            <input type="text" name="address" id="address" placeholder="type your adress" pattern="[A-Za-z0-9]{4,}+[,][A-Za-z]{4,}+[,][0-9]{6}+{25,}"
-                               required/>
-        </div>      
-        
-       
-        <button type="submit" name="" style="float: left;">Submit</button>
-        <a class="button" href="login.html" style="float: left;">Login</a>
-    </form>
-</main>
-<footer>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@1.34.1/tsparticles.min.js"
-        integrity="sha256-D6LXCdCl4meErhc25yXnxIFUtwR96gPo+GtLYv89VZo=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/particles.js"></script----->
 
 
 <!DOCTYPE html>

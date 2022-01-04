@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.cakeshop.dao.impl.AdminDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
 import com.cakeshop.model.User;
@@ -18,29 +20,7 @@ import com.cakeshop.model.User;
  */
 @WebServlet("/Login")
 public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * Default constructor.
-	 */
-	public Login() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -52,7 +32,10 @@ public class Login extends HttpServlet {
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser = userDao.validateUser(EmailId, password);
 		AdminDaoImpl admin=new AdminDaoImpl();
+		HttpSession session=request.getSession();
 		
+		session.setAttribute("CurrentUser", EmailId);
+		session.setAttribute("CurrentUser1", currentUser.getUserName());
 		if (currentUser == null) {
 			
 			admin.validateAdmin(EmailId, password);

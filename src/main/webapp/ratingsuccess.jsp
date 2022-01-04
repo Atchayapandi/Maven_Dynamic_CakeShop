@@ -1,24 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import ="java.sql.*"  import ="com.cakeshop.dao.impl.*"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Contact</title>
+<title>rating added</title>
 <style>
-body {
-	background-image:
-		url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	color: white;
+body{
+background-image:url(https://image.freepik.com/free-photo/top-view-delicious-cake-arrangement_23-2148933608.jpg);
+background-repeat:no-repeat;
+background-size:cover;
+color:white;
+
 }
-#box {
-	width: 350px;
-	margin-left: 600px;
-	margin-top: 150px;
+h3{
+background-color:black;
+margin-left:400px;
+margin-top:250px;
+
 }
-/* Add a black background color to the top navigation */
 .topnav {
   background-color: Gray;
   overflow: hidden;
@@ -45,9 +45,11 @@ body {
   background-color: gray;
   color: white;
 }
+
+
 </style>
 </head>
-<body>
+<body >
 <div class="topnav" >
   <a class="active" href="Login.jsp">Login</a>
   <a href="register.jsp">Register</a>
@@ -58,17 +60,7 @@ body {
      <a href="Home.jsp">LogOut</a>
 </div>
 
-<%!ResultSet rs; %>
-<h2><i>For Any Queries Contact Us</i></h2>
-<%HelpDaoImpl helpDao = new HelpDaoImpl(); 
-rs=helpDao.showHelp();%>
-<fieldset id="box">
-<%while(rs.next()){%>
+<h3><i>Your Rating Was Added Successfully!!..</i></h3>
 
-<h3><%=rs.getString(1)%></h3>
-<h3><%=rs.getString(2)%></h3>
-
-<%}%>
-</fieldset>
 </body>
 </html>
