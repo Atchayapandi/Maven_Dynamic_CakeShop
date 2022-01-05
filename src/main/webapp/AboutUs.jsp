@@ -54,6 +54,7 @@ margin-top:250px;
   <a href="categories.jsp">Categories</a>
    <a href="ShowRating.jsp">Ratings</a>
      <a href="Home.jsp">LogOut</a>
+     <a href="MyOrders.jsp">My Orders</a>
 </div>
 <p>
 <h2>

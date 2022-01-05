@@ -31,18 +31,27 @@ public class Login extends HttpServlet {
 
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser = userDao.validateUser(EmailId, password);
+	
 		AdminDaoImpl admin=new AdminDaoImpl();
 		HttpSession session=request.getSession();
 		
-		session.setAttribute("CurrentUser", EmailId);
-		session.setAttribute("CurrentUser1", currentUser.getUserName());
+	
+		
 		if (currentUser == null) {
+			session.setAttribute("CurrentUser",currentUser);
+			session.setAttribute("CurrentUser", EmailId);
+			System.out.println(EmailId+password+currentUser.getUserName());
+			session.setAttribute("CurrentUser1", currentUser.getUserName());
 			
 			admin.validateAdmin(EmailId, password);
 			response.sendRedirect("admin.jsp");
 			
-		} else {
 			
+		} else {
+			session.setAttribute("CurrentUser",currentUser);
+			session.setAttribute("CurrentUser", EmailId);
+			System.out.println(EmailId+password+currentUser.getUserName());
+			session.setAttribute("CurrentUser1", currentUser.getUserName());
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("showProduct.jsp");
 			requestDispatcher.forward(request, response);
 

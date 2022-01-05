@@ -7,18 +7,24 @@ import com.cakeshop.dao1.AdminDao;
 import com.cakeshop.model.User;
 
 public class AdminDaoImpl implements AdminDao{
+	
 	public  User validateAdmin (String emailId,String password){		
 		String validateQuery="select*from user_details where role='Admin'and Email_id='" +emailId +"'and password='"+password+"'";
 		Connection con=ConnectionUtil.getDbConnection();
 		User user=null;
+		System.out.println("hello");
 		try {
 			Statement stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery(validateQuery);			
+			ResultSet rs=stmt.executeQuery(validateQuery);	
+			
 			if(rs.next()) {
 				user=new User(rs.getString(2),emailId,password,rs.getString(5));
+				System.out.println("welcome admin");
+				return user;
 			}			
 		}
-		catch(SQLException e) {			
+		catch(SQLException e) {		
+			e.printStackTrace();
 		}
 		return user;
 		

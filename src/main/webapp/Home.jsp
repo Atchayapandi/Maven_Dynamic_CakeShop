@@ -49,8 +49,7 @@ color:white;
   <a href="register.jsp">Register</a>
   <a href="Contact.jsp">Contact</a>
   <a href="AboutUs.jsp">About</a>  
-  <a href="categories.jsp">Categories</a>
-  <a href="ShowRating.jsp">Ratings</a>
+  
   
 </div>
 

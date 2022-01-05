@@ -72,7 +72,7 @@ ResultSet rs=product.ShowRating();
 %>
 
 <h2><i>Highly Rated Cake</i></h2>
-<table align="left" border="5">
+<table align="left" border="4">
 
 <th><h3>Product Name</h3></th>
 <th><h3>Ratings</h3></th>

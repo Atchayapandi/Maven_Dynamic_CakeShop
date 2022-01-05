@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cakeshop.dao1.CartDao;
+import com.cakeshop.dao1.ProductDao;
 import com.cakeshop.model.Cart;
 import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
@@ -32,7 +33,7 @@ public class CartDaoImpl implements CartDao {
 			pst.setInt(2, cart.getUserId());
 			pst.setInt(3, cart.getQuantity());
 			pst.setDouble(4, cart.getTotalPrice());
-			pst.setDate(5, new java.sql.Date(cart.getOrderDate().getTime()));
+			pst.setDate(5, java.sql.Date.valueOf(cart.getOrderDate()));
 			pst.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -130,123 +131,43 @@ public class CartDaoImpl implements CartDao {
 
 	}
 	
-	//get wallet balance:
-		public int walletbal (int id)  
-		{
-			Connection con = ConnectionUtil.getDbConnection();
-			String query = "select user_wallet from user_details where user_id = ?";
-			PreparedStatement statement = null;
-			try {
-				statement = con.prepareStatement(query);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			try {
-				statement.setInt(1, id);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			ResultSet rs = null;
-			try {
-				rs = statement.executeQuery();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			try {
-				while(rs.next()) {
-						try {
-							return rs.getInt(1);
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return -1;
-		}
-
-	//update wallet balance:
-		public int updatewallet(int amount,int userid) {
-			int res=0;
+	
+	
+	public ResultSet viewUserCart(int userId) {
+		String query = "select * from cart_items where user_id=?";
+		Connection con=ConnectionUtil.getDbConnection();
+		PreparedStatement stmt;
 		
-			try {
-				
+		ResultSet rs=null;
+		try {
+			stmt=con.prepareStatement(query);
 			
-			Connection con = ConnectionUtil.getDbConnection();
-			String query = "update user_details set user_wallet = ? where user_id = ?";
-			PreparedStatement statement = con.prepareStatement(query);
-			statement.setInt(1,amount);
-			statement.setInt(2, userid);
-			 res = statement.executeUpdate();
-			 statement.executeUpdate("commit");
-			 
-			}catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			//return res;	
-
-		}
-			return res;
-	
+			stmt.setInt(1,userId) ;
+			
+			rs=stmt.executeQuery();	
+			return rs;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 		
-		}}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	public List<Cart> viewUserCart(String currentUser) {
-//		String query = "select * from cart_cafe where user_id=?";
-//		int userId;
-//		try {
-//			userId = UserDao.findUserId(currentUser);
-//		} catch (Exception e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		List<Cart> userCartList = new ArrayList<Cart>();
-//		ProductDao productDao = new ProductDao();
-//		Connection con = ConnectionUtil.getDbConnection();
-//		try {
-//			PreparedStatement stmt = con.prepareStatement(query);
-//			stmt.setLong(1, userId);
-//			// System.out.println(userId+" UserID");
-//			ResultSet rs = stmt.executeQuery();
-//			while (rs.next()) {
-////				System.out.println("product id " + rs.getInt(2));
-////				System.out.println("product name:" + rs.getString(3));
-//				Products product = productDao.findProductId1(rs.getInt(2));
-//
-//				Cart cart = new Cart();
-//				userCartList.add(cart);
-//			}
-//			// TODO Auto-generated method stub
-//			// return userCartList;
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//		return userCartList;
+		return rs;
+		
+	}
 
-//	}
+	@Override
+	public int walletbal(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
-	
+	@Override
+	public int updatewallet(int amount, int userid) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}	
 
 	
 	

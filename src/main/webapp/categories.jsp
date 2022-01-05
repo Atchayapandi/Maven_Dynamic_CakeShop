@@ -63,7 +63,9 @@ ResultSet rs=productDao.ShowCategory();
 
 <% while(rs.next()){%>
 <tr>
-<td><%= rs.getString(1) %></td>
+<td><%= rs.getString(1)%></td>
+
+<td><button><a href="categoryFilter.jsp?categoryname=<%=rs.getString(1)%>">Buy</a></button></td>
 
 </tr>
 <%} %>

@@ -100,9 +100,7 @@ public class ProductDaoImpl implements ProductDao{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-			
+		}		
 		
 	}	
 
@@ -143,8 +141,7 @@ public class ProductDaoImpl implements ProductDao{
 			if(rs.next())
 			{
 				proId=rs.getInt(1);
-			}
-			
+			}			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -152,8 +149,7 @@ public class ProductDaoImpl implements ProductDao{
 		}	
 		
 		
-		return proId;
-		
+		return proId;	
 	}
 	
 
@@ -163,7 +159,7 @@ public class ProductDaoImpl implements ProductDao{
 		
 		Connection con=ConnectionUtil.getDbConnection();
 		Statement stmt;
-		int price=0;
+		//int price=0;
 		ResultSet rs=null;
 		try {
 			stmt=con.createStatement();			
@@ -178,9 +174,7 @@ public class ProductDaoImpl implements ProductDao{
 		
 	}
 	
-	public ResultSet findCategory(String categoryName) {
-		
- 
+	public ResultSet findCategory(String categoryName) { 
 		Products category=null;
 		String showQuery = "select * from product_details where category_name='"+categoryName+"'";
 		Connection con = ConnectionUtil.getDbConnection();
@@ -214,11 +208,11 @@ public class ProductDaoImpl implements ProductDao{
 		}	
 		
 		return rs;
-		
-	}
+		}
 	
 	
 	//Category List
+	
 public ResultSet ShowCategory() {
 		
 		String query="select DISTINCT category_name from product_details";
@@ -237,21 +231,29 @@ public ResultSet ShowCategory() {
 		return rs;
 		
 	}
+
+public  ResultSet viewCategoryList(String categoryname)
+{
+	String query="select * from product_details where category_name=?";
 	
+	Connection con=ConnectionUtil.getDbConnection();
+	PreparedStatement stmt;
 	
+	ResultSet rs=null;
+	try {
+		
+		stmt=con.prepareStatement(query);
+		stmt.setString(1, categoryname);
+		rs=stmt.executeQuery();
+		return rs;
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}		
 	
+	return rs;
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+}
 
 	@Override
 	public void updateProduct(String updateProduct) {

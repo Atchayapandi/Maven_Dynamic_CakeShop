@@ -60,8 +60,11 @@ body {
 </div>
 
 	<%int productId=Integer.parseInt(request.getParameter("cakeId")); 
+	
 	session.setAttribute("cake_id",productId);
+	
 	String cname=request.getParameter("cakeName");
+	
 	session.setAttribute("cakename", cname);
 	
 	
@@ -69,12 +72,12 @@ body {
 	ResultSet rs=productDao.findPrice(productId);
 	
 	String userName=(String)session.getAttribute("CurrentUser1");
-	System.out.println(userName);
+	
 	
 	
 	UserDaoImpl userDao =new UserDaoImpl();    
 	int userId=userDao.findUserId(userName);
-		
+	session.setAttribute("UserId", userId);
 	%>
 	<center>
 	

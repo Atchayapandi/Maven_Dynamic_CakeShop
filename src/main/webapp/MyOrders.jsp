@@ -1,36 +1,22 @@
-
-<%@page import="java.util.List" import ="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-     import ="com.cakeshop.dao.impl.*" pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.UserDaoImpl" import="com.cakeshop.dao.impl.CartDaoImpl"%>
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-}
-body{
-background-image:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
-background-repeat:no-repeat;
-background-size:cover;
-color:white;
-}
-
-
-</style>
-
 <meta charset="ISO-8859-1">
-<title>showcart page</title>
+<title>My order</title>
 </head>
 <body>
-<form>
 
 <%
+//int userid=Integer.parseInt(session.getAttribute("userId").toString());
+int userId=Integer.parseInt(session.getAttribute("UserId").toString());
+System.out.println(userId);
 CartDaoImpl cartDao=new CartDaoImpl();
-ResultSet rs=cartDao.viewCart();
+ResultSet rs=cartDao.viewUserCart(userId);
 %>
+
+<form>
 <table align="center">
 
 <tr>
@@ -40,7 +26,6 @@ ResultSet rs=cartDao.viewCart();
 <th>order quantity</th>
 <th>total price</th>
 <th>order date</th>
-
 </tr>
 
 <% while(rs.next()){%>
@@ -56,5 +41,8 @@ ResultSet rs=cartDao.viewCart();
 <%} %>
 </table>
 </form>
+
+
+
 </body>
 </html>

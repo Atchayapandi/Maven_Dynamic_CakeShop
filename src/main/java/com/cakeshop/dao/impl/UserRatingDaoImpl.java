@@ -18,7 +18,7 @@ public class UserRatingDaoImpl {
 			pstmt.setInt(1,rating);
 			pstmt.setInt(2, proId);			
 			pstmt.executeUpdate();
-			System.out.println("Rating Updated successfully");
+			//System.out.println("Rating Updated successfully");
 			pstmt.close();
 			con.close();
 		} catch (SQLException e) {

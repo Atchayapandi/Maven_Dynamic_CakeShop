@@ -56,12 +56,13 @@ table, th, td {
   <a href="categories.jsp">Categories</a>
    <a href="ShowRating.jsp">Ratings</a>
    <a href="Home.jsp">LogOut</a>
+   <a href="MyOrders.jsp">My Orders</a>
 </div>
 
 
 
 <form>
-<p> Welcome</p>
+
 <%
 ProductDaoImpl product=new ProductDaoImpl();
 ResultSet rs=product.showProduct();
@@ -83,7 +84,7 @@ ResultSet rs=product.showProduct();
 <td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
 <td><%= rs.getInt(6) %></td>
-<td><button><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>">buy</a></button></td>
+<td><button><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>">Buy</a></button></td>
 
 </tr>
 <%} %>
