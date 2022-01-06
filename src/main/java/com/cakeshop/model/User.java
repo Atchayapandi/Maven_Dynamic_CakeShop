@@ -3,11 +3,39 @@ package com.cakeshop.model;
 import java.util.Objects;
 
 public class User {
-
+	private int userId;
 	private String userName;
 	private String EmailId;
 	private String password;
 	private String address;
+	private String role;
+	private double wallet;
+
+
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public double getWallet() {
+		return wallet;
+	}
+
+	public void setWallet(double wallet) {
+		this.wallet = wallet;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -62,9 +90,20 @@ public class User {
 	public User(String userName, String emailId, String password, String address) {
 		super();
 		this.userName = userName;
-		EmailId = emailId;
+		this.EmailId = emailId;
 		this.password = password;
 		this.address = address;
+	}
+	public User(int userId, String userName, String emailId, String password, String address, String role,
+			double wallet) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.EmailId = emailId;
+		this.password = password;
+		this.address = address;
+		this.role = role;
+		this.wallet = wallet;
 	}
 
 	public User() {

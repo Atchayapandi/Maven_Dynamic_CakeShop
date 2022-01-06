@@ -134,14 +134,15 @@ public class CartDaoImpl implements CartDao {
 	
 	
 	public ResultSet viewUserCart(int userId) {
-		String query = "select * from cart_items where user_id=?";
+		String query = "select Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=?";
+		
 		Connection con=ConnectionUtil.getDbConnection();
 		PreparedStatement stmt;
 		
 		ResultSet rs=null;
 		try {
 			stmt=con.prepareStatement(query);
-			
+			System.out.println(userId);
 			stmt.setInt(1,userId) ;
 			
 			rs=stmt.executeQuery();	

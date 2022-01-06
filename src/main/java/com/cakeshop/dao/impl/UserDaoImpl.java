@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao{
 	//validate user method
 	@Override
 		public  User validateUser(String EmailId, String password) {
-			String validateQuery = "select * from user_details where role='user' and Email_id='" + EmailId
+			String validateQuery = "select * from user_details where Email_id='" + EmailId
 					+ "'and password='" + password + "'";
 
 			Connection con = ConnectionUtil.getDbConnection();
@@ -63,11 +63,11 @@ public class UserDaoImpl implements UserDao{
 				ResultSet rs = st.executeQuery(validateQuery);
 				if (rs.next()) {
 					System.out.println(rs.getString(2));
-					user = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6),rs.getDouble(7));
 					return user;
 				}
 			//	System.out.println("UserNMAE"+user.getUserName());
-				return user;
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

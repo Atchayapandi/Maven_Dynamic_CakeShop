@@ -11,7 +11,7 @@ public class UserRatingDaoImpl {
 		String updateQuery="update product_details set rating=? where cake_Id=?";
 	
 		Connection con=ConnectionUtil.getDbConnection();
-		//System.out.println("Connection successfully");		
+				
 		PreparedStatement pstmt=null;
 		try {
 			pstmt = con.prepareStatement(updateQuery);

@@ -78,7 +78,7 @@
         <div class="card">   
             <input type ="text" name="userName" placeholder="Username" pattern="[A-Za-z]{3,}" required autofocus> <br><br>
           <input type="email" name="EmailId" placeholder="Email_id" required><br><br>
-          <input type="password" name="password" placeholder="Password" pattern="[A-Za-z0-9]{8,15}" required><br><br>
+          <input type="password" name="password" placeholder="Password" pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$" required><br><br>
           <input type="text" name="address" placeholder="address" pattern="[A-Za-z0-9]{4,}+[,][A-Za-z]{4,}+[,][0-9]{6}+{25,}" required><br><br>                  
           <button type="submit" id="button" >Submit</button>
           <button type="reset" id="button">Reset</button></form>          

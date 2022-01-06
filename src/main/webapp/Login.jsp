@@ -92,11 +92,13 @@ img {
 			<img src="images/user1.png" height="70" width="70">
 			<div class="card">
 				<input type="text" placeholder="username" id="name" name="EmailId"required autofocus> <br> 
-				<input type="password" placeholder="Password" id="name" name="password" required><br>
+				<input type="password" placeholder="Password" id="name" name="password" pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$" required><br>
 				<button type="submit" id="button">Submit</button>
+			</form>	
 				<form action="register.jsp">
 		<button type="submit" id="button">Register</button><br><br>
-	</form></form>
+	</form>
+	            
 				<a href="ForgetPassword.jsp"><i>ForgetPassword</i></a>
 	
 	

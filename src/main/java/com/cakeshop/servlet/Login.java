@@ -26,30 +26,40 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		PrintWriter pw = response.getWriter();
+		HttpSession session=request.getSession();
 		String EmailId = request.getParameter("EmailId");
 		String password = request.getParameter("password");
 
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser = userDao.validateUser(EmailId, password);
-	
-		AdminDaoImpl admin=new AdminDaoImpl();
-		HttpSession session=request.getSession();
+		System.out.println(currentUser);
 		
+		
+		
+		UserDaoImpl user=new UserDaoImpl();
+		int userId=currentUser.getUserId();
+		session.setAttribute("userId", userId);
+		System.out.println(userId);
+		session.setAttribute("CurrentUser",currentUser);
+		session.setAttribute("CurrentUser", currentUser.getEmailId());
+		
+		String userRole=currentUser.getRole();
+		System.out.println(userRole);
+		
+		
+		System.out.println(EmailId+password+currentUser.getUserName());
+		session.setAttribute("CurrentUser1", currentUser.getUserName());
 	
 		
-		if (currentUser == null) {
-			session.setAttribute("CurrentUser",currentUser);
-			session.setAttribute("CurrentUser", EmailId);
-			System.out.println(EmailId+password+currentUser.getUserName());
-			session.setAttribute("CurrentUser1", currentUser.getUserName());
+		if (userRole.equals("Admin")) {
 			
+			AdminDaoImpl admin=new AdminDaoImpl();
 			admin.validateAdmin(EmailId, password);
 			response.sendRedirect("admin.jsp");
 			
 			
-		} else {
-			session.setAttribute("CurrentUser",currentUser);
-			session.setAttribute("CurrentUser", EmailId);
+		} else if (userRole.equals("user")) {
+			
 			System.out.println(EmailId+password+currentUser.getUserName());
 			session.setAttribute("CurrentUser1", currentUser.getUserName());
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("showProduct.jsp");

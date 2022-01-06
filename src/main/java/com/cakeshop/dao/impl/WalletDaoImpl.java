@@ -18,7 +18,7 @@ public class WalletDaoImpl implements WalletDao{
 		Connection con=ConnectionUtil.getDbConnection();
 	
 		
-		int user_wallet=100;		
+		int user_wallet=0;		
 		try {
 			PreparedStatement statement=con.prepareStatement(query);
 				statement.setInt(1,userId);
@@ -40,7 +40,7 @@ public class WalletDaoImpl implements WalletDao{
 
 //update wallet balance:
 	public void updatewallet(double amount,int userid){
-		//System.out.println(amount+userid);
+		
 		Connection con = ConnectionUtil.getDbConnection();
 		String query = "update user_details set user_wallet = ? where user_id = ?";
 		PreparedStatement statement=null;
@@ -49,7 +49,7 @@ public class WalletDaoImpl implements WalletDao{
 		statement.setDouble(1,amount);
 		statement.setInt(2, userid);		
 		 int i=statement.executeUpdate();
-		 //System.out.println(i+"Updated successfully");
+		 
 		 statement.close();
 		 con.close();
 		}catch (SQLException e) {

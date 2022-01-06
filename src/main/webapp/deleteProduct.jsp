@@ -22,7 +22,7 @@ color:white;
 <body>
 <fieldset id="box">
 <form action="deleteProduct">
-Cake Id:<input type="number" name="cakeId">
+Cake Id:<input type="number" name="cakeId" pattern="[0-9]">
 <button type="submit" id="button">delete</button>
 </form>
 </fieldset>

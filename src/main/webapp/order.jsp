@@ -89,8 +89,8 @@ body {
 			<h1><%double price=rs.getDouble(4);%></h1>
 			<h3>Price :<%= price%></h3><br>	
 			<%session.setAttribute("Price", price); %>		
-				Quantity:<input type="number" name="quantity"><br>
-				<br> city:<input type="text" name="city"><br><br>				
+				Quantity:<input type="number" name="quantity" pattern="[0-9]{2}"><br>
+				<br> city:<input type="text" name="city" ><br><br>				
 				     orderDate : <input type="date" name="orderDate"><br><br>				
 				<button type="submit" id="button">Buy</button>
 				<%} %>

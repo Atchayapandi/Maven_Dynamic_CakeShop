@@ -59,9 +59,9 @@ color:white;
      <a href="Home.jsp">LogOut</a>
 </div>
 <center><h1>Your Order is Placed Successfully!! Thank You!!</h1>
-
+<h2><i>Your Payment Is Debited from Your Wallet</i></h2>
 <form action="Rating" method="post">
-<h3>please Add Your Rating :<input type="number" name="Rating" placeholder="upto 5 rating" pattern="[0-9]{5}"></h3>
+<h3>please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]{5}"></h3>
 <button type="submit" id="rating">Rate</button>
 </form>
 </center>
