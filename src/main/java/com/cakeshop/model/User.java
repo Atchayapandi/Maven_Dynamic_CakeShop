@@ -12,7 +12,6 @@ public class User {
 	private double wallet;
 
 
-
 	public int getUserId() {
 		return userId;
 	}

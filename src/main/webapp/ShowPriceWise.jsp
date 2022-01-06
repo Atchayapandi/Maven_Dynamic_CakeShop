@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <style>
 body{
-background-image:url('assets/Background.png');
+background-image:url('assets/cake2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -21,7 +21,20 @@ table, th, td {
 }
 </style>
 </head>
-<body><%int FromPrice=Integer.parseInt(request.getParameter("fromPrice"));
+<body>
+<div class="topnav" >
+ <a class="active" href="Login.jsp">Login</a>
+  <a href="register.jsp">Register</a>
+  <a href="MyOrders.jsp">My Orders</a>  
+  <a href="categories.jsp">Categories</a> 
+  <a href="SearchPrice.jsp">Price Wise Search</a>
+   <a href="ShowRating.jsp">Ratings</a>
+   <a href="Contact.jsp">Contact</a>
+   <a href="AboutUs.jsp">About</a>  
+   <a href="Home.jsp">LogOut</a>
+</div>
+
+<%int FromPrice=Integer.parseInt(request.getParameter("fromPrice"));
 int ToPrice=Integer.parseInt(request.getParameter("toPrice"));	
 
 ProductDaoImpl productDao=new ProductDaoImpl();

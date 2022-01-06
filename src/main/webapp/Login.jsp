@@ -84,6 +84,22 @@ img {
 	margin-left: 100px;
 	margin-top: -40px;
 }
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
 </style>
 </head>
 <body>
@@ -99,7 +115,7 @@ img {
 		<button type="submit" id="button">Register</button><br><br>
 	</form>
 	            
-				<a href="ForgetPassword.jsp"><i>ForgetPassword</i></a>
+				<a href="ForgetPassword.jsp"><h3><i>Reset My Password</i></h3></a>
 	
 	
 	

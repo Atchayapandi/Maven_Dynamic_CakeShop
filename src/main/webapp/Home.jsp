@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <style>
 body{
-background-image:url('assets/Background.png');
+background-image:url('assets/index3.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -15,7 +15,7 @@ background-size:cover;
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: Gray;
+  background-color: #ED2939;
   overflow: hidden;
 }
 
@@ -37,7 +37,7 @@ background-size:cover;
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: gray;
+  background-color: red;
   color: white;
 }
 </style>

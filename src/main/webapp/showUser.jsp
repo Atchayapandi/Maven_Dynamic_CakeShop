@@ -12,7 +12,7 @@ table, th, td {
   padding: 20px;
 }
 body{
-background-image:url('assets/Background.png');
+background-image:url('assets/cake2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 

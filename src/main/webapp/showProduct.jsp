@@ -11,11 +11,16 @@ table, th, td {
   border-collapse: collapse;
   padding: 20px;
 }
+body{
+background-image:url('assets/cake2.jpg');
+background-repeat:no-repeat;
+background-size:cover;
 
+}
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: Gray;
+  background-color: gray;
   overflow: hidden;
 }
 

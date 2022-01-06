@@ -7,7 +7,7 @@
 <title>Contact</title>
 <style>
 body{
-background-image:url('assets/Background.png');
+background-image:url('assets/contact.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -15,7 +15,7 @@ background-size:cover;
 #box {
 	width: 350px;
 	margin-left: 600px;
-	margin-top: 150px;
+	margin-top: 40px;
 }
 /* Add a black background color to the top navigation */
 .topnav {
@@ -48,24 +48,26 @@ background-size:cover;
 </head>
 <body>
 <div class="topnav" >
-  <a class="active" href="Login.jsp">Login</a>
+ <a class="active" href="Login.jsp">Login</a>
   <a href="register.jsp">Register</a>
-  <a href="Contact.jsp">Contact</a>
-  <a href="AboutUs.jsp">About</a>  
-  <a href="categories.jsp">Categories</a>
+  <a href="MyOrders.jsp">My Orders</a>  
+  <a href="categories.jsp">Categories</a> 
+  <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
-     <a href="Home.jsp">LogOut</a>
+   <a href="Contact.jsp">Contact</a>
+   <a href="AboutUs.jsp">About</a>  
+   <a href="Home.jsp">LogOut</a>
 </div>
 
 <%!ResultSet rs; %>
-<h2><i>For Any Queries Contact Us</i></h2>
+<center><h2><i>For Any Queries Contact Us</i></h2></center>
 <%HelpDaoImpl helpDao = new HelpDaoImpl(); 
 rs=helpDao.showHelp();%>
 <fieldset id="box">
 <%while(rs.next()){%>
 
-<h3><%=rs.getString(1)%></h3>
-<h3><%=rs.getString(2)%></h3>
+<h3>Contact Number : <%=rs.getString(1)%></h3>
+<h3>Email Id : <%=rs.getString(2)%></h3>
 
 <%}%>
 </fieldset>

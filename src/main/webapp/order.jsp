@@ -7,7 +7,7 @@
 <title>order here</title>
 <style>
 body{
-background-image:url('assets/Background.png');
+background-image:url('assets/cake2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -15,7 +15,8 @@ background-size:cover;
 
 #box {
 	width: 350px;
-	margin-left: 600px;
+	margin-left: 0px;
+	margin-right:800px;
 	margin-top: 150px;
 }
 .topnav {
@@ -51,11 +52,13 @@ background-size:cover;
 <div class="topnav" >
   <a class="active" href="Login.jsp">Login</a>
   <a href="register.jsp">Register</a>
-  <a href="Contact.jsp">Contact</a>
-  <a href="AboutUs.jsp">About</a>  
-  <a href="categories.jsp">Categories</a>
+  <a href="MyOrders.jsp">My Orders</a>  
+  <a href="categories.jsp">Categories</a> 
+  <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
-     <a href="Home.jsp">LogOut</a>
+   <a href="Contact.jsp">Contact</a>
+   <a href="AboutUs.jsp">About</a>  
+   <a href="Home.jsp">LogOut</a>
 </div>
 
 	<%int productId=Integer.parseInt(request.getParameter("cakeId")); 

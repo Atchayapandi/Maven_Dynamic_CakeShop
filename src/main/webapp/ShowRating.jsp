@@ -13,7 +13,7 @@ table, th, td {
   padding: 20px;
 }
 body{
-background-image:url('assets/Background.png');
+background-image:url('assets/cake2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -54,22 +54,23 @@ background-size:cover;
 </head>
 <body>
 <div class="topnav" >
-  <a class="active" href="Login.jsp">Login</a>
+ <a class="active" href="Login.jsp">Login</a>
   <a href="register.jsp">Register</a>
-  <a href="Contact.jsp">Contact</a>
-  <a href="AboutUs.jsp">About</a>  
-  <a href="categories.jsp">Categories</a>
+  <a href="MyOrders.jsp">My Orders</a>  
+  <a href="categories.jsp">Categories</a> 
+  <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
-     <a href="Home.jsp">LogOut</a>
-     <a href="MyOrders.jsp">My Orders</a>
+   <a href="Contact.jsp">Contact</a>
+   <a href="AboutUs.jsp">About</a>  
+   <a href="Home.jsp">LogOut</a>
 </div>
 
-<center><h2><b>High Rated Cakes</b></h2></center>
+<h2><b>High Rated Cakes</b></h2>
 <%
 ProductDaoImpl product=new ProductDaoImpl();
 ResultSet rs=product.ShowRating();
 %>
-<table align="center" border="5">
+<table align="left" border="4">
 
 <th><h3>Product Name</h3></th>
 <th><h3>Ratings</h3></th>

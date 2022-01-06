@@ -22,7 +22,7 @@ background-size:cover;
 <body>
 <fieldset id="box"><center>
 <form action="forgetPassword" method="post">
-Password : <input type="text" name="password" pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
+Set New Password : <input type="text" name="password" pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
 Email Id : <input type="Email" name="emailId"><br><br>
 <button type="submit" id="button">Change</button>
 </form></center>

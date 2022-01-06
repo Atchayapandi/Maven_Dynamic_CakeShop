@@ -11,7 +11,7 @@ import java.util.List;
 
 import com.cakeshop.dao.ProductDao;
 import com.cakeshop.model.Products;
-import com.cakeshop.model.User;
+
 
 public class ProductDaoImpl implements ProductDao {
 

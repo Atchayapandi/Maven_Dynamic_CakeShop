@@ -62,7 +62,8 @@ public class UserDaoImpl implements UserDao{
 				ResultSet rs = st.executeQuery(validateQuery);
 				if (rs.next()) {
 					
-					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6),rs.getDouble(7));
+					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), 
+							rs.getString(5),rs.getString(6),rs.getDouble(7));
 					return user;
 				}
 			
@@ -168,9 +169,8 @@ public void update(String update)  {
 
 public  void updatePassword(String newPassword, String emailId) {
 				String updateQuery = "update user_details set password =?  where Email_id=?";
-				Connection con = ConnectionUtil.getDbConnection();
 				try {
-				
+				Connection con = ConnectionUtil.getDbConnection();
 				PreparedStatement pstmt = con.prepareStatement(updateQuery);
 				pstmt.setString(1, newPassword);
 				pstmt.setString(2, emailId);
