@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cakeshop.dao1.HelpDao;
+import com.cakeshop.dao.HelpDao;
 import com.cakeshop.model.Help;
 
 

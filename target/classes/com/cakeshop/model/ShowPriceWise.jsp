@@ -1,33 +1,31 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.cakeshop.dao.impl.ProductDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import ="java.sql.*" import ="com.cakeshop.dao.impl.*"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<style type="text/css">
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-}
+<style>
 body{
 background-image:url('assets/Background.png');
 background-repeat:no-repeat;
 background-size:cover;
 
 }
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+}
 </style>
 </head>
-<body>
+<body><%int FromPrice=Integer.parseInt(request.getParameter("fromPrice"));
+int ToPrice=Integer.parseInt(request.getParameter("toPrice"));	
 
-<form>
-<%!ResultSet rs; %>
-<%
-String categoryname=request.getParameter("categoryname");
-System.out.println(categoryname);
-ProductDaoImpl product=new ProductDaoImpl();
-rs=product.viewCategoryList(categoryname);
+ProductDaoImpl productDao=new ProductDaoImpl();
+ResultSet rs=productDao.filterPrice(FromPrice,ToPrice);
 %>
 <table>
 <tr>
@@ -51,7 +49,6 @@ rs=product.viewCategoryList(categoryname);
 </tr>
 <%} %>
 </table>
-</form>
 
 </body>
 </html>

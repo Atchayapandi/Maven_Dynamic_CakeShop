@@ -6,89 +6,76 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.cakeshop.dao1.WalletDao;
+import com.cakeshop.dao.WalletDao;
 import com.cakeshop.model.User1;
 
-public class WalletDaoImpl implements WalletDao{
+public class WalletDaoImpl implements WalletDao {
 
-	//get wallet balance:
-	public int walletbal(int userId) 
-	{
-		
+	// get wallet balance:
+	public int walletbal(int userId) {
+
 		String query = "select user_wallet from user_details  where user_id = ?";
-		Connection con=ConnectionUtil.getDbConnection();
-	
-		
-		int user_wallet=0;		
+		Connection con = ConnectionUtil.getDbConnection();
+		int user_wallet = 0;
 		try {
-			PreparedStatement statement=con.prepareStatement(query);
-				statement.setInt(1,userId);
-		ResultSet rs = statement.executeQuery();
-		if(rs.next()) {
-			  
-				user_wallet=rs.getInt(1);
-				
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setInt(1, userId);
+			ResultSet rs = statement.executeQuery();
+			if (rs.next()) {
+				user_wallet = rs.getInt(1);
 				return user_wallet;
-		}}
-		catch (SQLException e) {
+			}
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
 
 		return user_wallet;
 	}
 
 //update wallet balance:
-	public void updatewallet(double amount,int userid){
-		
+	public void updatewallet(double amount, int userid) {
+
 		Connection con = ConnectionUtil.getDbConnection();
 		String query = "update user_details set user_wallet = ? where user_id = ?";
-		PreparedStatement statement=null;
-		try {			
-		statement= con.prepareStatement(query);
-		statement.setDouble(1,amount);
-		statement.setInt(2, userid);		
-		 int i=statement.executeUpdate();
-		 
-		 statement.close();
-		 con.close();
-		}catch (SQLException e) {
+		PreparedStatement statement = null;
+		try {
+			statement = con.prepareStatement(query);
+			statement.setDouble(1, amount);
+			statement.setInt(2, userid);
+			int i = statement.executeUpdate();
+
+			statement.close();
+			con.close();
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 
 	}
- public int rechargeWallet(String user){
-		
+// Recharge wallet
+	public int rechargeWallet(String user) {
+
 		Connection con = ConnectionUtil.getDbConnection();
 		String query = "update user_details set user_wallet =(user_wallet+10000) where user_name = ?";
-		PreparedStatement statement=null;
-		try {			
-		statement= con.prepareStatement(query);
-		statement.setString(1,user);
-		
-		 int i=statement.executeUpdate();
-		 
-		 if(i>0) {
-			 System.out.println("wallet Updated");
-			 return 1;
-		 }
-		
-		}catch (SQLException e) {
+		PreparedStatement statement = null;
+		try {
+			statement = con.prepareStatement(query);
+			statement.setString(1, user);
+
+			int i = statement.executeUpdate();
+
+			if (i > 0) {
+				System.out.println("wallet Updated");
+				return 1;
+			}
+
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("wallet not updated!!!");
-     return -1;
+
+		return -1;
 	}
-	
-	
-	
 
-	
-
-	
-	
 }

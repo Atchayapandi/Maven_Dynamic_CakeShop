@@ -3,7 +3,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import com.cakeshop.dao1.AdminDao;
+
+import com.cakeshop.dao.AdminDao;
 import com.cakeshop.model.User;
 
 public class AdminDaoImpl implements AdminDao{

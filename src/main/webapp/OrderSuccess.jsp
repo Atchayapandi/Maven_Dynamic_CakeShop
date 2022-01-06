@@ -12,10 +12,10 @@ table, th, td {
   padding: 20px;
 }
 body{
-background-image:url(https://media.istockphoto.com/photos/wedding-cake-picture-id665215462?k=20&m=665215462&s=612x612&w=0&h=U6JcgmSDp3ryYtSSJ1h9YE6fUQoBC5iLvoLE69qNfLk=);
+background-image:url('assets/Background.png');
 background-repeat:no-repeat;
 background-size:cover;
-color:white;
+
 }
 /* Add a black background color to the top navigation */
 .topnav {

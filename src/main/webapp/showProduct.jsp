@@ -11,6 +11,8 @@ table, th, td {
   border-collapse: collapse;
   padding: 20px;
 }
+
+
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: Gray;
@@ -38,9 +40,6 @@ table, th, td {
   background-color: gray;
   color: white;
 }
-
-
-
 </style>
 
 <meta charset="ISO-8859-1">
@@ -53,15 +52,13 @@ table, th, td {
   <a href="register.jsp">Register</a>
   <a href="MyOrders.jsp">My Orders</a>  
   <a href="categories.jsp">Categories</a> 
+  <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
    
 </div>
-
-
-
 <form>
 
 <%

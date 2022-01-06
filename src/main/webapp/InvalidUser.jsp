@@ -7,10 +7,10 @@
 <title>Invalid Login</title>
 <style>
 body{
-background-image:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/rotating-cake-with-lights-in-background_z1cddzbzs_thumbnail-1080_01.png);
+background-image:url('assets/Background.png');
 background-repeat:no-repeat;
 background-size:cover;
-color:white;
+
 }
 
 #box{

@@ -6,11 +6,13 @@
 <meta charset="ISO-8859-1">
 <title>rating added</title>
 <style>
+
 body{
-background-image:url(https://image.freepik.com/free-photo/top-view-delicious-cake-arrangement_23-2148933608.jpg);
+background-image:url('assets/Background.png');
 background-repeat:no-repeat;
 background-size:cover;
-color:white;
+
+}
 
 }
 h3{

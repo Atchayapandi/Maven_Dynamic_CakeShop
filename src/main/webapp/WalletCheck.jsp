@@ -5,16 +5,29 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Wallet check</title>
+<style type="text/css">
+#box{
+width:350px;
+margin-left:600px;
+margin-top:250px;
+}
+body{
+background-image:url('assets/Background.png');
+background-repeat:no-repeat;
+background-size:cover;
+
+}
+</style>
 </head>
 <body>
-
+<fieldset id="box"><center>
 <h2>Your Wallet Amount is low Please Recharge </h2>
 <form action="walletcheck">
 <button type="submit" id="button">Pay</button>
-</form>
+</form><br>
 <form action="Home.jsp">
 <button type="submit" id="button">Pay Later</button>
-</form>
-
+</form></center>
+</fieldset>
 </body>
 </html>

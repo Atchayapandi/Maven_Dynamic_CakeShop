@@ -6,22 +6,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.cakeshop.dao1.UserRatingDao;
+import com.cakeshop.dao.UserRatingDao;
 
 public class UserRatingDaoImpl implements UserRatingDao{
 	
 	public void updateRating(int rating,int proId){
 		String updateQuery="update product_details set rating=? where cake_Id=?";
 	
-		Connection con=ConnectionUtil.getDbConnection();
-				
+		Connection con=ConnectionUtil.getDbConnection();				
 		PreparedStatement pstmt=null;
 		try {
 			pstmt = con.prepareStatement(updateQuery);
 			pstmt.setInt(1,rating);
 			pstmt.setInt(2, proId);			
 			pstmt.executeUpdate();
-			//System.out.println("Rating Updated successfully");
+			
 			pstmt.close();
 			con.close();
 		} catch (SQLException e) {

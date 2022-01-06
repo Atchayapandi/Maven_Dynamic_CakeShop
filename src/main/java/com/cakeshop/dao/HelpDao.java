@@ -1,4 +1,4 @@
-package com.cakeshop.dao1;
+package com.cakeshop.dao;
 
 import java.sql.ResultSet;
 

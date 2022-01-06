@@ -1,4 +1,4 @@
-package com.cakeshop.dao1;
+package com.cakeshop.dao;
 
 import java.sql.ResultSet;
 
@@ -10,12 +10,10 @@ public interface CartDao {
 
 	public ResultSet viewCart();
 
-	public void updateCart(String updateCart);
-
 	public void deleteCart(String delete);
-
-	public int findCartId(int cart);
-
+ 
+	public ResultSet viewUserCart(int userId);
 	
+
 
 }

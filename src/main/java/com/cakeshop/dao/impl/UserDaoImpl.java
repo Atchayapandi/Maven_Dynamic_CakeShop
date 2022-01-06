@@ -9,7 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import com.cakeshop.dao1.UserDao;
+
+import com.cakeshop.dao.UserDao;
 import com.cakeshop.model.Cart;
 import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
@@ -25,26 +26,24 @@ public class UserDaoImpl implements UserDao{
 			 
 			PreparedStatement pst = null;
 			try {
-				System.out.println("hi");
-				Class.forName("oracle.jdbc.OracleDriver");
-			//	String url = "jdbc:oracle:thin:@localhost:1521:xe";
-				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "oracle");
-				 System.out.println(con);
+				
+				ConnectionUtil conUtil = new ConnectionUtil();
+				Connection con = conUtil.getDbConnection();
+				 
 				 pst = con.prepareStatement(insertQuery);
 					pst.setString(1, user.getUserName());
 					pst.setString(2, user.getEmailId());
 					pst.setString(3, user.getPassword());
 					pst.setString(4, user.getAddress());
 					pst.executeUpdate();
-					System.out.println("Value inserted Successfully");
+					
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		
 
-			//ConnectionUtil conUtil = new ConnectionUtil();
-			//Connection con = conUtil.getDbConnection();
+			
 			
 
 			
@@ -62,7 +61,7 @@ public class UserDaoImpl implements UserDao{
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(validateQuery);
 				if (rs.next()) {
-					System.out.println(rs.getString(2));
+					
 					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6),rs.getDouble(7));
 					return user;
 				}
@@ -86,7 +85,6 @@ public class UserDaoImpl implements UserDao{
 			String selectQuery = "select * from user_details where role='user'";
 
 			ResultSet rs=null;	
-
 			try {
 				Statement stmt = con.createStatement();
 				 rs = stmt.executeQuery(selectQuery);
@@ -101,7 +99,7 @@ public class UserDaoImpl implements UserDao{
 		
 		
 
-	//update user
+//update user
 @Override
 public void update(String update)  {
 			String updateQuery = "update user_details set password=?  where Email_id=?";
@@ -113,7 +111,7 @@ public void update(String update)  {
 			pstmt.setString(1, update.split(",")[0]);
 			pstmt.setString(2, update.split(",")[1]);
 			int i = pstmt.executeUpdate();
-			System.out.println(i + "row updated");
+			
 			pstmt.close();
 			con.close();
 	      }catch (SQLException e) {
@@ -121,8 +119,8 @@ public void update(String update)  {
 			}
 		}
 
-	//delete method
-@Override
+//delete method
+        @Override
 		public void deletedetails(String delete)  {
 			String deleteQuery = "delete from user_details where Email_id=?";
 
@@ -131,7 +129,7 @@ public void update(String update)  {
 			PreparedStatement pstmt = con.prepareStatement(deleteQuery);
 			pstmt.setString(1, delete);
 			int i = pstmt.executeUpdate();
-			System.out.println(i + "row deleted");
+			
 			pstmt.close();
 			con.close();
 			}catch (SQLException e) {
@@ -170,14 +168,15 @@ public void update(String update)  {
 
 public  void updatePassword(String newPassword, String emailId) {
 				String updateQuery = "update user_details set password =?  where Email_id=?";
-				try {
 				Connection con = ConnectionUtil.getDbConnection();
+				try {
+				
 				PreparedStatement pstmt = con.prepareStatement(updateQuery);
 				pstmt.setString(1, newPassword);
 				pstmt.setString(2, emailId);
-				System.out.println("hii");
+				
 				int i = pstmt.executeUpdate();
-				System.out.println(i + "row updated");
+				
 				pstmt.close();
 				con.close();
 				}catch(SQLException e) {

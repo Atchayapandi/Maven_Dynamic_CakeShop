@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cakeshop.dao1.CartDao;
-import com.cakeshop.dao1.ProductDao;
+import com.cakeshop.dao.CartDao;
+import com.cakeshop.dao.ProductDao;
 import com.cakeshop.model.Cart;
 import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
@@ -57,8 +57,7 @@ public class CartDaoImpl implements CartDao {
 		try {
 			Statement stmt = con.createStatement();
 			 rs = stmt.executeQuery(query);
-			
-			
+					
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -66,24 +65,7 @@ public class CartDaoImpl implements CartDao {
 		return rs;
 	}
 
-	// update cart
-	public  void updateCart(String updateCart) {
-		String updateQuery = "update cart_items set order_quantity =? where cart_id=?";
-      
-		try {
-		Connection con = ConnectionUtil.getDbConnection();
-		PreparedStatement pstmt = con.prepareStatement(updateQuery);
-		pstmt.setInt(1, Integer.parseInt(updateCart.split(",")[0]));
-		pstmt.setInt(2, Integer.parseInt(updateCart.split(",")[1]));
-		int i = pstmt.executeUpdate();
-		System.out.println(i + "row updated");
-		pstmt.close();
-		con.close();
-		}catch(SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 
 	// delete cart
 
@@ -106,33 +88,7 @@ public class CartDaoImpl implements CartDao {
 		}
 	}
 
-// find cart id		
 
-	public  int findCartId(int cart) {
-		String query = "select cart_id from product_details where user_id=?";
-
-		Connection con = ConnectionUtil.getDbConnection();
-		int cartId = 0;
-		try {
-			PreparedStatement pre = con.prepareStatement(query);
-			pre.setInt(1, cartId);
-			ResultSet rs = pre.executeQuery(query);
-			if (rs.next()) {
-				cartId = rs.getInt(1);
-			}
-			System.out.println(cartId);
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return cartId;
-
-	}
-	
-	
-	
 	public ResultSet viewUserCart(int userId) {
 		String query = "select Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=?";
 		
