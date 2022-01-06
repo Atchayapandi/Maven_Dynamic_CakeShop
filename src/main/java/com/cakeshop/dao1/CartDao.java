@@ -16,8 +16,6 @@ public interface CartDao {
 
 	public int findCartId(int cart);
 
-	public int walletbal(int id);
-
-	public int updatewallet(int amount, int userid);
+	
 
 }

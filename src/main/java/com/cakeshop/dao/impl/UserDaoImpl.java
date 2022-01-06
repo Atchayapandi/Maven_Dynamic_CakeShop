@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao{
 	//validate user method
 	@Override
 		public  User validateUser(String EmailId, String password) {
-			String validateQuery = "select * from user_details where Email_id='" + EmailId
+			String validateQuery = "select * from user_details where Email_id='" + EmailId 
 					+ "'and password='" + password + "'";
 
 			Connection con = ConnectionUtil.getDbConnection();
@@ -66,7 +66,7 @@ public class UserDaoImpl implements UserDao{
 					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6),rs.getDouble(7));
 					return user;
 				}
-			//	System.out.println("UserNMAE"+user.getUserName());
+			
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -167,46 +167,7 @@ public void update(String update)  {
 		}
 		
 		
-//		//get wallet balance:
-//			public  ResultSet walletbal(String name) 
-//			{
-//				ResultSet rs=null;
-//				try {
-//				Connection con = ConnectionUtil.getDbConnection();
-//				System.out.println(name);
-//				String query = "select user_wallet from user_details where user_name = ?";
-//				PreparedStatement statement = con.prepareStatement(query);
-//				statement.setString(1, name);
-//				 rs = statement.executeQuery();		
-//				
-//				}catch (SQLException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				return rs;
-//			}
-	//
-//		//update wallet balance:
-//			public int updatewallet(int amount,int userid) {
-//				
-//				Connection con = ConnectionUtil.getDbConnection();
-//				int res=0;
-//				try {
-//				String query = "update user_details set user_wallet = ? where user_id = ?";
-//				PreparedStatement statement = con.prepareStatement(query);
-//				statement.setInt(1,amount);
-//				statement.setInt(2, userid);
-//				//statement.executeUpdate("commit");
-//				 res = statement.executeUpdate();
-//				}catch (SQLException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-	//
-//				}
-	//
-//				return res;	
-	//
-//			}
+
 public  void updatePassword(String newPassword, String emailId) {
 				String updateQuery = "update user_details set password =?  where Email_id=?";
 				try {
@@ -226,11 +187,7 @@ public  void updatePassword(String newPassword, String emailId) {
 				
 			}
 
-//			@Override
-//			public ResultSet walletbal(int id) {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
+
 			
 			
 		

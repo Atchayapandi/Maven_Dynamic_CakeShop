@@ -255,18 +255,41 @@ public  ResultSet viewCategoryList(String categoryname)
 	
 }
 
-	@Override
-	public void updateProduct(String updateProduct) {
-		// TODO Auto-generated method stub
+public  ResultSet filterPrice(int min,int max)
+{
+	String query="select cake_name from product_details where cake_price between "+min+"and"+max;
+	
+	Connection con=ConnectionUtil.getDbConnection();
+	PreparedStatement stmt;	
+	ResultSet rs=null;
+	try {
 		
-	}
+		stmt=con.prepareStatement(query);		
+		rs=stmt.executeQuery();
+		return rs;
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}		
+	
+	return rs;
+	
+}
 
-	@Override
-	public void deleteProduct(String delete) {
-		// TODO Auto-generated method stub
-		
-	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	
 	
 	

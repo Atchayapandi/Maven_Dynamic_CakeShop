@@ -7,13 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.cakeshop.dao1.WalletDao;
+import com.cakeshop.model.User1;
 
 public class WalletDaoImpl implements WalletDao{
 
 	//get wallet balance:
 	public int walletbal(int userId) 
 	{
-		//System.out.println(userId);
+		
 		String query = "select user_wallet from user_details  where user_id = ?";
 		Connection con=ConnectionUtil.getDbConnection();
 	
@@ -26,7 +27,7 @@ public class WalletDaoImpl implements WalletDao{
 		if(rs.next()) {
 			  
 				user_wallet=rs.getInt(1);
-				//System.out.println(user_wallet);
+				
 				return user_wallet;
 		}}
 		catch (SQLException e) {
@@ -59,6 +60,32 @@ public class WalletDaoImpl implements WalletDao{
 		
 
 	}
+ public int rechargeWallet(String user){
+		
+		Connection con = ConnectionUtil.getDbConnection();
+		String query = "update user_details set user_wallet =(user_wallet+10000) where user_name = ?";
+		PreparedStatement statement=null;
+		try {			
+		statement= con.prepareStatement(query);
+		statement.setString(1,user);
+		
+		 int i=statement.executeUpdate();
+		 
+		 if(i>0) {
+			 System.out.println("wallet Updated");
+			 return 1;
+		 }
+		
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("wallet not updated!!!");
+     return -1;
+	}
+	
+	
+	
 
 	
 

@@ -6,8 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UserRatingDaoImpl {
-	public static void updateRating(int rating,int proId){
+import com.cakeshop.dao1.UserRatingDao;
+
+public class UserRatingDaoImpl implements UserRatingDao{
+	
+	public void updateRating(int rating,int proId){
 		String updateQuery="update product_details set rating=? where cake_Id=?";
 	
 		Connection con=ConnectionUtil.getDbConnection();
@@ -27,7 +30,7 @@ public class UserRatingDaoImpl {
 		}
 		
 	}
-	public static int findRating(String proName)
+	public  int findRating(String proName)
 	{
 		String findRating="select rating from product_details where cake_name='"+proName+"'";
 		Connection con=ConnectionUtil.getDbConnection();

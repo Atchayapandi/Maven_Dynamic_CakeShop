@@ -6,10 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.cakeshop.dao1.HelpDao;
 import com.cakeshop.model.Help;
 
 
-public class HelpDaoImpl {
+public class HelpDaoImpl implements HelpDao{
 
 	public ResultSet showHelp() {
 		
@@ -34,9 +36,6 @@ public class HelpDaoImpl {
 
 		
 	}
-	
-	
-	
 	
 	
 }

@@ -27,11 +27,7 @@ public class Rating extends HttpServlet {
 		int oldRating=UserRatingDao.findRating(cakeName);
 		int rating=oldRating+newRating;			
 		
-		System.out.println(newRating);
-		System.out.println(cakeName);
-		System.out.println(oldRating);
-		System.out.println(rating);
-		
+	
 		UserRatingDao.updateRating(rating,c_id);
 		response.sendRedirect("ratingsuccess.jsp");
 		

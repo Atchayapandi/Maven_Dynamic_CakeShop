@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import com.cakeshop.dao.impl.AdminDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
+import com.cakeshop.dao.impl.WalletDaoImpl;
+import com.cakeshop.exception.InvalidUserException;
 import com.cakeshop.model.User;
 
 /**
@@ -24,6 +26,7 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 
 		PrintWriter pw = response.getWriter();
 		HttpSession session=request.getSession();
@@ -35,7 +38,7 @@ public class Login extends HttpServlet {
 		System.out.println(currentUser);
 		
 		
-		
+		if(currentUser!=null) {
 		UserDaoImpl user=new UserDaoImpl();
 		int userId=currentUser.getUserId();
 		session.setAttribute("userId", userId);
@@ -47,9 +50,7 @@ public class Login extends HttpServlet {
 		System.out.println(userRole);
 		
 		
-		System.out.println(EmailId+password+currentUser.getUserName());
-		session.setAttribute("CurrentUser1", currentUser.getUserName());
-	
+		
 		
 		if (userRole.equals("Admin")) {
 			
@@ -60,11 +61,33 @@ public class Login extends HttpServlet {
 			
 		} else if (userRole.equals("user")) {
 			
+			session.setAttribute("CurrentUser1", currentUser.getUserName());
 			System.out.println(EmailId+password+currentUser.getUserName());
 			session.setAttribute("CurrentUser1", currentUser.getUserName());
+		
+			WalletDaoImpl WalletBal=new WalletDaoImpl();
+			int WalletBal1=WalletBal.walletbal(userId);
+			
+			
+			if(WalletBal1>1000) {			
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("showProduct.jsp");
 			requestDispatcher.forward(request, response);
-
+			
+			}else {
+				response.sendRedirect("WalletCheck.jsp");
+			}
+		}
+		}
+		
+		else{
+			try {
+				
+			throw new InvalidUserException();
+		
+			}catch(InvalidUserException e) {
+				String validate=e.getMessage();
+				response.sendRedirect(validate);
+			}
 		}
 
 	}

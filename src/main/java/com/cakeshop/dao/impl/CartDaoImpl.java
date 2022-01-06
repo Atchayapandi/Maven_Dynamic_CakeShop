@@ -156,18 +156,7 @@ public class CartDaoImpl implements CartDao {
 		
 	}
 
-	@Override
-	public int walletbal(int id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int updatewallet(int amount, int userid) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	
 }	
 
 	
