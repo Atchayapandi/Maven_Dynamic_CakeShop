@@ -59,6 +59,11 @@ background-size:cover;
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
+   
+   <%double wallet=(double)session.getAttribute("wallbal"); %>
+<h3><i> Wallet Amount : <%=wallet %></i></h3>
+   
+   
 </div>
 
 	<%int productId=Integer.parseInt(request.getParameter("cakeId")); 
@@ -73,16 +78,14 @@ background-size:cover;
 	ProductDaoImpl productDao =new ProductDaoImpl();
 	ResultSet rs=productDao.findPrice(productId);
 	
-	String userName=(String)session.getAttribute("CurrentUser1");
-	
-	
+	String userName=(String)session.getAttribute("CurrentUser1");	
 	
 	UserDaoImpl userDao =new UserDaoImpl();    
 	int userId=userDao.findUserId(userName);
 	session.setAttribute("UserId", userId);
-	%>
-	<center>
+	%>	
 	
+	<center>	
 		<fieldset id="box">
 			<form action="Order" method="post">
 			<%if(rs.next()){
@@ -91,13 +94,27 @@ background-size:cover;
 			<h1><%double price=rs.getDouble(4);%></h1>
 			<h3>Price :<%= price%></h3><br>	
 			<%session.setAttribute("Price", price); %>		
-				Quantity:<input type="number" name="quantity" pattern="[0-9]{2}"><br>
-				<br> city:<input type="text" name="city" ><br><br>				
-				     orderDate : <input type="date" name="orderDate"><br><br>				
+				Quantity:<input type="number" name="quantity" pattern="[0-9]{2}"><br><br>							
+				     orderDate : <input type="date" id="datefield"  name="orderDate" ><br><br>				
 				<button type="submit" id="button">Buy</button>
 				<%} %>
 			</form>
 		</fieldset>
 	</center>
 </body>
+<script type="text/javascript">
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+if(dd<10){
+  dd='0'+dd
+} 
+if(mm<10){
+  mm='0'+mm
+} 
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield").setAttribute("min", today);
+</script>
+
 </html>

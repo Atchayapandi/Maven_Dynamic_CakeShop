@@ -59,15 +59,30 @@ background-size:cover;
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
+   
+   <%double wallet=(double)session.getAttribute("wallbal"); %>
+<h3><i> Wallet Amount : <%=wallet %></i></h3>
+   
+   
 </div>
 <center><h1>Your Order is Placed Successfully!! Thank You!!</h1>
 <h2><i>Your Payment Is Debited from Your Wallet</i></h2>
+
+
+
+<%double totalprice=(double) session.getAttribute("totalprice"); %>
+<h2><i>Your Total Amount  : <%=totalprice %></i></h2>
+
+<%double wallet1=(double)session.getAttribute("wallbal"); %>
+<h2><i> Your Revised Wallet Amount : <%=wallet1 %></i></h2>
+
+
+
 <form action="Rating" method="post">
-<h3>please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]{5}"></h3>
+<h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]{5}"></h3>
 <button type="submit" id="rating">Rate</button>
 </form>
 </center>
-
 <%
 ProductDaoImpl product=new ProductDaoImpl();
 ResultSet rs=product.ShowRating();

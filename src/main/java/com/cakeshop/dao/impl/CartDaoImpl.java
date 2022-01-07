@@ -43,6 +43,37 @@ public class CartDaoImpl implements CartDao {
 		}
 
 	}
+	
+public boolean insertCart1(Cart cart) {
+		
+
+		String insert = "INSERT INTO CART_ITEMS (CAKE_ID,USER_ID,ORDER_QUANTITY,TOTAL_PRICE,order_date) VALUES(?,?,?,?,?) ";
+
+		ConnectionUtil conUtil = new ConnectionUtil();
+		Connection con = conUtil.getDbConnection();
+		PreparedStatement pst = null;
+
+		try {
+			
+			pst = con.prepareStatement(insert);
+			pst.setInt(1, cart.getProductId());
+			pst.setInt(2, cart.getUserId());
+			pst.setInt(3, cart.getQuantity());
+			pst.setDouble(4, cart.getTotalPrice());
+			pst.setDate(5, java.sql.Date.valueOf(cart.getOrderDate()));
+			pst.executeUpdate();
+			return true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.err.println("Value not inserted in the table");
+		}
+		return false;
+
+	}
+	
+		
 
 //view cart items
 

@@ -58,9 +58,9 @@ background-size:cover;
 <h2><i>Search by Price</i></h2>
 <form action="ShowPriceWise.jsp" method="post" >
 <i>From Price</i>
-<input type="number" name="fromPrice"><br><br>
+<input type="number" name="fromPrice" pattern="[0-9]" required><br><br>
 <i>To Price</i>
-<input type="number" name="toPrice">
+<input type="number" name="toPrice" pattern="[0-9]" required><br>
 <button type="submit" name="button">submit</button>
 </form></center>
 </fieldset>

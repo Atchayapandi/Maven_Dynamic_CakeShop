@@ -14,10 +14,8 @@ import com.cakeshop.dao.impl.UserRatingDaoImpl;
  * Servlet implementation class Rating
  */
 @WebServlet("/Rating")
-public class Rating extends HttpServlet {
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+public class Rating extends HttpServlet {	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		HttpSession session=request.getSession();
 		
 		int newRating=Integer.parseInt(request.getParameter("Rating"));

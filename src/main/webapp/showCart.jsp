@@ -12,7 +12,7 @@ table, th, td {
   padding: 20px;
 }
 body{
-background-image:url('assets/cake2.jpg');
+background-image:url('assets/Background.png');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -34,23 +34,23 @@ ResultSet rs=cartDao.viewCart();
 <table align="center">
 
 <tr>
-<th>cart Id</th>
-<th>product Id</th>
-<th>User Id</th>
-<th>order quantity</th>
-<th>total price</th>
-<th>order date</th>
+<th style=color:block>CART ID</th>
+<h3><th style=color:block>PRODUCT ID</th></h3>
+<h3><th style=color:block>USER ID</th></h3>
+<h3><th style=color:block>ORDER QUANTITY</th></h3>
+<h3><th style=color:block>TOTAL PRICE</th></h3>
+<h3><th style=color:block>ORDER DATE</th></h3>
 
 </tr>
 
 <% while(rs.next()){%>
 <tr>
-<td><%= rs.getInt(1) %></td>
-<td><%= rs.getInt(2) %></td>
-<td><%= rs.getInt(3) %></td>
-<td><%= rs.getInt(4) %></td>
-<td><%= rs.getDouble(5) %></td>
-<td><%= rs.getDate(6) %></td>
+<td style=color:white><%= rs.getInt(1) %></td>
+<td style=color:white><%= rs.getInt(2) %></td>
+<td style=color:white><%= rs.getInt(3) %></td>
+<td style=color:white><%= rs.getInt(4) %></td>
+<td style=color:white><%= rs.getDouble(5) %></td>
+<td style=color:white><%= rs.getDate(6) %></td>
 
 </tr>
 <%} %>

@@ -48,14 +48,8 @@ margin-top:250px;
 <body>
 <div class="topnav" >
  <a class="active" href="Login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
-  <a href="MyOrders.jsp">My Orders</a>  
-  <a href="categories.jsp">Categories</a> 
-  <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>
-   <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>  
-   <a href="Home.jsp">LogOut</a>
+  <a href="register.jsp">Register</a>   
+   <a href="Home.jsp">Return To Home</a>
 </div>
 <p>
 <h2>

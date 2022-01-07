@@ -47,7 +47,11 @@ margin-top:250px;
   background-color: gray;
   color: white;
 }
+h2{
 
+margin-top:200px;
+margin-left:500px;
+}
 
 </style>
 </head>
@@ -62,9 +66,14 @@ margin-top:250px;
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
+   
+    <%double wallet=(double)session.getAttribute("wallbal"); %>
+<h3><i> Wallet Amount : <%=wallet %></i></h3>
+   
+   
 </div>
 
-<h3><i>Your Rating Was Added Successfully!!..</i></h3>
+<h2><i>Your Rating Was Added Successfully!!..</i></h2>
 
 </body>
 </html>

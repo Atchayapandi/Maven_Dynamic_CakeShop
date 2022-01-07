@@ -95,10 +95,7 @@ public class UserDaoImpl implements UserDao{
 			}
 
 			return rs;
-		}
-		
-		
-		
+		}		
 
 //update user
 @Override

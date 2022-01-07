@@ -32,6 +32,10 @@ table, th, td {
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
+   
+    <%double wallet=(double)session.getAttribute("wallbal"); %>
+<h3><i> Wallet Amount : <%=wallet %></i></h3>
+   
 </div>
 
 <%int FromPrice=Integer.parseInt(request.getParameter("fromPrice"));

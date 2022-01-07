@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Home Page</title>
 <style>
 body{
 background-image:url('assets/index3.jpeg');

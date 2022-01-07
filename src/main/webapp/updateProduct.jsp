@@ -24,7 +24,7 @@ background-size:cover;
 <body>
 <fieldset id="box"><center>
 <form action="updateProduct" method="post">
-Cake Price:<input type="number" name="cakePrice"><br><br>
+New Cake Price:<input type="number" name="cakePrice"><br><br>
 Cake Name:<input type="text"  name="cakeName"><br><br>
 <button type="submit" id="button">submit</button>
 
