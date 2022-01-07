@@ -35,23 +35,19 @@ public class Login extends HttpServlet {
 
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser = userDao.validateUser(EmailId, password);
-		System.out.println(currentUser);
+		
 		
 		
 		if(currentUser!=null) {
 		UserDaoImpl user=new UserDaoImpl();
 		int userId=currentUser.getUserId();
 		session.setAttribute("userId", userId);
-		System.out.println(userId);
+		
 		session.setAttribute("CurrentUser",currentUser);
 		session.setAttribute("CurrentUser", currentUser.getEmailId());
 		
 		String userRole=currentUser.getRole();
-		System.out.println(userRole);
-		
-		
-		
-		
+				
 		if (userRole.equals("Admin")) {
 			
 			AdminDaoImpl admin=new AdminDaoImpl();
@@ -62,7 +58,7 @@ public class Login extends HttpServlet {
 		} else if (userRole.equals("user")) {
 			
 			session.setAttribute("CurrentUser1", currentUser.getUserName());
-			System.out.println(EmailId+password+currentUser.getUserName());
+			
 			session.setAttribute("CurrentUser1", currentUser.getUserName());
 		
 			WalletDaoImpl WalletBal=new WalletDaoImpl();

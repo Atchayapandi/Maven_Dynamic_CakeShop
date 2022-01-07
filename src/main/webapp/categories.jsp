@@ -53,8 +53,7 @@ background-size:cover;
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
    
-    <%double wallet=(double)session.getAttribute("wallbal"); %>
-<h3><i> Wallet Amount : <%=wallet %></i></h3>
+   
    
    
 </div>

@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.cakeshop.dao.CartDao;
@@ -142,6 +144,42 @@ public boolean insertCart1(Cart cart) {
 		return rs;
 		
 	}
+	
+//filter sales	
+	public ResultSet filterSales(LocalDate min, LocalDate max) {
+		String query = "select * from  cart_items where order_date between ? and ? ";
+
+		Connection con = ConnectionUtil.getDbConnection();
+		PreparedStatement stmt;
+		ResultSet rs = null;
+		try {
+			stmt = con.prepareStatement(query);			
+			stmt.setDate(1, java.sql.Date.valueOf(min));
+			stmt.setDate(2, java.sql.Date.valueOf(max));
+			rs = stmt.executeQuery();
+			return rs;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return rs;
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 }	

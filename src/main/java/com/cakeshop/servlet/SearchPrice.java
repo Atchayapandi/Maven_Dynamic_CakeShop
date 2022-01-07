@@ -21,7 +21,7 @@ public class SearchPrice extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub	
 		
-		System.out.println("hii");
+		
 		int FromPrice=Integer.parseInt(request.getParameter("fromPrice"));
 		int ToPrice=Integer.parseInt(request.getParameter("toPrice"));	
 		

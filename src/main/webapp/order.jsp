@@ -50,8 +50,7 @@ background-size:cover;
 </head>
 <body>
 <div class="topnav" >
-  <a class="active" href="Login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
+ 
   <a href="MyOrders.jsp">My Orders</a>  
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
@@ -59,11 +58,6 @@ background-size:cover;
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
-   
-   <%double wallet=(double)session.getAttribute("wallbal"); %>
-<h3><i> Wallet Amount : <%=wallet %></i></h3>
-   
-   
 </div>
 
 	<%int productId=Integer.parseInt(request.getParameter("cakeId")); 
@@ -104,7 +98,7 @@ background-size:cover;
 </body>
 <script type="text/javascript">
 var today = new Date();
-var dd = today.getDate();
+var dd = today.getDate()+5;
 var mm = today.getMonth()+1; 
 var yyyy = today.getFullYear();
 if(dd<10){

@@ -50,8 +50,7 @@ public class Register extends HttpServlet {
 		String password=request.getParameter("password");
 		String address=request.getParameter("address");		
 		
-		System.out.println(userName);
-		System.out.println(EmailId);
+		
 	    UserDaoImpl userDao=new UserDaoImpl();	    
 		User1 user=new User1(userName,EmailId,password,address);		
 	    userDao.insertUser(user);

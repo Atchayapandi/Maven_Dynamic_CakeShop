@@ -53,8 +53,7 @@ background-size:cover;
 <body>
 
 <div class="topnav" >
-  <a class="active" href="Login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
+ 
   <a href="MyOrders.jsp">My Orders</a>  
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
@@ -74,7 +73,7 @@ ResultSet rs=product.showProduct();
 %>
 <table>
 <tr>
-<th> cake</th>
+<th> CAKE </th>
 <th>Product Name</th>
 <th>Product Description</th>
 <th>Product price</th>

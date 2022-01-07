@@ -23,8 +23,7 @@ table, th, td {
 </head>
 <body>
 <div class="topnav" >
- <a class="active" href="Login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
+ 
   <a href="MyOrders.jsp">My Orders</a>  
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
@@ -33,8 +32,7 @@ table, th, td {
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
    
-    <%double wallet=(double)session.getAttribute("wallbal"); %>
-<h3><i> Wallet Amount : <%=wallet %></i></h3>
+    
    
 </div>
 

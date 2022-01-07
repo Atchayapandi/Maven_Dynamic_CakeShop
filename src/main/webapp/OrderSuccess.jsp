@@ -50,8 +50,7 @@ background-size:cover;
 </head>
 <body>
 <div class="topnav" >
-  <a class="active" href="Login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
+  
   <a href="MyOrders.jsp">My Orders</a>  
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
@@ -71,7 +70,7 @@ background-size:cover;
 
 
 <%double totalprice=(double) session.getAttribute("totalprice"); %>
-<h2><i>Your Total Amount  : <%=totalprice %></i></h2>
+<h2><i>Your Total Amount is : <%=totalprice %></i></h2>
 
 <%double wallet1=(double)session.getAttribute("wallbal"); %>
 <h2><i> Your Revised Wallet Amount : <%=wallet1 %></i></h2>
@@ -103,16 +102,6 @@ ResultSet rs=product.ShowRating();
 <%} %>
 
 </table>
-
-
-
-
-
-
-
-
-
-
 
 
 </body>

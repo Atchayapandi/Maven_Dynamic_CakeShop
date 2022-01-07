@@ -47,7 +47,7 @@ public class AddProduct extends HttpServlet {
 		String cake_description=request.getParameter("cakeDescription");	
 		int cake_price=Integer.parseInt(request.getParameter("cakePrice"));
 		String category_name=request.getParameter("categoryName");		
-		 System.out.println(cake_name);
+		 
 		
 		Products product=new Products(cake_name,cake_description,cake_price,category_name);	    		
 	    proDao.insertProduct(product);

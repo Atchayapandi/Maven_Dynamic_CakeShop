@@ -54,8 +54,7 @@ background-size:cover;
 
 
 <div class="topnav" >
-  <a class="active" href="Login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
+ 
   <a href="MyOrders.jsp">My Orders</a>  
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
@@ -94,7 +93,6 @@ ResultSet rs=cartDao.viewUserCart(userId);
 <td><%= rs.getInt(3) %></td>
 <td><%= rs.getString(4) %></td>
 <td><%= rs.getString(5) %></td>
-
 </tr>
 <%} %>
 </table>
