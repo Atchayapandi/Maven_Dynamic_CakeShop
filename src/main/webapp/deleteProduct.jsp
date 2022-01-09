@@ -17,13 +17,35 @@ background-repeat:no-repeat;
 background-size:cover;
 
 }
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
 </style>
 </head>
 <body>
 <fieldset id="box">
 <form action="deleteProduct">
 Cake Id:<input type="number" name="cakeId" pattern="[0-9]">
-<button type="submit" id="button">delete</button>
+<button class="button button1" type="submit" id="button">delete</button>
 </form>
 </fieldset>
 

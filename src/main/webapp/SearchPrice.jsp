@@ -46,29 +46,44 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
 
 </style>
 
 
 </head>
 <body>
-
-
 <fieldset id="box"><center>
 <h2><i>Search by Price</i></h2>
 <form action="ShowPriceWise.jsp" method="post" >
 <i>From Price</i>
-<input type="number" name="fromPrice" pattern="[0-9]" required><br><br>
+<input type="number" name="fromPrice" pattern="[0-9]" min="0" required><br><br>
 <i>To Price</i>
-<input type="number" name="toPrice" pattern="[0-9]" required><br>
-<button type="submit" name="button">submit</button>
+<input type="number" name="toPrice" pattern="[0-9]" min="0" required><br>
+<button class="button button1" type="submit" name="button">submit</button>
 </form></center>
 </fieldset>
-
-
-
-
-
 
 </body>
 </html>

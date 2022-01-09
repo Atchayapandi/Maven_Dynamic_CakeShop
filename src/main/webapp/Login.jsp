@@ -105,7 +105,7 @@ a:hover {
 <body>
 	<form action="Login" method="post">
 		<div class="container">
-			<img src="images/user1.png" height="70" width="70">
+			<img src="assets/user1.png" height="70" width="70">
 			<div class="card">
 				<input type="text" placeholder="username" id="name" name="EmailId"required autofocus> <br> 
 				<input type="password" placeholder="Password" id="name" name="password" pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$" required><br>

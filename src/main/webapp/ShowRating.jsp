@@ -62,9 +62,7 @@ background-size:cover;
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
-   
   
-   
    
 </div>
 

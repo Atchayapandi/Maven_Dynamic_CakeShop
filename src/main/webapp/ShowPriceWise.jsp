@@ -19,6 +19,28 @@ table, th, td {
   border-collapse: collapse;
   padding: 20px;
 }
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
 </style>
 </head>
 <body>
@@ -59,7 +81,7 @@ ResultSet rs=productDao.filterPrice(FromPrice,ToPrice);
 <td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
 <td><%= rs.getInt(6) %></td>
-<td><button><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>">Buy</a></button></td>
+<td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>">Buy</a></button></td>
 
 </tr>
 <%} %>

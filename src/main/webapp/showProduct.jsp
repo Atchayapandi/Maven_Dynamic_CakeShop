@@ -45,6 +45,28 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
 </style>
 
 <meta charset="ISO-8859-1">
@@ -61,6 +83,7 @@ background-size:cover;
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
+   <a href="CustomizedCake.jsp">Customized Cake</a>
    
     
    
@@ -88,7 +111,7 @@ ResultSet rs=product.showProduct();
 <td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
 <td><%= rs.getInt(6) %></td>
-<td><button><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>">Buy</a></button></td>
+<td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>">Buy</a></button></td>
 
 </tr>
 <%} %>

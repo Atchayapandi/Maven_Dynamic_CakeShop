@@ -17,6 +17,28 @@ background-repeat:no-repeat;
 background-size:cover;
 
 }
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
 </style>
 </head>
 <body>
@@ -24,7 +46,7 @@ background-size:cover;
 <form action="forgetPassword" method="post">
 Set New Password : <input type="text" name="password" pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
 Email Id : <input type="Email" name="emailId"><br><br>
-<button type="submit" id="button">Change</button>
+<button class="button button1" type="submit" id="button"><i>Change</i></button>
 </form></center>
 </fieldset>
 </body>

@@ -30,27 +30,28 @@ public class OrderSuccess extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
-		
-		HttpSession session=request.getSession();		
-		int quantity=Integer.parseInt(request.getParameter("quantity"));
-		
+		HttpSession session=request.getSession();	
 		String userName=(String) session.getAttribute("CurrentUser");
-		
 		UserDaoImpl userDao=new UserDaoImpl();
 		int userId=userDao.findUserId(userName);
+		CartDaoImpl cartDao=new CartDaoImpl();
 		session.setAttribute("userId", userId);
-		
 		LocalDate orderDate=null;
 		 orderDate=LocalDate.parse(request.getParameter("orderDate"));
+//		  boolean flag=cartDao.checkUser(userId, orderDate);
+//			
+//			if(flag=false) {	
+			
+		
+		int quantity=Integer.parseInt(request.getParameter("quantity"));      
+		
 			double price1=(double)(session.getAttribute("Price"));	
 			
 			double totalPrice=(price1*quantity);		
 			
 			WalletDaoImpl walletDao=new WalletDaoImpl();
 			
-			int userWallet=walletDao.walletbal(userId);		
-			
+			int userWallet=walletDao.walletbal(userId);				
 			
 			 double wallbal=userWallet -totalPrice;
 			
@@ -62,14 +63,16 @@ public class OrderSuccess extends HttpServlet {
 			 int cakeId=Integer.parseInt(session.getAttribute("cake_id").toString());
 			 
 			Cart cart=new Cart(cakeId,userId,quantity,totalPrice,orderDate);
-			CartDaoImpl cartDao=new CartDaoImpl();
+			//CartDaoImpl cartDao=new CartDaoImpl();
 			cartDao.insertCart(cart);
-			
-			
+					
 			
 			response.sendRedirect("OrderSuccess.jsp");
 		 
-			
+//		}else {
+//			
+//			response.sendRedirect("OrderExit.jsp");
+//		}
 	
 	}
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>category wise cake</title>
 <style>
 body{
 background-image:url('assets/Background.png');
@@ -39,6 +39,29 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
+
 </style>
 </head>
 <body>
@@ -52,9 +75,7 @@ background-size:cover;
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
-   
-   
-   
+    
    
 </div>
 <br><br>
@@ -70,7 +91,7 @@ ResultSet rs=productDao.ShowCategory();
 <% while(rs.next()){%>
 <tr>
 <td><%= rs.getString(1)%></td>
-<td><button><a href="categoryFilter.jsp?categoryname=<%=rs.getString(1)%>">Buy</a></button></td>
+<td><button class="button button1" id="buy"><a href="categoryFilter.jsp?categoryname=<%=rs.getString(1)%>">Buy</a></button></td>
 
 </tr>
 <%} %>

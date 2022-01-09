@@ -132,8 +132,7 @@ public boolean insertCart1(Cart cart) {
 		try {
 			stmt=con.prepareStatement(query);
 			System.out.println(userId);
-			stmt.setInt(1,userId) ;
-			
+			stmt.setInt(1,userId) ;			
 			rs=stmt.executeQuery();	
 			return rs;
 		} catch (SQLException e) {
@@ -167,7 +166,29 @@ public boolean insertCart1(Cart cart) {
 
 	}
 	
-	
+	public boolean checkUser(int userId,LocalDate orderDate) {
+		String query="select * from cart_items where user_id='"+userId+"' and to_char(order_date,'yyyy-mm-dd')='"+orderDate+"'";
+		Connection con=ConnectionUtil.getDbConnection();
+		System.out.println("hello");
+		boolean flag=true;
+		Statement stmt;
+		try {
+			stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery(query);
+			if(rs.next()) {
+				Cart cart=new Cart(rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),(rs).getDate(6).toLocalDate());
+				System.out.println(rs.getInt(2));
+			}else {
+				flag=false;
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		return flag;
+		
+	}
 	
 	
 	

@@ -44,11 +44,33 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
+.button {
+  background-color:blue; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid blue;
+  }
+  
+  .button1:hover {
+  background-color:blue;
+  color: white;
+}
 </style>
 </head>
 <body>
-<div class="topnav" >
- 
+<div class="topnav" > 
   <a href="MyOrders.jsp">My Orders</a>  
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
@@ -62,10 +84,10 @@ background-size:cover;
 <fieldset id="box"><center>
 <h2>Your Wallet Amount is low Please Recharge </h2>
 <form action="walletcheck">
-<button type="submit" id="button">Pay</button>
+<button class="button button1" type="submit" id="button">Pay</button>
 </form><br>
 <form action="Home.jsp">
-<button type="submit" id="button">Pay Later</button>
+<button class="button button1" type="submit" id="button">Pay Later</button>
 </form></center>
 </fieldset>
 </body>

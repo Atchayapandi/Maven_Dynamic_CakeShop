@@ -68,7 +68,6 @@ background-size:cover;
 <h2><i>Your Payment Is Debited from Your Wallet</i></h2>
 
 
-
 <%double totalprice=(double) session.getAttribute("totalprice"); %>
 <h2><i>Your Total Amount is : <%=totalprice %></i></h2>
 

@@ -45,6 +45,28 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
 
 </style>
 </head>
@@ -88,9 +110,9 @@ background-size:cover;
 			<h1><%double price=rs.getDouble(4);%></h1>
 			<h3>Price :<%= price%></h3><br>	
 			<%session.setAttribute("Price", price); %>		
-				Quantity:<input type="number" name="quantity" pattern="[0-9]{2}"><br><br>							
+				Quantity:<input type="number" name="quantity" pattern="[0-9]{2}" min="0" required><br><br>							
 				     orderDate : <input type="date" id="datefield"  name="orderDate" ><br><br>				
-				<button type="submit" id="button">Buy</button>
+				<button class="button button1" type="submit" id="button">Buy</button>
 				<%} %>
 			</form>
 		</fieldset>
@@ -98,7 +120,7 @@ background-size:cover;
 </body>
 <script type="text/javascript">
 var today = new Date();
-var dd = today.getDate()+5;
+var dd = today.getDate();
 var mm = today.getMonth()+1; 
 var yyyy = today.getFullYear();
 if(dd<10){
