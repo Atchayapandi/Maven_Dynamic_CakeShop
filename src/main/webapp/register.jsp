@@ -101,7 +101,7 @@ img {
 <body>
 	<form action="Register" method="post">
 		<div class="container">
-			<img src="images/user1.png" height="70" width="70">
+			<img src="assets/user1.png" height="70" width="70">
 			<div class="card">
 				<input type="text" name="userName" placeholder="Username"
 					pattern="[A-Za-z]{3,}" required autofocus> <br>

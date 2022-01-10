@@ -39,6 +39,13 @@ background-size:cover;
   background-color:pink;
   color: white;
 }
+label {
+        display: inline-block;
+        width: 155px;
+        text-align: right;
+        margin-left:-50px; ;
+      }
+
 </style>
 
 </head>

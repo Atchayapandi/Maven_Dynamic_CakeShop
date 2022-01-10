@@ -11,7 +11,6 @@ public class User {
 	private String role;
 	private double wallet;
 
-
 	public int getUserId() {
 		return userId;
 	}

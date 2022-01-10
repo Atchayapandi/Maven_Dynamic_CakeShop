@@ -70,7 +70,7 @@ CartDaoImpl cartDao=new CartDaoImpl();
 ResultSet rs=cartDao.viewUserCart(userId);
 %>
 
-<form>
+<form action="cancelOrder" method="post">
 <table align="center">
 <tr>
 
@@ -90,6 +90,7 @@ ResultSet rs=cartDao.viewUserCart(userId);
 <td><%= rs.getInt(3) %></td>
 <td><%= rs.getString(4) %></td>
 <td><%= rs.getString(5) %></td>
+<td><button>Cancel Order</button>
 </tr>
 <%} %>
 </table>

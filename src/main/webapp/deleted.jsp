@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<h2><i>Invalid Quantity</i></h2>
+<h2><i>Your Order Will Be Deleted!!</i></h2>
+
+
 
 
 </body>

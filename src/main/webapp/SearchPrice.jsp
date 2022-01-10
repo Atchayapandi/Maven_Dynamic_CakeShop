@@ -68,6 +68,13 @@ background-size:cover;
   background-color:pink;
   color: white;
 }
+label {
+        display: inline-block;
+        width: 155px;
+        text-align: right;
+        margin-left:-50px; 
+      }
+
 
 </style>
 
@@ -77,9 +84,9 @@ background-size:cover;
 <fieldset id="box"><center>
 <h2><i>Search by Price</i></h2>
 <form action="ShowPriceWise.jsp" method="post" >
-<i>From Price</i>
+<label for="from"><i>From Price : </i></label>
 <input type="number" name="fromPrice" pattern="[0-9]" min="0" required><br><br>
-<i>To Price</i>
+<label for="to"><i>To Price : </i></label>
 <input type="number" name="toPrice" pattern="[0-9]" min="0" required><br>
 <button class="button button1" type="submit" name="button">submit</button>
 </form></center>

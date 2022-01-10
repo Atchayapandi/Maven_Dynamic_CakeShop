@@ -42,6 +42,10 @@ background-size:cover;
 
 <form action="showCart.jsp" >
 <input type="submit" id="button"><i>ShowCart</i> 
+</form><br><br>
+
+<form action="SalesDate.jsp" >
+<input type="submit" id="button"><i>View Sales Details</i> 
 </form><br>
 </fieldset>
 

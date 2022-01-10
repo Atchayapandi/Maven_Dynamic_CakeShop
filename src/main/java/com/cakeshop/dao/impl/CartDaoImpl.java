@@ -102,25 +102,24 @@ public boolean insertCart1(Cart cart) {
 
 	// delete cart
 
-	public  void deleteCart(String delete)  {
-		String deleteQuery = "delete from cart_items where cart_id=?";
+	public void deleteCart(int userId)  {
+		System.out.println("hello");
+		String deleteQuery = "delete from cart_items where user_id="+userId+"";
 
 		try {
 		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
-		pstmt.setInt(1, Integer.parseInt(delete));
-		int i = pstmt.executeUpdate();
-		System.out.println(i + "row deleted");
+		int i = pstmt.executeUpdate();			
 		pstmt.close();
-		con.close();
+		con.close();		
 		}
 		catch(SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
 		}
+		
 	}
-
 
 	public ResultSet viewUserCart(int userId) {
 		String query = "select Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=?";
@@ -131,7 +130,7 @@ public boolean insertCart1(Cart cart) {
 		ResultSet rs=null;
 		try {
 			stmt=con.prepareStatement(query);
-			System.out.println(userId);
+			//System.out.println(userId);
 			stmt.setInt(1,userId) ;			
 			rs=stmt.executeQuery();	
 			return rs;
@@ -145,8 +144,8 @@ public boolean insertCart1(Cart cart) {
 	}
 	
 //filter sales	
-	public ResultSet filterSales(LocalDate min, LocalDate max) {
-		String query = "select * from  cart_items where order_date between ? and ? ";
+	public ResultSet filterSales(LocalDate min,LocalDate max) {
+		String query = "select count(user_id),sum(total_price) from cart_items where order_date between ? and ?";
 
 		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement stmt;
@@ -189,6 +188,8 @@ public boolean insertCart1(Cart cart) {
 		return flag;
 		
 	}
+
+	
 	
 	
 	

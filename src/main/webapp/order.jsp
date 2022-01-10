@@ -67,6 +67,12 @@ background-size:cover;
   background-color:pink;
   color: white;
 }
+label {
+        display: inline-block;
+        width: 155px;
+        text-align: right;
+        margin-left:-50px; ;
+      }
 
 </style>
 </head>
@@ -99,7 +105,7 @@ background-size:cover;
 	UserDaoImpl userDao =new UserDaoImpl();    
 	int userId=userDao.findUserId(userName);
 	session.setAttribute("UserId", userId);
-	%>	
+	%>
 	
 	<center>	
 		<fieldset id="box">
@@ -110,8 +116,8 @@ background-size:cover;
 			<h1><%double price=rs.getDouble(4);%></h1>
 			<h3>Price :<%= price%></h3><br>	
 			<%session.setAttribute("Price", price); %>		
-				Quantity:<input type="number" name="quantity" pattern="[0-9]{2}" min="0" required><br><br>							
-				     orderDate : <input type="date" id="datefield"  name="orderDate" ><br><br>				
+				<label for="quantity">Quantity:</label><input type="number" name="quantity" pattern="[0-9]{2}" min="0" required><br><br>							
+				<label for="orderdate">orderDate :</label> <input type="date" id="datefield"  name="orderDate" ><br><br>				
 				<button class="button button1" type="submit" id="button">Buy</button>
 				<%} %>
 			</form>

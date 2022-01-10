@@ -1,24 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!-- DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-
-<form action="Login" method="post">new page Link<br>
-E_mail : <input type="text" name="EmailId" pattern="[a-z]+[0-9]*[@][a-z]+[.][a-z]+"><br><br>
-password : <input type="password" name="password" pattern="[A-Za-z0-9]{8,15}"><br><br>
-<input type="submit" value="submit">
-<input type="reset" value="reset">
-</form>
-</body>
-</html>
-</body>
-</html--->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +8,7 @@ password : <input type="password" name="password" pattern="[A-Za-z0-9]{8,15}"><b
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>login page</title>
+
 <style>
 body {
 	margin: 0;
@@ -103,6 +85,7 @@ a:hover {
 </style>
 </head>
 <body>
+ 
 	<form action="Login" method="post">
 		<div class="container">
 			<img src="assets/user1.png" height="70" width="70">

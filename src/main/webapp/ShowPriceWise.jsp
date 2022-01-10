@@ -81,7 +81,7 @@ ResultSet rs=productDao.filterPrice(FromPrice,ToPrice);
 <td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
 <td><%= rs.getInt(6) %></td>
-<td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>">Buy</a></button></td>
+<td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>"style="text-decoration:none;">Buy</a></button></td>
 
 </tr>
 <%} %>

@@ -71,6 +71,8 @@ background-size:cover;
 
 <meta charset="ISO-8859-1">
 <title>home page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
@@ -81,12 +83,12 @@ background-size:cover;
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
    <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>  
-   <a href="Home.jsp">LogOut</a>
+   <a href="AboutUs.jsp">About</a>     
    <a href="CustomizedCake.jsp">Customized Cake</a>
+   <a href="Home.jsp">LogOut</a>
    
-    
-   
+     
+      
 </div>
 <form>
 
@@ -94,7 +96,7 @@ background-size:cover;
 ProductDaoImpl product=new ProductDaoImpl();
 ResultSet rs=product.showProduct();
 %>
-<table>
+<table class="table table-hover">
 <tr>
 <th> CAKE </th>
 <th>Product Name</th>
@@ -105,13 +107,13 @@ ResultSet rs=product.showProduct();
 </tr>
 <% while(rs.next()){%>
 <tr>
-<td><img alt="#alter" src="<%= rs.getString(7) %>" width="200" height="200"></td>
+<td><img alt="#alter" src="<%= rs.getString(7) %>" width="200" height="200" class="card-img-top"></td>
 <td><%= rs.getString(2) %></td>
 <td><%= rs.getString(3) %></td>
 <td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
 <td><%= rs.getInt(6) %></td>
-<td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>">Buy</a></button></td>
+<td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>" style="text-decoration:none;">Buy</a></button></td>
 
 </tr>
 <%} %>
