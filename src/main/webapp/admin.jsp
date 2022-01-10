@@ -28,16 +28,12 @@ background-size:cover;
 <input type="submit" id="button"><i>ShowUser</i> 
 </form><br><br>
 
-<form action="updateProduct.jsp" >
-<input type="submit" id="button"><i>updateProduct</i> 
-</form><br><br>
-
 <form action="AddProduct.jsp" >
 <input type="submit" id="button"><i>AddProduct</i> 
 </form><br><br>
 
-<form action="deleteProduct.jsp" >
-<input type="submit" id="button"><i>deleteProduct</i> 
+<form action="UpdateProduct.jsp" >
+<input type="submit" id="button"><i>Update Product</i> 
 </form><br><br>
 
 <form action="showCart.jsp" >

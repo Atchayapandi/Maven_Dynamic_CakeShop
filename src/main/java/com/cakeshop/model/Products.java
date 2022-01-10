@@ -8,7 +8,14 @@ public class Products {
 	private String cakeDescription;
 	private int cakePrice;
 	private String categoryName;
+	private String picture;
 	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
 	public String getCakeName() {
 		return cakeName;
 	}
@@ -42,12 +49,13 @@ public class Products {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Products(String cakeName, String cakeDescription, int cakePrice, String categoryName) {
+	public Products(String cakeName, String cakeDescription, int cakePrice, String categoryName,String picture) {
 		super();
 		this.cakeName = cakeName;
 		this.cakeDescription = cakeDescription;
 		this.cakePrice = cakePrice;
 		this.categoryName = categoryName;
+		this.picture=picture;
 	}
 
 	

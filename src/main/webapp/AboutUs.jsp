@@ -7,7 +7,7 @@
 <title>About us</title>
 <style>
 body{
-background-image:url('assets/aboutUsBack.jpg') ;
+background-image:url('assets/aboutUs.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 color:white;
@@ -42,6 +42,9 @@ margin-top:250px;
 .topnav a.active {
   background-color: gray;
   color: white;
+}
+h2{ 
+color:black;
 }
 </style>
 </head>

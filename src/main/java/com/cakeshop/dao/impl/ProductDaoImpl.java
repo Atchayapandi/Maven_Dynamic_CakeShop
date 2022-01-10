@@ -34,7 +34,7 @@ public class ProductDaoImpl implements ProductDao {
 //add new product
 
 	public void insertProduct(Products product) {
-		String insertQuery = "insert into product_details(cake_name,cake_description,cake_price,category_name) values(?,?,?,?)";
+		String insertQuery = "insert into product_details(cake_name,cake_description,cake_price,category_name,picture) values(?,?,?,?,?)";
 
 		ConnectionUtil conUtil = new ConnectionUtil();
 		Connection con = conUtil.getDbConnection();
@@ -46,6 +46,7 @@ public class ProductDaoImpl implements ProductDao {
 			pst.setString(2, product.getCakeDescription());
 			pst.setInt(3, product.getCakePrice());
 			pst.setString(4, product.getCategoryName());
+			pst.setString(5, product.getPicture());
 
 			pst.executeUpdate();
 

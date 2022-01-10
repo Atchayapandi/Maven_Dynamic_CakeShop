@@ -38,10 +38,11 @@ label {
 <legend align="right">fieldset legend</legend>
 <fieldset id="box"><center>
 <form action="AddProduct" method="post">
-<label for="cakeName">Cake_Name</label><input type="text" name="cakeName" pattern="[A-Za-z/s]" required><br><br>
-<label for="cakedes">Cake_description</label><input type="text" name="cakeDescription" pattern="[A-Za-z/s]" required><br><br>
-<label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" required><br><br>
-<label for="catename">Category_name</label><input type="text" name="categoryName" pattern="[A-Za-z/s]" required><br><br>
+<label for="cakeName">Cake_Name</label><input type="text" name="cakeName"  required><br><br>
+<label for="cakedes">Cake_description</label><input type="text" name="cakeDescription" required><br><br>
+<label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" min="0" required><br><br>
+<label for="catename">Category_name</label><input type="text" name="categoryName"  required><br><br>
+<label for="picture">Image</label><input type="text" name="picture" ><br><br>
 <button type="submit" name="button">Add</button>
 </form></center>
 </fieldset>

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cakeshop.dao.impl.WalletDaoImpl;
-import com.cakeshop.model.User1;
 
 
 @WebServlet("/walletcheck")
