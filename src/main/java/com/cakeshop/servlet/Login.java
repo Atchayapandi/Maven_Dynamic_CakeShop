@@ -32,7 +32,11 @@ public class Login extends HttpServlet {
 		HttpSession session=request.getSession();
 		String EmailId = request.getParameter("EmailId");
 		String password = request.getParameter("password");
-
+		
+		session.setAttribute("EmailId", EmailId);
+		session.setAttribute("password", password);
+	
+		
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser = userDao.validateUser(EmailId, password);
 		
@@ -40,6 +44,7 @@ public class Login extends HttpServlet {
 		
 		if(currentUser!=null) {
 		UserDaoImpl user=new UserDaoImpl();
+		
 		int userId=currentUser.getUserId();
 		session.setAttribute("userId", userId);
 		

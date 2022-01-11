@@ -1,10 +1,12 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.cakeshop.dao.impl.CustomizedDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.ProductDaoImpl"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Order Success</title>
+<title>Insert title here</title>
 <style type="text/css">
 table, th, td {
   border: 1px solid black;
@@ -12,11 +14,12 @@ table, th, td {
   padding: 20px;
 }
 body{
-background-image:url('assets/rating.jpeg');
+background-image:url('assets/cake2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 
 }
+
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: Gray;
@@ -44,13 +47,10 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
-
-
 </style>
 </head>
 <body>
-<div class="topnav" >
-  
+<div class="topnav" > 
   <a href="MyOrders.jsp">My Orders</a>  
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
@@ -58,48 +58,44 @@ background-size:cover;
    <a href="Contact.jsp">Contact</a>
    <a href="AboutUs.jsp">About</a>  
    <a href="Home.jsp">LogOut</a>
-   
-   <%double wallet=(double)session.getAttribute("wallbal"); %>
-<h3><i> Wallet Amount : <%=wallet %></i></h3>  
-   
 </div>
-<center><h1>Your Order is Placed Successfully!! Thank You!!</h1>
-<h2><i>Your Payment Is Debited from Your Wallet</i></h2>
-
-
-<%double totalprice=(double) session.getAttribute("totalprice"); %>
-<h2><i>Your Total Amount is : <%=totalprice %></i></h2>
-
-<%double wallet1=(double)session.getAttribute("wallbal"); %>
-<h2><i> Your Revised Wallet Amount : <%=wallet1 %></i></h2>
-
-
-
-<form action="Rating" method="post">
-<h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]{5}"></h3>
-<button type="submit" id="rating">Rate</button>
-</form>
-</center>
 <%
-ProductDaoImpl product=new ProductDaoImpl();
-ResultSet rs=product.ShowRating();
+int userId=Integer.parseInt(session.getAttribute("userId").toString());
+System.out.println(userId);
+CustomizedDaoImpl Cust=new CustomizedDaoImpl();
+ResultSet rs=Cust.viewCustomizedCart(userId);
 %>
 
-<h2><i>Highly Rated Cake</i></h2>
-<table align="left" border="4">
+<table align="center">
+<tr>
 
-<th><h3>Product Name</h3></th>
-<th><h3>Ratings</h3></th>
+<th>User Name</th>
+<th>Quantity</th>
+<th>Order Date</th>
+<th>Flavour</th>
+<th>Types</th>
+<th>Shape</th>
+<th>Total Price</th>
+</tr>
 
-
-<% while(rs.next()){%>
+<% String emailId=session.getAttribute("CurrentUser").toString();%>
+<center><h2>User Name : <%=emailId %></h2></center>
+<%while(rs.next()){%>
 <tr>
 <td><%= rs.getString(1) %></td>
 <td><%= rs.getInt(2) %></td>
+<td><%= rs.getString(3) %></td>
+<td><%= rs.getString(4) %></td>
+<td><%= rs.getString(5) %></td>
+<td><%=rs.getString(6) %></td>
+<td><%= rs.getDouble(7) %></td>
+
 </tr>
 <%} %>
-
 </table>
+
+
+
 
 
 </body>

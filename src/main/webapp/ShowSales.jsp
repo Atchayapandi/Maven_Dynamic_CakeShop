@@ -17,10 +17,8 @@ table, th, td {
   border-collapse: collapse;
   padding: 10px;
 }
-
 table{
 margin-top:100px;
-
 }
 </style>
 </head>
@@ -32,8 +30,8 @@ margin-top:100px;
 <table class="table table-hover">
 <tr>
 <th>Total User </th>
-<th>Total Quantity sale</th>
 <th>Total sale Amount  </th>
+<th>Total Quantity sale</th>
 </tr>
 <% while(rs.next()){%>
 <tr>

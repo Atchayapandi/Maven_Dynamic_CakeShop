@@ -39,13 +39,20 @@ background-size:cover;
   background-color:pink;
   color: white;
 }
+label {
+        display: inline-block;
+        width: 155px;
+        text-align: right;
+        margin-left:-50px; ;
+      }
+
 </style>
 </head>
 <body>
-<fieldset id="box"><center>
+<fieldset id="box"><legend align="right">Reset Your Password</legend><center>
 <form action="forgetPassword" method="post">
-Set New Password : <input type="text" name="password" pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
-Email Id : <input type="Email" name="emailId"><br><br>
+<label>Set New Password : </label><input type="text" name="password" pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
+<label>Email Id : </label><input type="Email" name="emailId"><br><br>
 <button class="button button1" type="submit" id="button"><i>Change</i></button>
 </form></center>
 </fieldset>

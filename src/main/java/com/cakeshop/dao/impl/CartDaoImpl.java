@@ -46,35 +46,6 @@ public class CartDaoImpl implements CartDao {
 
 	}
 	
-public boolean insertCart1(Cart cart) {
-		
-
-		String insert = "INSERT INTO CART_ITEMS (CAKE_ID,USER_ID,ORDER_QUANTITY,TOTAL_PRICE,order_date) VALUES(?,?,?,?,?) ";
-
-		ConnectionUtil conUtil = new ConnectionUtil();
-		Connection con = conUtil.getDbConnection();
-		PreparedStatement pst = null;
-
-		try {
-			
-			pst = con.prepareStatement(insert);
-			pst.setInt(1, cart.getProductId());
-			pst.setInt(2, cart.getUserId());
-			pst.setInt(3, cart.getQuantity());
-			pst.setDouble(4, cart.getTotalPrice());
-			pst.setDate(5, java.sql.Date.valueOf(cart.getOrderDate()));
-			pst.executeUpdate();
-			return true;
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.err.println("Value not inserted in the table");
-		}
-		return false;
-
-	}
-	
 		
 
 //view cart items
@@ -82,9 +53,8 @@ public boolean insertCart1(Cart cart) {
 	public  ResultSet viewCart() {	
 		
 		
-		String query = "select * from cart_items";
-		Connection con = ConnectionUtil.getDbConnection();	
-			
+		String query = "select * from cart_items order by order_date desc";
+		Connection con = ConnectionUtil.getDbConnection();				
 		ResultSet rs=null;
 		
 		try {
@@ -103,7 +73,7 @@ public boolean insertCart1(Cart cart) {
 	// delete cart
 
 	public void deleteCart(int userId)  {
-		System.out.println("hello");
+	
 		String deleteQuery = "delete from cart_items where user_id="+userId+"";
 
 		try {
@@ -122,7 +92,7 @@ public boolean insertCart1(Cart cart) {
 	}
 
 	public ResultSet viewUserCart(int userId) {
-		String query = "select Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=?";
+		String query = "select Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=? order by order_date desc";
 		
 		Connection con=ConnectionUtil.getDbConnection();
 		PreparedStatement stmt;

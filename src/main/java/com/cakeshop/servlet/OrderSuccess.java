@@ -32,16 +32,16 @@ public class OrderSuccess extends HttpServlet {
 		
 		HttpSession session=request.getSession();	
 		String userName=(String) session.getAttribute("CurrentUser");
+		
 		UserDaoImpl userDao=new UserDaoImpl();
 		int userId=userDao.findUserId(userName);
+		
 		CartDaoImpl cartDao=new CartDaoImpl();
+		
 		session.setAttribute("userId", userId);
+		
 		LocalDate orderDate=null;
-		 orderDate=LocalDate.parse(request.getParameter("orderDate"));
-//		  boolean flag=cartDao.checkUser(userId, orderDate);
-//			
-//			if(flag=false) {	
-			
+		 orderDate=LocalDate.parse(request.getParameter("orderDate"));			
 		
 		int quantity=Integer.parseInt(request.getParameter("quantity"));      
 		
@@ -56,6 +56,7 @@ public class OrderSuccess extends HttpServlet {
 			 double wallbal=userWallet -totalPrice;
 			
 		 session.setAttribute("wallbal", wallbal);
+		 
 		 session.setAttribute("totalprice", totalPrice);
 			 
 			 walletDao.updatewallet(wallbal,userId);	
@@ -63,16 +64,10 @@ public class OrderSuccess extends HttpServlet {
 			 int cakeId=Integer.parseInt(session.getAttribute("cake_id").toString());
 			 
 			Cart cart=new Cart(cakeId,userId,quantity,totalPrice,orderDate);
-			//CartDaoImpl cartDao=new CartDaoImpl();
+			
 			cartDao.insertCart(cart);
 					
-			
-			response.sendRedirect("OrderSuccess.jsp");
-		 
-//		}else {
-//			
-//			response.sendRedirect("OrderExit.jsp");
-//		}
+			response.sendRedirect("OrderSuccess.jsp");		
 	
 	}
 

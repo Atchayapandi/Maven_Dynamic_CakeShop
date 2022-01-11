@@ -1,3 +1,4 @@
+<%@page import="com.cakeshop.dao.impl.CustomizedDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.UserDaoImpl" import="com.cakeshop.dao.impl.CartDaoImpl"%>
 <!DOCTYPE html>
@@ -63,7 +64,6 @@ background-size:cover;
 
 
 <%
-//int userid=Integer.parseInt(session.getAttribute("userId").toString());
 int userId=Integer.parseInt(session.getAttribute("userId").toString());
 System.out.println(userId);
 CartDaoImpl cartDao=new CartDaoImpl();
@@ -74,8 +74,8 @@ ResultSet rs=cartDao.viewUserCart(userId);
 <table align="center">
 <tr>
 
-<th>Product Name</th>
 <th>User Name</th>
+<th>Product Name</th>
 <th>order quantity</th>
 <th>total price</th>
 <th>order date</th>

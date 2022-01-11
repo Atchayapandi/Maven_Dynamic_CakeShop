@@ -45,11 +45,47 @@ label {
         text-align: right;
         margin-left:-50px; ;
       }
+      /* Add a black background color to the top navigation */
+.topnav {
+  background-color: gray;
+  overflow: hidden;
+}
 
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: gray;
+  color: white;
+}
 </style>
-
 </head>
 <body>
+<div class="topnav" > 
+  <a href="MyOrders.jsp">My Orders</a>  
+  <a href="categories.jsp">Categories</a> 
+  <a href="SearchPrice.jsp">Price Wise Search</a>
+   <a href="ShowRating.jsp">Ratings</a>
+   <a href="Contact.jsp">Contact</a>
+   <a href="AboutUs.jsp">About</a>     
+   <a href="CustomizedCake.jsp">Customized Cake</a>
+   <a href="UserProfile.jsp">Profile</a>
+   <a href="Home.jsp">LogOut</a>         
+</div>
 <fieldset id="box">
 <form action="customized" method="post">
 
@@ -80,12 +116,9 @@ label {
 <option>Square</option>
 
 </select><br><br>
-
-Quantity<input type="number" name="quantity"><br><br>
-
+Quantity<input type="number" name="quantity" required><br><br>
+Order Date<input type="date" name="orderdate" required><br><br>
 <button type="submit" class="button button1">Click</button>
-
-
 </form>
 </fieldset>
 </body>

@@ -19,14 +19,10 @@ public class CancelOrder extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		HttpSession session=request.getSession();
-		
-		CartDaoImpl cartDao=new CartDaoImpl();
-		
-		//int userId=Integer.parseInt(request.getAttribute("userId").toString());
+		HttpSession session=request.getSession();		
+		CartDaoImpl cartDao=new CartDaoImpl();		
 		int userId=Integer.parseInt(session.getAttribute("userId").toString());
-		
-		System.out.println(userId);
+				
 		cartDao.deleteCart(userId);
 		
 		response.sendRedirect("deleted.jsp");

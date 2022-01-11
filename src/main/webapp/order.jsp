@@ -77,8 +77,7 @@ label {
 </style>
 </head>
 <body>
-<div class="topnav" >
- 
+<div class="topnav" > 
   <a href="MyOrders.jsp">My Orders</a>  
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
