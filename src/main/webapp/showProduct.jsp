@@ -86,9 +86,7 @@ background-size:cover;
    <a href="AboutUs.jsp">About</a>     
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="Home.jsp">LogOut</a>
-   
-     
-      
+         
 </div>
 <form>
 

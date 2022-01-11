@@ -145,7 +145,7 @@ public boolean insertCart1(Cart cart) {
 	
 //filter sales	
 	public ResultSet filterSales(LocalDate min,LocalDate max) {
-		String query = "select count(user_id),sum(total_price) from cart_items where order_date between ? and ?";
+		String query = "select count(user_id),sum(total_price),sum(order_quantity) from cart_items where order_date between ? and ?";
 
 		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement stmt;

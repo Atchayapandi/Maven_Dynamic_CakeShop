@@ -25,8 +25,10 @@ where cake_id=114;
 
 create table help_support (phone number(15),Email varchar2(100));
 insert into help_support values(8610970796,'atchaya10@gmail.com');
-update 
 
+update help_support set  Email='atchaya1011@gmail.com' where phone=9600939198;
+
+select*from help_support;
 ---PRODUCT DETAILS TABLE---
 create table product_details(cake_id int default P_ID.nextval primary key ,
                       cake_name varchar2(30)not null,
@@ -97,6 +99,9 @@ alter table customized_details add quantity int;
 select Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items 
 inner join user_details using (user_id) 
 inner join product_details using(cake_id) where user_id=180;
+
+
+select count(user_id),sum(total_price),sum(order_quantity) from cart_items where order_date between '16-01-2022' and '22-01-2022';
 
 
 

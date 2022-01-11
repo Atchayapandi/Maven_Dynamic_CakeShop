@@ -25,10 +25,12 @@ public class SalesDate extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		System.out.println("servlet");
+		
 		String fromDate=request.getParameter("FromDate");
 		LocalDate FromDate=LocalDate.parse(fromDate);
-		String ToDate=request.getParameter("FromDate");
-		LocalDate toDate=LocalDate.parse(fromDate);
+		
+		String ToDate=request.getParameter("ToDate");
+		LocalDate toDate=LocalDate.parse(ToDate);
 		
 		System.out.println("hiii");
 		System.out.println(toDate);		

@@ -50,7 +50,7 @@ ResultSet rs=userDao.showAllUser();
 <td><%= rs.getInt(7) %></td>
 </tr>
 <%} %>
-</table>
-
+</table><br>
+<button><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </body>
 </html>

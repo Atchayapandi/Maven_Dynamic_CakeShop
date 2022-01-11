@@ -40,11 +40,11 @@ label {
   background-color:pink; 
   border: none;
   color: white;
-  padding: 4px 10px;
+  padding: 3px 6px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -90,8 +90,9 @@ ResultSet rs=product.showProduct();
 
 <fieldset id="box"><legend>Delete Product using Id</legend>
 <form action="deleteProduct" method="post">
-Cake Id:<input type="number" name="cakeId" pattern="[0-9]">
+Cake Id:<input type="number" name="cakeId" pattern="[0-9]"><br><br>
 <button class="button button1" type="submit" id="button">delete</button>
+<button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </form>
 </fieldset>
 
@@ -100,10 +101,10 @@ Cake Id:<input type="number" name="cakeId" pattern="[0-9]">
 <label for="cake price">New Cake Price: </label><input type="number" name="cakePrice"><br><br>
 <label for="name">Cake Name: </label><input type="text"  name="cakeName"><br><br>
 <button class="button button1" type="submit" id="button">Update</button>
-
+<button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </form>
 </center>
-</fieldset>
+</fieldset><br>
 
 
 </body>

@@ -30,7 +30,7 @@ body {
 
 .card {
 	padding: 60px 40px 50px 40px;
-	background: rgb(50, 50, 50);
+	background:rgb(50,50,50);
 	border-radius: 10px;
 }
 

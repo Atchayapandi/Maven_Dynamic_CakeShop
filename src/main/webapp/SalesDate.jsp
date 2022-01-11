@@ -34,12 +34,7 @@ background-size:cover;
   background-color:pink;
   color: white;
 }
-label {
-        display: inline-block;
-        width: 155px;
-        text-align: right;
-        margin-left:-50px; ;
-      }
+
       
   #box{
   margin-top:200px;
@@ -51,26 +46,14 @@ label {
 <body><fieldset id="box">
 <form action="salesWiseFilter" method="post">
 
-<label>From Date</label><input type="Date" name="FromDate" id="datefield">
-<label>To Date</label><input type="Date" name="ToDate" id="datefield">
+<label>From Date</label><input type="date" name="FromDate"  required>
+
+<label>To Date</label><input type="date" name="ToDate"  required>
 
 <button type="submit" class="button button1">Search</button>
 </form>
 </fieldset>
 </body>
-<script type="text/javascript">
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
-if(dd<10){
-  dd='0'+dd
-} 
-if(mm<10){
-  mm='0'+mm
-} 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("min", today);
-</script>
+
 
 </html>

@@ -26,7 +26,7 @@ background-size:cover;
 </head>
 <body>
 <form>
-
+<center><h2 style=color:red>Cart Items</h2></center>
 <%
 CartDaoImpl cartDao=new CartDaoImpl();
 ResultSet rs=cartDao.viewCart();
@@ -55,6 +55,7 @@ ResultSet rs=cartDao.viewCart();
 </tr>
 <%} %>
 </table>
-</form>
+</form><br><br>
+<button><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </body>
 </html>
