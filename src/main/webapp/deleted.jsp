@@ -45,6 +45,7 @@ margin-left:400px;
 <body>
 <fieldset id="box">
 <form action="showProduct.jsp"></form>
+<h2><i>Your Amount is Refunded </i></h2>
 <h2><i>Your Order Will Be Deleted!!</i></h2>
 
 <button class="button button1">Back</button>

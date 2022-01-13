@@ -41,6 +41,7 @@ public class OrderSuccess extends HttpServlet {
 		session.setAttribute("userId", userId);
 		
 		LocalDate orderDate=null;
+		
 		 orderDate=LocalDate.parse(request.getParameter("orderDate"));			
 		
 		int quantity=Integer.parseInt(request.getParameter("quantity"));      

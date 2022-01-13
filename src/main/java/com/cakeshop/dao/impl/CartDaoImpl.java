@@ -112,6 +112,7 @@ public class CartDaoImpl implements CartDao {
 		
 	}
 	
+	
 //filter sales	
 	public ResultSet filterSales(LocalDate min,LocalDate max) {
 		String query = "select count(user_id),sum(total_price),sum(order_quantity) from cart_items where order_date between ? and ?";
@@ -133,6 +134,7 @@ public class CartDaoImpl implements CartDao {
 		return rs;
 
 	}
+	
 	
 	public boolean checkUser(int userId,LocalDate orderDate) {
 		String query="select * from cart_items where user_id='"+userId+"' and to_char(order_date,'yyyy-mm-dd')='"+orderDate+"'";
@@ -159,18 +161,26 @@ public class CartDaoImpl implements CartDao {
 	}
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//	public ResultSet findTotalPrice(int userId) {
+//		String query = "select total_price from cart_items where user_id=?";
+//
+//		Connection con = ConnectionUtil.getDbConnection();
+//		Statement stmt;
+//
+//		ResultSet rs = null;
+//		try {
+//			stmt = con.createStatement();
+//		
+//			rs = stmt.executeQuery(query);
+//
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		return rs;
+//
+//	}	
 
 	
 }	

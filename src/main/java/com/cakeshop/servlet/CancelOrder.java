@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cakeshop.dao.impl.CartDaoImpl;
+import com.cakeshop.dao.impl.WalletDaoImpl;
 
 /**
  * Servlet implementation class CancelOrder
@@ -24,6 +25,23 @@ public class CancelOrder extends HttpServlet {
 		int userId=Integer.parseInt(session.getAttribute("userId").toString());
 				
 		cartDao.deleteCart(userId);
+		
+//		WalletDaoImpl walletDao=new WalletDaoImpl();
+//		
+//		double wallbal=walletDao.walletbal(userId);	
+//	
+//		
+//		System.out.println(wallbal);
+//		
+//		
+//		
+//		double totalPrice=(double)session.getAttribute("totalprice");
+//		
+//		System.out.println(totalPrice);
+//		
+//		wallbal=wallbal-totalPrice;
+		
+		
 		
 		response.sendRedirect("deleted.jsp");
 				

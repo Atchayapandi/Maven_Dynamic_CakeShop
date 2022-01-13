@@ -92,8 +92,6 @@ background-size:cover;
       	<center><h2>Orders List</h2></center>      	
    		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
       </div>
-
-
 <div class="sidenav">
 <ul>
   <li><a href="showUser.jsp">View All Users List</a></li>
@@ -105,16 +103,13 @@ background-size:cover;
   
   </ul>
 </div>
-
 <form>
-
 <button class="button"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 <%
 CartDaoImpl cartDao=new CartDaoImpl();
 ResultSet rs=cartDao.viewCart();
 %>
 <table align="center">
-
 <tr>
 <th style=color:red>CART ID</th>
 <h3><th style=color:red>PRODUCT ID</th></h3>
@@ -122,9 +117,7 @@ ResultSet rs=cartDao.viewCart();
 <h3><th style=color:red>ORDER QUANTITY</th></h3>
 <h3><th style=color:red>TOTAL PRICE</th></h3>
 <h3><th style=color:red>ORDER DATE</th></h3>
-
 </tr>
-
 <% while(rs.next()){%>
 <tr>
 <td style=color:black><%= rs.getInt(1) %></td>
@@ -133,11 +126,9 @@ ResultSet rs=cartDao.viewCart();
 <td style=color:black><%= rs.getInt(4) %></td>
 <td style=color:black><%= rs.getDouble(5) %></td>
 <td style=color:black><%= rs.getDate(6) %></td>
-
 </tr>
 <%} %>
 </table>
 </form><br><br>
-
 </body>
 </html>
