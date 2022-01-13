@@ -10,15 +10,16 @@ import com.cakeshop.dao.UserRatingDao;
 
 public class UserRatingDaoImpl implements UserRatingDao{
 	
-	public void updateRating(int rating,int proId){
-		String updateQuery="update product_details set rating=? where cake_Id=?";
+	public void updateRating(double rating,int proId,int count){
+		String updateQuery="update product_details set rating=?,rating_count=? where cake_Id=?";
 	
 		Connection con=ConnectionUtil.getDbConnection();				
 		PreparedStatement pstmt=null;
 		try {
 			pstmt = con.prepareStatement(updateQuery);
-			pstmt.setInt(1,rating);
-			pstmt.setInt(2, proId);			
+			pstmt.setDouble(1,rating);
+			pstmt.setInt(3, proId);	
+			pstmt.setInt(2, count);
 			pstmt.executeUpdate();
 			
 			pstmt.close();
@@ -29,26 +30,23 @@ public class UserRatingDaoImpl implements UserRatingDao{
 		}
 		
 	}
-	public  int findRating(String proName)
+	public  ResultSet findRating(String proName)
 	{
-		String findRating="select rating from product_details where cake_name='"+proName+"'";
+		String findRating="select rating,rating_count from product_details where cake_name='"+proName+"'";
 		Connection con=ConnectionUtil.getDbConnection();
 		Statement stmt;
 		int rating=0;
 		try {
 			stmt = con.createStatement();
 			ResultSet rs=stmt.executeQuery(findRating);
-			if(rs.next())
-			{
-			rating=rs.getInt(1);
-			}
+			return rs;
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return rating;
 		
+		return null;
 	}
 
 }

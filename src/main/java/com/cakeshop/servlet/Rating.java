@@ -1,6 +1,9 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,11 +25,25 @@ public class Rating extends HttpServlet {
 		UserRatingDaoImpl UserRatingDao=new UserRatingDaoImpl();
 		int c_id=Integer.parseInt(session.getAttribute("cake_id").toString());
 		String cakeName=(String) session.getAttribute("cakename");
-		int oldRating=UserRatingDao.findRating(cakeName);
-		int rating=oldRating+newRating;			
 		
+		ResultSet rs= UserRatingDao.findRating(cakeName);
+		int oldRating=0;
+		int count=0;
+		try {
+			while(rs.next()) {
+			oldRating = rs.getInt(1);
+			count=rs.getInt(2);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    count=count+1;
+		double rating=(oldRating+newRating);			
+		System.out.println(rating);
+		System.out.println(count);
 	
-		UserRatingDao.updateRating(rating,c_id);
+		UserRatingDao.updateRating(rating,c_id,count);
 		response.sendRedirect("ratingsuccess.jsp");
 		
 				

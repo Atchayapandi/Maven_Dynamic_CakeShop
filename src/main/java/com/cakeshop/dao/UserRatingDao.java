@@ -1,8 +1,10 @@
 package com.cakeshop.dao;
 
+import java.sql.ResultSet;
+
 public interface UserRatingDao {
 
-	public void updateRating(int rating, int proId);
+	public void updateRating(double rating,int proId,int count);
 
-	public int findRating(String proName);
+	public ResultSet findRating(String proName);
 }

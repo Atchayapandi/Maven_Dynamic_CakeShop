@@ -19,10 +19,9 @@ margin-left:300px;
 </style>
 </head>
 <body>
-
-<h1 style=color:#FF007F>&#128523<i><b>Your Desired Cake Order is Placed!! It Will Be Ready Soon </b></i></h1>
-
-
-
+<form action="showProduct.jsp">
+<h1 style=color:#FF007F><i><b>Your Desired Cake Order is Placed!! It Will Be Ready Soon </b></i></h1>
+<button>Back</button>
+</form>
 </body>
 </html>

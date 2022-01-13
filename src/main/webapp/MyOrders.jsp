@@ -1,4 +1,4 @@
-<%@page import="com.cakeshop.dao.impl.CustomizedDaoImpl"%>
+<%@page import="com.cakeshop.dao.impl.SpecialCakeDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.UserDaoImpl" import="com.cakeshop.dao.impl.CartDaoImpl"%>
 <!DOCTYPE html>
@@ -52,14 +52,19 @@ background-size:cover;
 <body>
 
 
-<div class="topnav" > 
-  <a href="MyOrders.jsp">My Orders</a>  
+<div class="topnav" >
+ 
+  <a href="ViewOrder.jsp">Orders</a>  
+  <a href="showProduct.jsp">Products</a>
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
    <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>  
+   <a href="AboutUs.jsp">About</a>     
+   <a href="CustomizedCake.jsp">Customized Cake</a>
+   <a href="UserProfile.jsp">Profile</a>
    <a href="Home.jsp">LogOut</a>
+         
 </div>
 
 

@@ -54,12 +54,11 @@ margin-left:600px;
 <body>
 <div class="topnav" >
  <a class="active" href="Login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
- 
+  <a href="register.jsp">Register</a> 
    <a href="Home.jsp">Return To Home</a>
 </div>
 
-<%!ResultSet rs; %>
+<%!ResultSet rs;%>
 <center><h2><i>For Any Queries Contact Us</i></h2></center>
 <%HelpDaoImpl helpDao = new HelpDaoImpl(); 
 rs=helpDao.showHelp();%>

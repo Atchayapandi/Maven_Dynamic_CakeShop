@@ -55,15 +55,17 @@ background-size:cover;
 <body>
 <div class="topnav" >
  
-  <a href="MyOrders.jsp">My Orders</a>  
+  <a href="ViewOrder.jsp">Orders</a> 
+  <a href="showProduct.jsp">Products</a> 
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
    <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>  
+   <a href="AboutUs.jsp">About</a>     
+   <a href="CustomizedCake.jsp">Customized Cake</a>
+   <a href="UserProfile.jsp">Profile</a>
    <a href="Home.jsp">LogOut</a>
-  
-   
+         
 </div>
 
 <h2><b>High Rated Cakes</b></h2>
@@ -76,11 +78,11 @@ ResultSet rs=product.ShowRating();
 <th><h3>Product Name</h3></th>
 <th><h3>Ratings</h3></th>
 
-
-<% while(rs.next()){%>
+<% while(rs.next()){
+double rating=rs.getInt(2)/rs.getInt(3);%>
 <tr>
 <td><%= rs.getString(1) %></td>
-<td><%= rs.getInt(2) %></td>
+<td><%= rating%></td>
 </tr>
 <%} %>
 

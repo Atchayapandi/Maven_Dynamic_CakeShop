@@ -51,7 +51,8 @@ background-size:cover;
 <body>
 <div class="topnav" >
   
-  <a href="MyOrders.jsp">My Orders</a>  
+  <a href="ViewOrder.jsp">Orders</a> 
+  <a href="showProduct.jsp">Products</a> 
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
@@ -80,26 +81,7 @@ background-size:cover;
 <button type="submit" id="rating">Rate</button>
 </form>
 </center>
-<%
-ProductDaoImpl product=new ProductDaoImpl();
-ResultSet rs=product.ShowRating();
-%>
 
-<h2><i>Highly Rated Cake</i></h2>
-<table align="left" border="4">
-
-<th><h3>Product Name</h3></th>
-<th><h3>Ratings</h3></th>
-
-
-<% while(rs.next()){%>
-<tr>
-<td><%= rs.getString(1) %></td>
-<td><%= rs.getInt(2) %></td>
-</tr>
-<%} %>
-
-</table>
 
 
 </body>

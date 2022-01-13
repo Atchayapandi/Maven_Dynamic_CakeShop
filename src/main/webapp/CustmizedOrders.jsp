@@ -1,5 +1,5 @@
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.cakeshop.dao.impl.CustomizedDaoImpl"%>
+<%@page import="com.cakeshop.dao.impl.SpecialCakeDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -51,24 +51,29 @@ background-size:cover;
 </head>
 <body>
 <div class="topnav" > 
-  <a href="MyOrders.jsp">My Orders</a>  
+  <a href="ViewOrder.jsp">Orders</a> 
+   <a href="showProduct.jsp">Products</a> 
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
    <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>  
+   <a href="AboutUs.jsp">About</a>     
+   <a href="CustomizedCake.jsp">Customized Cake</a>
+   <a href="UserProfile.jsp">Profile</a>
    <a href="Home.jsp">LogOut</a>
+         
 </div>
 <%
+
+
 int userId=Integer.parseInt(session.getAttribute("userId").toString());
 System.out.println(userId);
-CustomizedDaoImpl Cust=new CustomizedDaoImpl();
+SpecialCakeDaoImpl Cust=new SpecialCakeDaoImpl();
 ResultSet rs=Cust.viewCustomizedCart(userId);
 %>
 
 <table align="center">
 <tr>
-
 <th>User Name</th>
 <th>Quantity</th>
 <th>Order Date</th>

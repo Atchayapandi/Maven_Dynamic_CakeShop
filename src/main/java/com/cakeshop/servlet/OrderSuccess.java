@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import com.cakeshop.dao.impl.CartDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
 import com.cakeshop.dao.impl.WalletDaoImpl;
-import com.cakeshop.exception.InvalidQuantity;
+
 import com.cakeshop.exception.InvalidUserException;
 import com.cakeshop.model.Cart;
 

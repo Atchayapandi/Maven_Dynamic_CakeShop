@@ -86,6 +86,14 @@ a:hover {
 </head>
 <body>
  
+ <%String msg=(String)session.getAttribute("Invalid"); 
+ if(msg!=null){
+	 %>
+	 <h2><%=msg %></h2>
+	 <%session.removeAttribute("Invalid"); %>
+ <% } %>
+ 
+ 
 	<form action="Login" method="post">
 		<div class="container">
 			<img src="assets/user1.png" height="70" width="70">

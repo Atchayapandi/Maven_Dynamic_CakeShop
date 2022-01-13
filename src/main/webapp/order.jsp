@@ -77,14 +77,19 @@ label {
 </style>
 </head>
 <body>
-<div class="topnav" > 
-  <a href="MyOrders.jsp">My Orders</a>  
+<div class="topnav" >
+ 
+  <a href="ViewOrder.jsp">Orders</a> 
+  <a href="showProduct.jsp">Products</a> 
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
    <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>  
+   <a href="AboutUs.jsp">About</a>     
+   <a href="CustomizedCake.jsp">Customized Cake</a>
+   <a href="UserProfile.jsp">Profile</a>
    <a href="Home.jsp">LogOut</a>
+         
 </div>
 
 	<%int productId=Integer.parseInt(request.getParameter("cakeId")); 
@@ -116,7 +121,7 @@ label {
 			<h3>Price :<%= price%></h3><br>	
 			<%session.setAttribute("Price", price); %>		
 				<label for="quantity">Quantity:</label><input type="number" name="quantity" pattern="[0-9]{2}" min="0" required><br><br>							
-				<label for="orderdate">orderDate :</label> <input type="date" id="datefield"  name="orderDate" ><br><br>				
+				<label for="orderdate">OrderDate :</label> <input type="date" id="datefield"  name="orderDate" ><br><br>				
 				<button class="button button1" type="submit" id="button">Buy</button>
 				<%} %>
 			</form>

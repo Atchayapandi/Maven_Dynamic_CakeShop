@@ -76,7 +76,8 @@ label {
 </head>
 <body>
 <div class="topnav" > 
-  <a href="MyOrders.jsp">My Orders</a>  
+  <a href="ViewOrder.jsp">Orders</a>  
+   <a href="showProduct.jsp">Products</a>
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
@@ -84,7 +85,8 @@ label {
    <a href="AboutUs.jsp">About</a>     
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="UserProfile.jsp">Profile</a>
-   <a href="Home.jsp">LogOut</a>         
+   <a href="Home.jsp">LogOut</a>
+         
 </div>
 <fieldset id="box">
 <form action="customized" method="post">
@@ -116,11 +118,25 @@ label {
 <option>Square</option>
 
 </select><br><br>
-Quantity<input type="number" name="quantity" required><br><br>
-Order Date<input type="date" name="orderdate" required><br><br>
+Quantity<input type="number" name="quantity" required min="0"><br><br>
+Order Date<input type="date" name="orderdate" id="datefield" required><br><br>
 <button type="submit" class="button button1">Click</button>
 </form>
 </fieldset>
 </body>
+<script type="text/javascript">
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+if(dd<10){
+  dd='0'+dd
+} 
+if(mm<10){
+  mm='0'+mm
+} 
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield").setAttribute("min", today);
+</script>
 
 </html>

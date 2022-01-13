@@ -188,7 +188,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	public ResultSet ShowRating() {
 
-		String query = "select cake_name,rating from product_details order by rating desc";
+		String query = "select cake_name,rating,rating_count from product_details order by rating desc";
 
 		Connection con = ConnectionUtil.getDbConnection();
 		ResultSet rs = null;

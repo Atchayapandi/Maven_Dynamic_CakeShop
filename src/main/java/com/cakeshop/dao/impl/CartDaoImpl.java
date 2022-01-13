@@ -59,8 +59,7 @@ public class CartDaoImpl implements CartDao {
 		
 		try {
 			Statement stmt = con.createStatement();
-			 rs = stmt.executeQuery(query);
-					
+			 rs = stmt.executeQuery(query);				
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

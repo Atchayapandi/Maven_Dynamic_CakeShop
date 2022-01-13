@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.cakeshop.dao.impl.CustomizedDaoImpl;
+import com.cakeshop.dao.impl.SpecialCakeDaoImpl;
 import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
 import com.cakeshop.dao.impl.WalletDaoImpl;
-import com.cakeshop.model.Customized;
+import com.cakeshop.model.SpecialCake;
 
 /**
  * Servlet implementation class customized
@@ -50,7 +50,7 @@ public class customized extends HttpServlet {
 		
 		System.out.println("userid"+userId);
 		
-//		int cakeId=Integer.parseInt(session.getAttribute("cake_id").toString());
+	//	int cakeId=Integer.parseInt(session.getAttribute("cake_id").toString());
 //		
 //		ProductDaoImpl product=new ProductDaoImpl();
 //		
@@ -68,16 +68,13 @@ public class customized extends HttpServlet {
 //			e.printStackTrace();
 //		}
 		
-		Customized cust=new Customized();
 		
-		int amount=cust.getAmount();
 		
-		System.out.println("amount="+amount);
+		//System.out.println("amount="+amount);
 		
-		double totalPrice=(amount*quantity);	
+		double totalPrice=(1000*quantity);	
 		
-		System.out.println("totalprice="+totalPrice);
-		
+		System.out.println("totalprice="+totalPrice);		
 		
 		WalletDaoImpl walletDao=new WalletDaoImpl();
 		
@@ -89,9 +86,9 @@ public class customized extends HttpServlet {
 		
 		walletDao.updatewallet(wallbal,userId);		 
 						
-		Customized customized=new Customized(userId, flavour,type,size,quantity,amount,Orderdate);
+		SpecialCake customized=new SpecialCake(userId, flavour,type,size,quantity,Orderdate);
 		
-		CustomizedDaoImpl Customized =new CustomizedDaoImpl();
+		SpecialCakeDaoImpl Customized =new SpecialCakeDaoImpl();
 		
 		Customized.insertCake(customized);			
 		
