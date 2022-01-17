@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.cakeshop.dao.WalletDao;
-import com.cakeshop.model.User1;
+
 
 public class WalletDaoImpl implements WalletDao {
 

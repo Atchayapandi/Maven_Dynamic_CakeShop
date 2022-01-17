@@ -35,10 +35,12 @@ background-size:cover;
   color: black; 
   border: 2px solid pink;
   }
+  
   .button1:hover {
   background-color:pink;
   color: white;
 }
+
 label {
         display: inline-block;
         width: 155px;
@@ -51,12 +53,15 @@ label {
 <body>
 <fieldset id="box"><legend align="right">Reset Your Password</legend><center>
 <form action="forgetPassword" method="post">
-<label>Set New Password : </label><input type="text" name="password" pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
-<label>Email Id : </label><input type="Email" name="emailId"><br><br>
+<label>Set New Password : </label><input type="text" name="password" required pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
+<label>Email Id : </label><input type="Email" name="emailId" required ><br><br>
 <button class="button button1" type="submit" id="button"><i>Change</i></button>
 &emsp;
-<button class="button button1"><a herf="Login.jsp"></a> Back</button>
 </form></center>
+<form action="Login.jsp"><center>
+<button class="button button1">Back</button>
+</center>
+</form>
 </fieldset>
 </body>
 </html>

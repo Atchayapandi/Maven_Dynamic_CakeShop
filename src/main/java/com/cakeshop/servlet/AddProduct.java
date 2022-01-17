@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
 import com.cakeshop.model.Products;
-import com.cakeshop.model.User1;
+
 
 /**
  * Servlet implementation class AddProduct

@@ -9,19 +9,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.cakeshop.dao.UserDao;
 import com.cakeshop.model.Cart;
 import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
-import com.cakeshop.model.User1;
+
 
 public class UserDaoImpl implements UserDao{
 
 	//insert user method
-
 	@Override
-		public void insertUser(User1 user) {
+	public void insertUser(User user) {
 			String insertQuery = "insert into user_details(user_name,email_id,password,address) values(?,?,?,?)";
 			 
 			PreparedStatement pst = null;
@@ -182,6 +180,8 @@ public  void updatePassword(String newPassword, String emailId) {
 				}
 				
 			}
+
+
 
 
 			

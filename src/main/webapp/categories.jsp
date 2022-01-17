@@ -71,9 +71,7 @@ background-size:cover;
   <a href="showProduct.jsp">Products</a>
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>
-   <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>     
+   <a href="ShowRating.jsp">Ratings</a>       
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="UserProfile.jsp">Profile</a>
    <a href="Home.jsp">LogOut</a>

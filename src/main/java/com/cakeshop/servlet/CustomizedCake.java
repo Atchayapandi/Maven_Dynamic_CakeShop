@@ -22,7 +22,7 @@ import com.cakeshop.model.SpecialCake;
  * Servlet implementation class customized
  */
 @WebServlet("/customized")
-public class customized extends HttpServlet {
+public class CustomizedCake extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -30,9 +30,15 @@ public class customized extends HttpServlet {
 		HttpSession session=request.getSession();	
 		String flavour=request.getParameter("flavour");		
 		
-		String type=request.getParameter("type");		
+		session.setAttribute("flavour", flavour);
 		
-		String size=request.getParameter("size");		
+		String type=request.getParameter("type");
+		
+		session.setAttribute("type", type);
+		
+		String size=request.getParameter("size");	
+		
+		session.setAttribute("size", size);
 		
 		int quantity=Integer.parseInt(request.getParameter("quantity"));
 		
@@ -50,31 +56,13 @@ public class customized extends HttpServlet {
 		
 		System.out.println("userid"+userId);
 		
-	//	int cakeId=Integer.parseInt(session.getAttribute("cake_id").toString());
-//		
-//		ProductDaoImpl product=new ProductDaoImpl();
-//		
-//		
-//		ResultSet rs=product.findPrice(cakeId);
-//		
-//		double price1=0;
-//		try {
-//			price1 = Integer.parseInt(rs.getString(1));
-//		} catch (NumberFormatException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-		
-		
-		//System.out.println("amount="+amount);
+			
 		
 		double totalPrice=(1000*quantity);	
 		
-		System.out.println("totalprice="+totalPrice);		
+		session.setAttribute("totalPrice", totalPrice);
+		
+		//System.out.println("totalprice="+totalPrice);		
 		
 		WalletDaoImpl walletDao=new WalletDaoImpl();
 		
@@ -82,7 +70,9 @@ public class customized extends HttpServlet {
 		
 		double wallbal=userWallet -totalPrice;
 		
-		System.out.println("wallbalance="+wallbal);
+		session.setAttribute("wallbal",wallbal );
+		
+		//System.out.println("wallbalance="+wallbal);
 		
 		walletDao.updatewallet(wallbal,userId);		 
 						

@@ -92,6 +92,7 @@ public class User {
 		this.password = password;
 		this.address = address;
 	}
+	
 	public User(int userId, String userName, String emailId, String password, String address, String role,
 			double wallet) {
 		super();

@@ -77,7 +77,7 @@ background-size:cover;
 
 
 <form action="Rating" method="post">
-<h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]{5}"></h3>
+<h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]{5}" min="0" required></h3>
 <button type="submit" id="rating">Rate</button>
 </form>
 </center>

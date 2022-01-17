@@ -13,8 +13,6 @@ background-repeat:no-repeat;
 background-size:cover;
 
 }
-
-
 h3{
 background-color:black;
 margin-left:400px;
@@ -56,8 +54,7 @@ margin-left:500px;
 </style>
 </head>
 <body >
-<div class="topnav" >
- 
+<div class="topnav" > 
   <a href="ViewOrder.jsp">Orders</a>
   <a href="showProduct.jsp">Products</a>  
   <a href="categories.jsp">Categories</a> 
@@ -68,18 +65,12 @@ margin-left:500px;
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="UserProfile.jsp">Profile</a>
    <a href="Home.jsp">LogOut</a>
-   <%double wallet=(double)session.getAttribute("wallbal"); %>
-<h3><i> Wallet Amount : <%=wallet %></i></h3>
    
          
 </div>
-    
-   
-
-
 <form action="showProduct.jsp">
 <h2><i>Your Rating Was Added Successfully!!..</i></h2>
-<button>Back</button>
+<center><button>Back</button></center>
 </form>
 </body>
 </html>

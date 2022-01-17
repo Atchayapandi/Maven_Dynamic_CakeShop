@@ -40,11 +40,11 @@ public class Rating extends HttpServlet {
 		}
 	    count=count+1;
 		double rating=(oldRating+newRating);			
-		System.out.println(rating);
-		System.out.println(count);
+	//	System.out.println(rating);
+	//	System.out.println(count);
 	
 		UserRatingDao.updateRating(rating,c_id,count);
-		response.sendRedirect("ratingsuccess.jsp");
+		response.sendRedirect("Ratingsuccess.jsp");
 		
 				
 		

@@ -18,13 +18,13 @@ import com.cakeshop.model.Products;
  * Servlet implementation class home
  */
 @WebServlet("/Home")
-public class home extends HttpServlet {
+public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public home() {
+	public Home() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

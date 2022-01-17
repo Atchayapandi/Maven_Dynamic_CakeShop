@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.cakeshop.model.SpecialCake;
-import com.cakeshop.model.User1;
+
 
 public class SpecialCakeDaoImpl {
 

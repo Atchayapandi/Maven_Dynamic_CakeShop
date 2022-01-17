@@ -13,7 +13,7 @@ import com.cakeshop.dao.impl.UserDaoImpl;
  * Servlet implementation class forgetPassword
  */
 @WebServlet("/forgetPassword")
-public class forgetPassword extends HttpServlet {
+public class ForgetPassword extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

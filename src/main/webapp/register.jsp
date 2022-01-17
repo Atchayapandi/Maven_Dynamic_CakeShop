@@ -1,12 +1,4 @@
-<! DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Index Page</title>
-</head>
-<body>
-
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">

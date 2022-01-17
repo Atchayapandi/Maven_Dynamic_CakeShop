@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>cancel order</title>
 <style type="text/css">
 body{
 background-image:url('assets/rating.jpeg');
@@ -35,21 +35,21 @@ background-size:cover;
   color: white;
 }
 #box{
-width:250px;
+
 height:130px;
 margin-top:200px;
-margin-left:400px;
+margin-left:300px;
 }
 </style>
 </head>
 <body>
-<fieldset id="box">
+<center><fieldset id="box">
 <form action="showProduct.jsp"></form>
-<h2><i>Your Amount is Refunded </i></h2>
-<h2><i>Your Order Will Be Deleted!!</i></h2>
+<h2 style=color:#FF007F><i>Your Amount is Refunded </i></h2>
+<h2 style=color:#FF007F><i>Your Order Will Be Deleted!!</i></h2>
 
 <button class="button button1">Back</button>
 
-</fieldset>
+</fieldset></center>
 </body>
 </html>

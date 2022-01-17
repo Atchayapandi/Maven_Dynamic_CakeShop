@@ -2,11 +2,11 @@ package com.cakeshop.dao;
 
 import java.sql.ResultSet;
 import com.cakeshop.model.User;
-import com.cakeshop.model.User1;
+
 
 public interface UserDao {
 	
-	public void insertUser(User1 user);
+	public void insertUser(User user);
 
 	public User validateUser(String EmailId, String password);
 
