@@ -81,7 +81,7 @@ public class UserDaoImpl implements UserDao{
 			ConnectionUtil conUtil = new ConnectionUtil();
 			Connection con = conUtil.getDbConnection();
 
-			String selectQuery = "select * from user_details where role='user'";
+			String selectQuery = "select * from user_details where role not in 'Admin'";
 
 			ResultSet rs=null;	
 			try {
@@ -162,7 +162,7 @@ public void update(String update)  {
 		
 		
 
-public  void updatePassword(String newPassword, String emailId) {
+      public  void updatePassword(String newPassword, String emailId) {
 				String updateQuery = "update user_details set password =?  where Email_id=?";
 				try {
 				Connection con = ConnectionUtil.getDbConnection();
@@ -175,11 +175,29 @@ public  void updatePassword(String newPassword, String emailId) {
 				pstmt.close();
 				con.close();
 				}catch(SQLException e) {
-					System.out.println("incorrect");
+					//System.out.println("incorrect");
 					e.printStackTrace();
 				}
 				
 			}
+
+      public  void InactiveUser(String emailId) {
+			String updateQuery = "update user_details set role ='Inactive' where Email_id=?";
+			try {
+			Connection con = ConnectionUtil.getDbConnection();
+			PreparedStatement pstmt = con.prepareStatement(updateQuery);			
+			pstmt.setString(1, emailId);
+			
+			int i = pstmt.executeUpdate();
+			
+			pstmt.close();
+			con.close();
+			}catch(SQLException e) {
+				//System.out.println("incorrect");
+				e.printStackTrace();
+			}
+			
+		}
 
 
 

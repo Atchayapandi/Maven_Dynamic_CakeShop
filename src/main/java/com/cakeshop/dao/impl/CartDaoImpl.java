@@ -80,7 +80,8 @@ public class CartDaoImpl implements CartDao {
 		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
 		int i = pstmt.executeUpdate();			
 		pstmt.close();
-		con.close();		
+		con.close();	
+		System.out.println("cart deleted");
 		}
 		catch(SQLException e) {
 			// TODO Auto-generated catch block
@@ -91,7 +92,7 @@ public class CartDaoImpl implements CartDao {
 	}
 
 	public ResultSet viewUserCart(int userId) {
-		String query = "select Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=? order by order_date desc";
+		String query = "select cart_id,Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=? order by order_date desc";
 		
 		Connection con=ConnectionUtil.getDbConnection();
 		PreparedStatement stmt;

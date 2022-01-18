@@ -131,6 +131,7 @@ li a:hover {
   <li><a href="UpdateProduct.jsp">Update Product</a></li>
   <li><a href="showCart.jsp">View Order Details</a></li>
   <li><a href="SalesDate.jsp">View Sales Details</a></li>
+   <a href="InactiveUser.jsp">Delete User</a>
   <li><a href="Home.jsp">LogOut</a></li>
   
   </ul>
@@ -147,8 +148,8 @@ ResultSet rs=userDao.showAllUser();
 <th><h5><b>User Name</b></h5></th>
 <th><h5><b>Email Id</b></h5></th>
 <th><h5><b>Password</b></h5></th>
-<th><h5><b>User Wallet</b></h5></th>
 <th><h5><b>Address</b></h5></th>
+<th><h5><b>User Wallet</b></h5></th>
 
 <th><h5><b>Role</b></h5></th>
 

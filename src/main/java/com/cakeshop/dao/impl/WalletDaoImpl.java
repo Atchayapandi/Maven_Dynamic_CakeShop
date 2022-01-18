@@ -78,4 +78,50 @@ public class WalletDaoImpl implements WalletDao {
 		return -1;
 	}
 
+	public int WalletRefund(String user,int cartid,double wallbal ) {
+
+		Connection con = ConnectionUtil.getDbConnection();
+		System.out.println(cartid);
+		String query1="select Total_price from cart_items where cart_id=?";
+		double totalPrice=0;
+		try {
+			PreparedStatement pstmt=con.prepareStatement(query1);
+			pstmt.setInt(1, cartid);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				totalPrice=rs.getDouble(1);
+				System.out.println(rs.getDouble(1));
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String query = "update user_details set user_wallet = ? where user_name=?";
+		PreparedStatement statement = null;
+		try {
+			statement = con.prepareStatement(query);
+			double newBal=totalPrice+wallbal;
+			System.out.println(totalPrice);
+			statement.setDouble(1, newBal);
+			statement.setString(2,user);
+			int i = statement.executeUpdate();
+
+			if (i > 0) {
+				System.out.println("wallet Updated");
+				return 1;
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return -1;
+	}
+	
+	
+	
+	
+	
+	
 }

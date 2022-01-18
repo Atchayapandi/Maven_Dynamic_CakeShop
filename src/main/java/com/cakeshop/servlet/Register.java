@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.User;
+//import org.apache.catalina.User;
 
 import com.cakeshop.dao.impl.UserDaoImpl;
 import com.cakeshop.model.*;

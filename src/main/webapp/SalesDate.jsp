@@ -139,9 +139,6 @@ width:60px;
 <button type="submit" class="button button1">Search</button>
 </form>
 
-<form action="admin.jsp">
-<button class="button button1"><a href=""></a>Back</button>
-</form>
 </fieldset>
 </body>
 

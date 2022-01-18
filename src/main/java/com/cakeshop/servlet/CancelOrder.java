@@ -17,32 +17,56 @@ import com.cakeshop.dao.impl.WalletDaoImpl;
 @WebServlet("/cancelOrder")
 public class CancelOrder extends HttpServlet {
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+HttpSession session=request.getSession();		
+		
+		
+		int userId=Integer.parseInt(session.getAttribute("userId").toString());
+				
+		
+		WalletDaoImpl walletDao=new WalletDaoImpl();
+	
+		double wallbal=walletDao.walletbal(userId);	
+	
+		String userName=session.getAttribute("CurrentUser1").toString();
+		
+		int cartId=Integer.parseInt(request.getParameter("cartId"));
+		
+		System.out.println(cartId);
+		System.out.println(userName);
+		
+		walletDao.WalletRefund(userName, cartId,wallbal);
+		CartDaoImpl cartDao=new CartDaoImpl();	
+		
+		cartDao.deleteCart(userId);
+		response.sendRedirect("deleted.jsp");
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
 		HttpSession session=request.getSession();		
-		CartDaoImpl cartDao=new CartDaoImpl();		
+		
+		
 		int userId=Integer.parseInt(session.getAttribute("userId").toString());
 				
+		
+		WalletDaoImpl walletDao=new WalletDaoImpl();
+	
+		double wallbal=walletDao.walletbal(userId);	
+	
+		String userName=session.getAttribute("CurrentUser1").toString();
+		
+		int cartId=Integer.parseInt(request.getParameter("cartId"));
+		
+		System.out.println(cartId);
+		System.out.println(userName);
+		
+		walletDao.WalletRefund(userName, cartId,wallbal);
+		CartDaoImpl cartDao=new CartDaoImpl();	
+		
 		cartDao.deleteCart(userId);
-		
-//		WalletDaoImpl walletDao=new WalletDaoImpl();
-//		
-//		double wallbal=walletDao.walletbal(userId);	
-//	
-//		
-//		System.out.println(wallbal);
-//		
-//		
-//		
-//		double totalPrice=(double)session.getAttribute("totalprice");
-//		
-//		System.out.println(totalPrice);
-//		
-//		wallbal=wallbal-totalPrice;
-		
-		
-		
 		response.sendRedirect("deleted.jsp");
 				
 		

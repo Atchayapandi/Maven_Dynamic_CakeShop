@@ -131,7 +131,7 @@ alter table product_details add rating number(5,2) default 5;
 
 select count(user_id),sum(total_price),sum(order_quantity) from cart_items where order_date between '16-01-2022' and '22-01-2022';
 
-
+update user_details set user_wallet=(user_wallet+(select Total_price from cart_items)) where user_name='abinaya';
 
 select count(user_id),sum(total_price) from cart_items where order_date between '16-01-2022' and '22-01-2022';
 

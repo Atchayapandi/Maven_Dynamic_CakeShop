@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.ProductDaoImpl"%>
 <!DOCTYPE html>
@@ -47,8 +48,6 @@ background-size:cover;
   color: white;
 }
 
-
-
 </style>
 
 </head>
@@ -78,17 +77,20 @@ ResultSet rs=product.ShowRating();
 <th><h3>Product Name</h3></th>
 <th><h3>Ratings</h3></th>
 
+<%DecimalFormat df = new DecimalFormat("0.00");%>
+
 <% while(rs.next()){
-double rating=rs.getInt(2)/rs.getInt(3);%>
+double rating=rs.getDouble(2)/rs.getDouble(3);
+double rating1=Double.parseDouble(df.format(rating));%>
+
+
 <tr>
 <td><%= rs.getString(1) %></td>
-<td><%= rating%></td>
+<td><%= rating1%></td>
 </tr>
 <%} %>
 
 </table>
-
-
 
 </body>
 </html>

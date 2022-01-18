@@ -102,6 +102,7 @@ rs=product.viewCategoryList(categoryname);
 <th>Product price</th>
 <th>Product Categories</th>
 <th>Product Rating</th>
+<th>Button</th>
 </tr>
 <% while(rs.next()){%>
 <tr>

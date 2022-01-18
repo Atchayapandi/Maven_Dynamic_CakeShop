@@ -86,12 +86,13 @@ ResultSet rs=productDao.ShowCategory();
 <table align="center" border="3">
 
 <th><h3>Category Name</h3></th>
+<th><h3>Button</h3></th>
 
 <% while(rs.next()){%>
 <tr>
 <td><%= rs.getString(1)%></td>
 
-<td><button class="button button1" id="buy"><a href="categoryFilter.jsp?categoryname=<%=rs.getString(1)%>" style="text-decoration:none;">Buy</a></button></td>
+<td><button class="button button1" id="buy"><a href="categoryFilter.jsp?categoryname=<%=rs.getString(1)%>" style="text-decoration:none;">Search</a></button></td>
 
 </tr>
 <%} %>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Customized Orders</title>
 <style type="text/css">
 table, th, td {
   border: 1px solid black;
@@ -56,8 +56,7 @@ background-size:cover;
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
-   <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>     
+     
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="UserProfile.jsp">Profile</a>
    <a href="Home.jsp">LogOut</a>

@@ -44,12 +44,12 @@ margin-left:300px;
 </head>
 <body>
 <center><fieldset id="box">
-<form action="showProduct.jsp"></form>
+<form action="showProduct.jsp">
 <h2 style=color:#FF007F><i>Your Amount is Refunded </i></h2>
 <h2 style=color:#FF007F><i>Your Order Will Be Deleted!!</i></h2>
 
 <button class="button button1">Back</button>
-
+</form>
 </fieldset></center>
 </body>
 </html>

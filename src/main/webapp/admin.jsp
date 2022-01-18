@@ -85,6 +85,7 @@ background-size:cover;
   <a href="UpdateProduct.jsp">Update Product</a>
   <a href="showCart.jsp">View Order Details</a>
   <a href="SalesDate.jsp">View Sales Details</a>
+  <a href="InactiveUser.jsp">Delete User</a>
   <a href="Home.jsp">LogOut</a>
 </div>
 

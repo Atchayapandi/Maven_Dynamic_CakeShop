@@ -159,6 +159,7 @@ label {
   <li><a href="UpdateProduct.jsp">Update Product</a></li>
   <li><a href="showCart.jsp">View Order Details</a></li>
   <li><a href="SalesDate.jsp">View Sales Details</a></li>
+   <a href="InactiveUser.jsp">Delete User</a>
   <li><a href="Home.jsp">LogOut</a></li>
   
   </ul>
