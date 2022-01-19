@@ -74,6 +74,25 @@ public class SpecialCakeDaoImpl {
 
 	}
 	
+//	public void deleteOrder(int userId)  {
+//		
+//		String deleteQuery = "delete from customized_details where user_id="+userId+"";
+//
+//		try {
+//		Connection con = ConnectionUtil.getDbConnection();
+//		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
+//		int i = pstmt.executeUpdate();			
+//		pstmt.close();
+//		con.close();	
+//		//System.out.println("cart deleted");
+//		}
+//		catch(SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			
+//		}
+//		
+//	}
 
 	
 }

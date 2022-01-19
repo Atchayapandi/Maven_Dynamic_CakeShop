@@ -34,7 +34,7 @@ public class InactiveUser extends HttpServlet {
 		
 		response.sendRedirect("admin.jsp");
 		
-		//doGet(request, response);
+		
 	}
 
 }

@@ -77,8 +77,6 @@ label {
 
 
 </style>
-
-
 </head>
 <body>
 
@@ -88,15 +86,21 @@ label {
   <a href="showProduct.jsp">Products</a> 
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>
-   <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>     
+   <a href="ShowRating.jsp">Ratings</a>     
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="UserProfile.jsp">Profile</a>
-   <a href="Home.jsp">LogOut</a>
-         
+   <a href="Home.jsp">LogOut</a>         
 </div>
+<center>
 
+ <%String msg=(String)session.getAttribute("Invalid"); 
+ if(msg!=null){
+	 %>
+	 <h2><%=msg %></h2>
+	 <%session.removeAttribute("Invalid"); %>
+ <% } %>
+ 
+ </center>
 <fieldset id="box"><center>
 <h2><i>Search by Price</i></h2>
 <form action="ShowPriceWise.jsp" method="post" >

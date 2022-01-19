@@ -140,7 +140,7 @@ public class CartDaoImpl implements CartDao {
 	public boolean checkUser(int userId,LocalDate orderDate) {
 		String query="select * from cart_items where user_id='"+userId+"' and to_char(order_date,'yyyy-mm-dd')='"+orderDate+"'";
 		Connection con=ConnectionUtil.getDbConnection();
-		System.out.println("hello");
+		//System.out.println("hello");
 		boolean flag=true;
 		Statement stmt;
 		try {
@@ -148,7 +148,7 @@ public class CartDaoImpl implements CartDao {
 			ResultSet rs=stmt.executeQuery(query);
 			if(rs.next()) {
 				Cart cart=new Cart(rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),(rs).getDate(6).toLocalDate());
-				System.out.println(rs.getInt(2));
+				//System.out.println(rs.getInt(2));
 			}else {
 				flag=false;
 			}
@@ -162,26 +162,7 @@ public class CartDaoImpl implements CartDao {
 	}
 
 	
-//	public ResultSet findTotalPrice(int userId) {
-//		String query = "select total_price from cart_items where user_id=?";
-//
-//		Connection con = ConnectionUtil.getDbConnection();
-//		Statement stmt;
-//
-//		ResultSet rs = null;
-//		try {
-//			stmt = con.createStatement();
-//		
-//			rs = stmt.executeQuery(query);
-//
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//		return rs;
-//
-//	}	
+
 
 	
 }	

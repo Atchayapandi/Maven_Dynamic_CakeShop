@@ -55,16 +55,13 @@ background-size:cover;
    <a href="showProduct.jsp">Products</a> 
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>
-     
+   <a href="ShowRating.jsp">Ratings</a>     
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="UserProfile.jsp">Profile</a>
    <a href="Home.jsp">LogOut</a>
          
 </div>
 <%
-
-
 int userId=Integer.parseInt(session.getAttribute("userId").toString());
 System.out.println(userId);
 SpecialCakeDaoImpl Cust=new SpecialCakeDaoImpl();
@@ -80,6 +77,7 @@ ResultSet rs=Cust.viewCustomizedCart(userId);
 <th>Types</th>
 <th>Shape</th>
 <th>Total Price</th>
+
 </tr>
 
 <% String emailId=session.getAttribute("CurrentUser").toString();%>

@@ -74,8 +74,7 @@ background-size:cover;
    <a href="ShowRating.jsp">Ratings</a>       
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="UserProfile.jsp">Profile</a>
-   <a href="Home.jsp">LogOut</a>
-         
+   <a href="Home.jsp">LogOut</a>         
 </div>
 <br><br>
 

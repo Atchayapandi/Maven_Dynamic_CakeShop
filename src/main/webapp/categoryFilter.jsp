@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import ="java.sql.*" import ="com.cakeshop.dao.impl.*"%>
 <!DOCTYPE html>
@@ -104,14 +105,18 @@ rs=product.viewCategoryList(categoryname);
 <th>Product Rating</th>
 <th>Button</th>
 </tr>
-<% while(rs.next()){%>
+<%DecimalFormat df = new DecimalFormat("0.00");%>
+<% while(rs.next()){
+	double rating=rs.getDouble(8)/rs.getDouble(7);
+	double rating1=Double.parseDouble(df.format(rating));
+%>
 <tr>
 <td><img alt="#alter" src="<%= rs.getString(6) %>" width="200" height="200"></td>
 <td><%= rs.getString(2) %></td>
 <td><%= rs.getString(3) %></td>
 <td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
-<td><%= rs.getInt(8) %></td>
+<td><%= rating1 %></td>
 <td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>"style="text-decoration:none;">Buy</a></button></td>
 
 </tr>

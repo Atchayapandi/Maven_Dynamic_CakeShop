@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -26,8 +27,7 @@ public class Login extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 
 		PrintWriter pw = response.getWriter();
 		HttpSession session=request.getSession();
@@ -35,8 +35,7 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		session.setAttribute("EmailId", EmailId);
-		session.setAttribute("password", password);
-	
+		session.setAttribute("password", password);	
 		
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser = userDao.validateUser(EmailId, password);
@@ -68,8 +67,7 @@ public class Login extends HttpServlet {
 		
 			WalletDaoImpl WalletBal=new WalletDaoImpl();
 			int WalletBal1=WalletBal.walletbal(userId);
-			
-			
+						
 			if(WalletBal1>1000) {			
 			 response.sendRedirect("showProduct.jsp");			
 			
@@ -81,7 +79,18 @@ public class Login extends HttpServlet {
 				}
 			}
 		}
-		}		
+		else {
+			try {
+				
+				throw new InvalidUserException();
+			
+				}catch(InvalidUserException e) {
+					session.setAttribute("Invalid",e.getMessage());
+					response.sendRedirect("Login.jsp");
+				}
+			
+		}
+	}		
 		else{
 			try {
 				

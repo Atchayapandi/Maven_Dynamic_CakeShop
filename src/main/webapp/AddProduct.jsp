@@ -172,7 +172,7 @@ label {
 <label for="cakedes">Cake_description</label><input type="text" name="cakeDescription" required><br><br>
 <label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" min="0" required><br><br>
 <label for="catename">Category_name</label><input type="text" name="categoryName"  required><br><br>
-<label for="picture">Image</label><input type="text" name="picture" ><br><br>
+<label for="picture">Image</label><input type="file" name="picture" ><br><br>
 <button type="submit" name="button" class="button button1">Add</button>
 <button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </form></center>

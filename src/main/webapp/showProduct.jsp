@@ -76,22 +76,15 @@ background-size:cover;
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
-<div class="topnav" >
- 
-  <a href="ViewOrder.jsp">Orders</a>  
+<div class="topnav" > 
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>
-   <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>     
+   <a href="ShowRating.jsp">Ratings</a>      
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="UserProfile.jsp">Profile</a>
-   <a href="Home.jsp">LogOut</a>
-         
+   <a href="Home.jsp">LogOut</a>         
 </div>
 <form>
-
 <%
 ProductDaoImpl product=new ProductDaoImpl();
 ResultSet rs=product.showProduct();
@@ -106,14 +99,13 @@ ResultSet rs=product.showProduct();
 <th>Product Rating</th>
 <th>Button</th>
 </tr>
+
 <%DecimalFormat df = new DecimalFormat("0.00");%>
 <% while(rs.next()){
-	double rating=rs.getDouble(8)/rs.getDouble(7);
-	double rating1=Double.parseDouble(df.format(rating));
-%>
+	double rating=rs.getDouble(7)/rs.getDouble(8);
+	double rating1=Double.parseDouble(df.format(rating));	
+	%>
 <tr>
-
-
 <td><img alt="#alter" src="<%= rs.getString(6)%>" width="200" height="200" class="card-img-top"></td>
 <td><%= rs.getString(2) %></td>
 <td><%= rs.getString(3) %></td>

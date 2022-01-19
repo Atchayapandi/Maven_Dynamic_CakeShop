@@ -49,22 +49,17 @@ background-size:cover;
 }
 
 </style>
-
 </head>
 <body>
-<div class="topnav" >
- 
+<div class="topnav"> 
   <a href="ViewOrder.jsp">Orders</a> 
   <a href="showProduct.jsp">Products</a> 
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>
-   <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>     
+   <a href="ShowRating.jsp">Ratings</a>      
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="UserProfile.jsp">Profile</a>
-   <a href="Home.jsp">LogOut</a>
-         
+   <a href="Home.jsp">LogOut</a>         
 </div>
 
 <h2><b>High Rated Cakes</b></h2>
@@ -82,8 +77,6 @@ ResultSet rs=product.ShowRating();
 <% while(rs.next()){
 double rating=rs.getDouble(2)/rs.getDouble(3);
 double rating1=Double.parseDouble(df.format(rating));%>
-
-
 <tr>
 <td><%= rs.getString(1) %></td>
 <td><%= rating1%></td>
@@ -91,6 +84,5 @@ double rating1=Double.parseDouble(df.format(rating));%>
 <%} %>
 
 </table>
-
 </body>
 </html>

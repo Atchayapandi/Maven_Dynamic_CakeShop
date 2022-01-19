@@ -56,8 +56,7 @@ background-size:cover;
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
-   <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>  
+  
    <a href="Home.jsp">LogOut</a>
    
    <%double wallet=(double)session.getAttribute("wallbal"); %>

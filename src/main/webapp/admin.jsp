@@ -55,6 +55,10 @@ height:50px;
 .sidenav a:hover {
   color: #f1f1f1;
 }
+li a:hover {
+  background-color: #555;
+  color: white;
+}
 
 .main {
   margin-left: 200px; /* Same as the width of the sidenav */

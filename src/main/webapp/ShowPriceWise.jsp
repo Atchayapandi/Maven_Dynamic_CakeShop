@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.cakeshop.dao.impl.ProductDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -6,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Price Wise Product</title>
 <style>
 body{
 background-image:url('assets/cake2.jpg');
@@ -93,23 +94,31 @@ int ToPrice=Integer.parseInt(request.getParameter("toPrice"));
 ProductDaoImpl productDao=new ProductDaoImpl();
 ResultSet rs=productDao.filterPrice(FromPrice,ToPrice);
 %>
+
+
 <table>
 <tr>
-<th> cake</th>
+<th> CAKE </th>
 <th>Product Name</th>
 <th>Product Description</th>
 <th>Product price</th>
 <th>Product Categories</th>
 <th>Product Rating</th>
+<th>Button</th>
 </tr>
-<% while(rs.next()){%>
+
+<%DecimalFormat df = new DecimalFormat("0.00");%>
+<% while(rs.next()){
+	double rating=rs.getDouble(8)/rs.getDouble(7);
+	double rating1=Double.parseDouble(df.format(rating));
+%>
 <tr>
-<td><img alt="#alter" src="<%= rs.getString(7) %>" width="200" height="200"></td>
+<td><img alt="#alter" src="<%= rs.getString(6) %>" width="200" height="200"></td>
 <td><%= rs.getString(2) %></td>
 <td><%= rs.getString(3) %></td>
 <td><%= rs.getDouble(4) %></td>
 <td><%= rs.getString(5) %></td>
-<td><%= rs.getInt(6) %></td>
+<td><%= rating1 %></td>
 <td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>"style="text-decoration:none;">Buy</a></button></td>
 
 </tr>
