@@ -45,6 +45,28 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
 </style>
 </head>
 <body>
@@ -56,8 +78,8 @@ background-size:cover;
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>      
    <a href="CustomizedCake.jsp">Customized Cake</a>
-   <a href="UserProfile.jsp">Profile</a>
-   <a href="Home.jsp">LogOut</a>
+   <a href="Home.jsp" style="float:right;">LogOut</a> 
+   <a href="UserProfile.jsp" style="float:right;">Profile</a>
          
 </div>
 <%
@@ -74,6 +96,7 @@ double Wallet=user.getWallet();
 <h3>User Email : <%= Email %></h3>
 <h3>User Address : <%=address %></h3>
 <h3>User Wallet : <%=Wallet %></h3>
+<button class="button button1"><a href="Edit.jsp" style="text-decoration:none">Edit</a></button>
 </fieldset>
 </body>
 </html>

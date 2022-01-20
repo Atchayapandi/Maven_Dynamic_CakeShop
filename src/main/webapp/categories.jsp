@@ -73,8 +73,8 @@ background-size:cover;
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>       
    <a href="CustomizedCake.jsp">Customized Cake</a>
-   <a href="UserProfile.jsp">Profile</a>
-   <a href="Home.jsp">LogOut</a>         
+   <a href="Home.jsp" style="float:right;">LogOut</a> 
+   <a href="UserProfile.jsp" style="float:right;">Profile</a>        
 </div>
 <br><br>
 

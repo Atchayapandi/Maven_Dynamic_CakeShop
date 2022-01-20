@@ -19,8 +19,7 @@ public class CancelOrder extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-HttpSession session=request.getSession();		
-		
+        HttpSession session=request.getSession();			
 		
 		int userId=Integer.parseInt(session.getAttribute("userId").toString());
 				
@@ -47,11 +46,9 @@ HttpSession session=request.getSession();
 		// TODO Auto-generated method stub
 		
 		HttpSession session=request.getSession();		
-		
-		
+				
 		int userId=Integer.parseInt(session.getAttribute("userId").toString());
 				
-		
 		WalletDaoImpl walletDao=new WalletDaoImpl();
 	
 		double wallbal=walletDao.walletbal(userId);	

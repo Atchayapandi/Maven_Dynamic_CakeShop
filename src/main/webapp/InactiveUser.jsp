@@ -115,7 +115,7 @@ label {
 
 <div class="header container-fluid">
       	<center><h2 style=color:darkBlack>Inactive User</h2></center>      	
-   		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
+   		
       </div>
 
 
@@ -125,7 +125,7 @@ label {
   <a href="UpdateProduct.jsp">Update Product</a>
   <a href="showCart.jsp">View Order Details</a>
   <a href="SalesDate.jsp">View Sales Details</a>
-  <a href="Home.jsp">LogOut</a>
+  <a href="Home.jsp" style="float:right;">LogOut</a>
 </div>
 
 

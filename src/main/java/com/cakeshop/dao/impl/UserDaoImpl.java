@@ -198,6 +198,29 @@ public void update(String update)  {
 			}
 			
 		}
+      
+      public  int EditUser(String name,String email,String address,double wallet,int UserId) {
+			String updateQuery = "update user_details set user_name=?,email_id=?,address=?,user_wallet=? where user_id=?";
+			try {
+			Connection con = ConnectionUtil.getDbConnection();
+			PreparedStatement pstmt = con.prepareStatement(updateQuery);	
+			pstmt.setString(1,name);
+			pstmt.setString(2,email);			
+			pstmt.setString(3,address);	
+			pstmt.setDouble(4, wallet);
+			pstmt.setInt(5, UserId);			
+			int i = pstmt.executeUpdate();			
+			pstmt.close();
+			con.close();
+			 return 1;
+			
+			}catch(SQLException e) {
+				//System.out.println("incorrect");
+				e.printStackTrace();
+			}
+			return 1;
+			
+		}
 
 
 

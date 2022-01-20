@@ -58,12 +58,10 @@ background-size:cover;
   <a href="showProduct.jsp">Products</a>
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>
-   <a href="Contact.jsp">Contact</a>
-   <a href="AboutUs.jsp">About</a>     
+   <a href="ShowRating.jsp">Ratings</a>    
    <a href="CustomizedCake.jsp">Customized Cake</a>
-   <a href="UserProfile.jsp">Profile</a>
-   <a href="Home.jsp">LogOut</a>
+   <a href="Home.jsp" style="float:right;">LogOut</a> 
+   <a href="UserProfile.jsp" style="float:right;">Profile</a>
          
 </div>
 
@@ -82,9 +80,9 @@ ResultSet rs=cartDao.viewUserCart(userId);
 
 <th>User Name</th>
 <th>Product Name</th>
-<th>order quantity</th>
-<th>total price</th>
-<th>order date</th>
+<th>Order Quantity</th>
+<th>Total Price</th>
+<th>Order Date</th>
 <th>Button</th>
 </tr>
 

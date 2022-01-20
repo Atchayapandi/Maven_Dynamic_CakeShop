@@ -114,7 +114,7 @@ width:60px;
 
 <div class="header container-fluid">
       	<center><h2 style=color:darkBlack>Get Sales Details Using Date</h2></center>      	
-   		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
+   		
       </div>
 
 

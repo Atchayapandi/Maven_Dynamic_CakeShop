@@ -40,7 +40,7 @@ public class Rating extends HttpServlet {
 		}
 	    count=count+1;
 		double rating=(oldRating+newRating);			
-	//	System.out.println(rating);
+		System.out.println(rating);
 	//	System.out.println(count);
 	
 		UserRatingDao.updateRating(rating,c_id,count);

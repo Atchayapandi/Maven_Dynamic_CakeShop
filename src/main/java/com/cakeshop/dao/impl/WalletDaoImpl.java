@@ -79,7 +79,6 @@ public class WalletDaoImpl implements WalletDao {
 	}
 
 	public int WalletRefund(String user,int cartid,double wallbal ) {
-
 		Connection con = ConnectionUtil.getDbConnection();
 		System.out.println(cartid);
 		String query1="select Total_price from cart_items where cart_id=?";
@@ -110,14 +109,12 @@ public class WalletDaoImpl implements WalletDao {
 				System.out.println("wallet Updated");
 				return 1;
 			}
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return -1;
-	}
+		}
 	
 	
 	

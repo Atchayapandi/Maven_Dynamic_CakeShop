@@ -79,11 +79,10 @@ background-size:cover;
    <a href="showProduct.jsp">Products</a>
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>
-  
+   <a href="ShowRating.jsp">Ratings</a>  
    <a href="CustomizedCake.jsp">Customized Cake</a>
-   <a href="UserProfile.jsp">Profile</a>
-   <a href="Home.jsp">LogOut</a>
+    <a href="Home.jsp" style="float:right;">LogOut</a> 
+   <a href="UserProfile.jsp" style="float:right;">Profile</a>
          
 </div>
 <form>
@@ -111,7 +110,7 @@ rs=product.viewCategoryList(categoryname);
 	double rating1=Double.parseDouble(df.format(rating));
 %>
 <tr>
-<td><img alt="#alter" src="<%= rs.getString(6) %>" width="200" height="200"></td>
+<td><img alt="#alter" src="assets/<%= rs.getString(6) %>" width="200" height="200"></td>
 <td><%= rs.getString(2) %></td>
 <td><%= rs.getString(3) %></td>
 <td><%= rs.getDouble(4) %></td>
